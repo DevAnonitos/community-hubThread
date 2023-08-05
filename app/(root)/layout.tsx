@@ -1,6 +1,8 @@
 import "../globals.css";
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 
 // Import Components
 import {
@@ -23,23 +25,29 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <TopBar />
-        
-        <main className="flex flex-row">
-            <LeftSidebar />
-            <section className="main-container">
-              <div className="w-full max-w-4xl">
-                {children}
-              </div>
-            </section>
-            {/* @ts-ignore */}
-            <RightSidebar />
-        </main>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+    >
+      <html lang="en">
+        <body className={inter.className}>
+          <TopBar />
 
-        <BottomBar/>
-      </body>
-    </html>
-  )
-}
+          <main className="flex flex-row">
+              <LeftSidebar />
+              <section className="main-container">
+                <div className="w-full max-w-4xl">
+                  {children}
+                </div>
+              </section>
+              {/* @ts-ignore */}
+              <RightSidebar />
+          </main>
+
+          <BottomBar/>
+        </body>
+      </html>
+    </ClerkProvider>
+  );
+};

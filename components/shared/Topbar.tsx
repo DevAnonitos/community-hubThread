@@ -5,7 +5,8 @@ import Link from 'next/link';
 import {
     OrganizationSwitcher,
     SignedIn,
-    SignOutButton
+    SignOutButton,
+    UserButton,
 } from "@clerk/nextjs";
 
 const TopBar = () => {
@@ -48,6 +49,7 @@ const TopBar = () => {
                             {/* </SignOutButton>
                         </SignedIn> */}
                     </div>
+
                 </div>
             </nav>
         </>
