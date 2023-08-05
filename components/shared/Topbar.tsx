@@ -11,7 +11,7 @@ import {
 const TopBar = () => {
     return (
         <>
-            <nav className='topbar'>
+            <nav className='topbar border-b-2 border-gray-500'>
                 <Link
                     href="/"
                     className='flex items-center gap-4'
@@ -26,7 +26,7 @@ const TopBar = () => {
                     <p
                         className='text-heading3-bold
                         text-light-1 max-xs:hidden
-                        border-2 py-1 px-2 rounded-xl'
+                        border-2 py-2 px-3 rounded-xl'
                     >
                         HubThreads
                     </p>
