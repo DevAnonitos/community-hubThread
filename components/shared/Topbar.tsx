@@ -6,7 +6,6 @@ import {
     OrganizationSwitcher,
     SignedIn,
     SignOutButton,
-    UserButton,
 } from "@clerk/nextjs";
 
 const TopBar = () => {
@@ -27,7 +26,7 @@ const TopBar = () => {
                     <p
                         className='text-heading3-bold
                         text-light-1 max-xs:hidden
-                        border-2 py-2 px-3 rounded-xl'
+                        border-2 py-1 px-2 rounded-xl'
                     >
                         HubThreads
                     </p>
@@ -35,8 +34,8 @@ const TopBar = () => {
 
                 <div className='flex items-center gap-1'>
                     <div className='block md:hidden'>
-                        {/* <SignedIn>
-                            <SignOutButton> */}
+                        <SignedIn>
+                            <SignOutButton>
                                 <div className='flex cursor-pointer'>
                                     <Image
                                         src="/assets/logout.svg"
@@ -44,12 +43,19 @@ const TopBar = () => {
                                         width={28}
                                         height={28}
                                     />
-                                    Logout
                                 </div>
-                            {/* </SignOutButton>
-                        </SignedIn> */}
+                            </SignOutButton>
+                        </SignedIn>
                     </div>
 
+                    <OrganizationSwitcher
+                        appearance={{
+                            baseTheme: dark,
+                            elements: {
+                                organizationSwitcherTrigger: "py-2 px-4",
+                            }
+                        }}
+                    />
                 </div>
             </nav>
         </>
