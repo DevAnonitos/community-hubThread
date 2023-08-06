@@ -1,3 +1,5 @@
+import { currentUser } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
 async function Page() {
     return (
@@ -14,7 +16,7 @@ async function Page() {
                 </p>
 
                 <section className="mt-9 bg-dark-2 p-10 rounded-xl">
-
+                    AccountProfile
                 </section>
             </main>
         </>
