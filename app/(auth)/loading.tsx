@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Loading = () => {
     return (
-        <div className='w-full flex-center'>
+        <div className='flex items-center justify-center'>
             <Image
                 src='/assets/loader.svg'
                 width={50}
