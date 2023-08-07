@@ -31,7 +31,7 @@ const LeftSidebar = () => {
                             <>
                                 <Link
                                     href={link.route}
-                                    key={link.label}
+                                    key={link.id}
                                     className={`leftsidebar_link hover:bg-primary-500 transition-all duration-500 ease-in-out delay-100
                                         ${isActive && "bg-primary-500 "}
                                     `}

@@ -23,7 +23,7 @@ const BottomBar = () => {
                                 <>
                                     <Link
                                         href={link.route}
-                                        key={link.label}
+                                        key={link.id}
                                         className={`bottombar_link
                                             ${isActive && "bg-primary-500"}
                                         `}
