@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import React, { ChangeEvent, useState } from 'react';
 import * as z from "zod";
@@ -45,12 +45,58 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             username: user?.username ? user.username : "",
             bio: user?.bio ? user.bio : "",
         }
-    })
+    });
+
+    const onSubmit = async (values: z.infer<typeof UserValidation>) => {
+
+        console.log(values);
+    };
 
     return (
         <>
             <Form {...form}>
+                <form
+                    className='flex flex-col justify-start gap-10'
+                    onSubmit={form.handleSubmit(onSubmit)}
+                >
+                    <FormField
+                        control={form.control}
+                        name='profile_photo'
+                        render={({ field }) => (
+                            <>
+                                <FormItem
+                                    className='flex items-center gap-4'
+                                >
+                                    <FormLabel className='account-form_image-label'>
+                                        {field.value ? (
+                                            <>
+                                                <Image
+                                                    src={field.value}
+                                                    alt='profile_icon'
+                                                    width={96}
+                                                    height={96}
+                                                    priority
+                                                    className='rounded-full object-contain'
+                                                />
+                                            </>
+                                        ): (
+                                            <>
+                                                <Image
+                                                    src='/assets/profile.svg'
+                                                    alt='profile_icon'
+                                                    width={24}
+                                                    height={24}
+                                                    className='object-contain'
+                                                />
+                                            </>
+                                        )}
+                                    </FormLabel>
+                                </FormItem>
+                            </>
+                        )}
+                    />
 
+                </form>
             </Form>
         </>
     );
