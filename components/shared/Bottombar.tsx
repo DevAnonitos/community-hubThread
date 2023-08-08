@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -20,10 +20,9 @@ const BottomBar = () => {
                             || pathname === link.route;
 
                             return (
-                                <>
+                                <Fragment key={link.id}>
                                     <Link
                                         href={link.route}
-                                        key={link.id}
                                         className={`bottombar_link
                                             ${isActive && "bg-primary-500"}
                                         `}
@@ -42,7 +41,7 @@ const BottomBar = () => {
                                             {link.label.split(/\s+/)[0]}
                                         </p>
                                     </Link>
-                                </>
+                                </Fragment>
                             );
                     })}
                 </div>

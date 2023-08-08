@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { sidebarLinks } from '@/constants';
@@ -28,10 +28,9 @@ const LeftSidebar = () => {
                         }
 
                         return (
-                            <>
+                            <Fragment key={link.id}>
                                 <Link
                                     href={link.route}
-                                    key={link.id}
                                     className={`leftsidebar_link hover:bg-primary-500 transition-all duration-500 ease-in-out delay-100
                                         ${isActive && "bg-primary-500 "}
                                     `}
@@ -46,7 +45,7 @@ const LeftSidebar = () => {
                                         {link.label}
                                     </p>
                                 </Link>
-                            </>
+                            </Fragment>
                         )
                     })}
                 </div>
