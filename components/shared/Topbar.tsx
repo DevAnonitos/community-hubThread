@@ -7,6 +7,7 @@ import {
     SignedIn,
     SignOutButton,
 } from "@clerk/nextjs";
+import SearchBar from './SearchBar';
 
 const TopBar = () => {
     return (
@@ -31,6 +32,10 @@ const TopBar = () => {
                         HubThreads
                     </p>
                 </Link>
+
+                <div className='hidden md:block'>
+                    <SearchBar routeType='search' />
+                </div>
 
                 <div className='flex items-center gap-1'>
                     <div className='block md:hidden'>
