@@ -16,8 +16,11 @@ async function Page() {
                     Complete your profile now, to use HubThread.
                 </p>
 
-                <section className="mt-9 bg-dark-2 p-10 rounded-xl">
-                    <AccountProfile />
+                <section className="mt-9 bg-dark-2 p-10 rounded-xl border-2 border-gray-700">
+                    <AccountProfile
+                        user={""}
+                        btnTitle="Continue"
+                    />
                 </section>
             </main>
         </>

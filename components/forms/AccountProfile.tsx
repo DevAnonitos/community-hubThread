@@ -17,6 +17,9 @@ import {
     FormLabel,
     FormMessage
 } from '../ui/form';
+import { Input } from '../ui/input';
+import { Textarea } from '../ui/textarea';
+import { Button } from '../ui/button';
 
 // Define props
 interface Props {
@@ -91,11 +94,100 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                             </>
                                         )}
                                     </FormLabel>
+                                    <FormControl
+                                        className='flex-1 text-base-semibold text-gray-200'
+                                    >
+                                        <Input
+                                            type='file'
+                                            accept='image/'
+                                            placeholder='Add Profile photo'
+                                            className='account-form_image-input'
+                                            onChange={(e) => {}}
+                                        />
+                                    </FormControl>
                                 </FormItem>
                             </>
                         )}
                     />
 
+                    <FormField
+                        control={form.control}
+                        name='name'
+                        render={({ field }) => (
+                            <>
+                                <FormItem
+                                    className='flex w-full flex-col gap-3'
+                                >
+                                    <FormLabel className='text-base-semibold text-light-2'>
+                                        Name
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            type='text'
+                                            placeholder='Enter your name'
+                                            className='account-form_input no-focus'
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            </>
+                        )}
+                    />
+
+                    <FormField
+                        control={form.control}
+                        name='username'
+                        render={({ field }) => (
+                            <>
+                                <FormItem
+                                    className='flex w-full flex-col gap-3'
+                                >
+                                    <FormLabel className='text-base-semibold text-light-2'>
+                                        UserName
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            type='text'
+                                            placeholder='Enter your username'
+                                            className='account-form_input no-focus'
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            </>
+                        )}
+                    />
+
+                    <FormField
+                        control={form.control}
+                        name='bio'
+                        render={({ field }) => (
+                            <>
+                                <FormItem
+                                    className='flex w-full flex-col gap-3'
+                                >
+                                    <FormLabel className='text-base-semibold text-light-2'>
+                                        Bio
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Textarea
+                                            rows={10}
+                                            placeholder='Enter your bio'
+                                            className='account-form_input no-focus'
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                </FormItem>
+                            </>
+                        )}
+                    />
+
+                    <Button
+                        type='submit'
+                        className='bg-primary-500'
+                    >
+                        {btnTitle}
+                    </Button>
                 </form>
             </Form>
         </>
