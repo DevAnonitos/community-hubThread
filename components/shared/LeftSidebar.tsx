@@ -15,7 +15,7 @@ const LeftSidebar = () => {
     const { userId } = useAuth();
 
     return (
-        <>
+        <div>
             <section className='custom-scrollbar leftsidebar border-r-2 border-gray-700'>
                 <div className='flex w-full flex-1 flex-col gap-6 px-6'>
                     {sidebarLinks.map((link) => {
@@ -78,7 +78,7 @@ const LeftSidebar = () => {
                     </SignedIn>
                 </div>
             </section>
-        </>
+        </div>
     );
 };
 

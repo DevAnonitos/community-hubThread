@@ -11,7 +11,7 @@ const BottomBar = () => {
     const pathname = usePathname();
 
     return (
-        <>
+        <div>
             <section className='bottombar border-t-2 border-gray-700'>
                 <div className='bottombar_container'>
                     {sidebarLinks.map((link) => {
@@ -47,7 +47,7 @@ const BottomBar = () => {
                     })}
                 </div>
             </section>
-        </>
+        </div>
     );
 };
 
