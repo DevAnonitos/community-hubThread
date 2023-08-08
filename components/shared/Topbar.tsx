@@ -34,7 +34,7 @@ const TopBar = () => {
                 </Link>
 
                 <div className='hidden md:block'>
-                    <SearchBar routeType='search' />
+                    <SearchBar routeType='/' />
                 </div>
 
                 <div className='flex items-center gap-1'>
