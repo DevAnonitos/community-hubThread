@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { redirect } from "next/navigation";
 import { currentUser } from "@clerk/nextjs";
-import { SearchBar } from '@/components/shared';
+import { SearchBar, Pagination } from '@/components/shared';
 
 const Page = async () => {
     return (
@@ -26,6 +26,8 @@ const Page = async () => {
                 <SearchBar
                     routeType='search'
                 />
+
+                <Pagination />
             </section>
         </>
     );
