@@ -3,6 +3,7 @@ import BottomBar from "./Bottombar";
 import LeftSidebar from "./LeftSidebar";
 import RightSidebar from "./RightSidebar";
 import SearchBar from "./SearchBar";
+import Pagination from "./Pagination";
 
 export {
     TopBar,
@@ -10,4 +11,5 @@ export {
     LeftSidebar,
     RightSidebar,
     SearchBar,
+    Pagination,
 }
