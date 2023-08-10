@@ -7,7 +7,6 @@ import {
     SignedIn,
     SignOutButton,
 } from "@clerk/nextjs";
-import SearchBar from './SearchBar';
 
 const TopBar = () => {
     return (
