@@ -34,7 +34,11 @@ const Pagination = ({
                 >
                     PrevPage
                 </Button>
-                <p className='text-small-semibold text-light-1'>
+                <p
+                    className='text-small-semibold
+                    text-light-1 p-2 rounded-lg px-4
+                    bg-primary-500'
+                >
                     {pageNumber}
                 </p>
                 <Button

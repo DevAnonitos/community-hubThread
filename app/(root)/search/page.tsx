@@ -27,7 +27,7 @@ const Page = async () => {
                     routeType='search'
                 />
 
-                <Pagination />
+                <Pagination pageNumber={3}/>
             </section>
         </>
     );
