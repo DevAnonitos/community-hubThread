@@ -49,7 +49,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             bio: user?.bio ? user.bio : "",
         }
     });
-
+    
     const onSubmit = async (values: z.infer<typeof UserValidation>) => {
 
         console.log(values);
@@ -184,7 +184,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
 
                     <Button
                         type='submit'
-                        className='bg-primary-500'
+                        className='bg-primary-500 hover:bg-primary-5000'
                     >
                         {btnTitle}
                     </Button>
