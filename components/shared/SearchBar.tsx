@@ -4,6 +4,9 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Input } from '../ui/input';
+import { io } from "socket.io-client";
+
+const socket = io("http://localhost:3001");
 
 interface Props {
     routeType: string,
@@ -26,7 +29,28 @@ const SearchBar = ({ routeType }: Props) => {
         return () => clearTimeout(delayDebounceFn);
     }, [search, routeType]);
 
+    const socketInit = async () => {
 
+
+        socket.on('connect', () => {
+            console.log('connected app')
+        })
+
+        // @ts-ignore
+        socket.on('update-input', (msg: any) => {
+            setSearch(msg)
+        })
+    }
+
+    useEffect(() => {
+        socketInit();
+
+    }, []);
+
+    const onChangeHandler = (e: any) => {
+        setSearch(e.target.value)
+        socket.emit('input-change', e.target.value)
+    }
 
 
     return (
@@ -42,7 +66,7 @@ const SearchBar = ({ routeType }: Props) => {
                 <Input
                     id='text'
                     value={search}
-                    onChange={(e) => setSearch(e.target.value)}
+                    onChange={onChangeHandler}
                     placeholder={`${
                         routeType !== "/search" ? "Search communities..." : "Search creators..."
                     }`}
