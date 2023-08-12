@@ -131,7 +131,7 @@
 
 /* Tab */
 .tab {
-    @apply flex min-h-[50px] flex-1 items-center gap-3 bg-dark-2 text-light-2 data-[state=active]:bg-[#0e0e12] data-[state=active]:text-light-2 !important;
+    @apply flex min-h-[50px] flex-1 items-center rounded-full gap-3 bg-dark-2 text-light-2 data-[state=active]:bg-[#0e0e12] data-[state=active]:text-light-2 transition-all ease-in-out delay-75 duration-300 !important;
 }
 
 .no-focus {

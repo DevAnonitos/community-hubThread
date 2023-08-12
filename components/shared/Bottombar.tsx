@@ -12,7 +12,7 @@ const BottomBar = () => {
 
     return (
         <div>
-            <section className='bottombar border-t-2 border-gray-700'>
+            <section className='bottombar border-t-[1px] border-gray-700'>
                 <div className='bottombar_container'>
                     {sidebarLinks.map((link) => {
                         const isActive =

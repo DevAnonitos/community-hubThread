@@ -4,6 +4,7 @@ import LeftSidebar from "./LeftSidebar";
 import RightSidebar from "./RightSidebar";
 import SearchBar from "./SearchBar";
 import Pagination from "./Pagination";
+import ThreadsTab from "./ThreadsTab";
 
 export {
     TopBar,
@@ -12,4 +13,5 @@ export {
     RightSidebar,
     SearchBar,
     Pagination,
+    ThreadsTab,
 }

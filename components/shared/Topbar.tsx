@@ -12,7 +12,7 @@ import {
 const TopBar = () => {
     return (
         <>
-            <nav className='topbar border-b-2 border-gray-700'>
+            <nav className='topbar border-b-[1px] border-gray-700'>
                 <Link
                     href="/"
                     className='flex items-center gap-4'

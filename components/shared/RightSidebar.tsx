@@ -7,7 +7,7 @@ const RightSidebar = async () => {
         <>
             <section
                 className='custom-scrollbar rightsidebar
-                border-l-2 border-gray-700'
+                border-l-[1px] border-gray-700'
             >
                 <div className='flex flex-1 flex-col justify-start'>
                     <h3 className='text-heading4-medium text-light-1'>
