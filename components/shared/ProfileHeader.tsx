@@ -39,9 +39,44 @@ const ProfileHeader = ({
                             <h2 className='text-left text-heading3-bold text-light-1'>
                                 {name}
                             </h2>
+                            <p className='test-base-medium text-gray-1'>
+                                @{username}
+                            </p>
                         </div>
                     </div>
+                    {accountId === authUserId && type !== "Community" && (
+                        <>
+                            <Link href="/profile/edit">
+                                <div
+                                    className='flex cursor-pointer gap-3
+                                    rounded-full bg-dark-3 px-4 py-2
+                                    border-[1px] border-gray-700 mx-3'
+                                >
+                                    <Image
+                                        src="/assets/edit.svg"
+                                        alt='Edit'
+                                        width={16}
+                                        height={16}
+                                    />
+                                    <p className='text-light-2 max-sm:hidden'>
+                                        Edit
+                                    </p>
+                                </div>
+                            </Link>
+                        </>
+                    )}
                 </div>
+
+                <p
+                    className='mt-6 w-full text-base-regular
+                    text-light-2 border-2 border-gray-700
+                    rounded-xl px-4 py-2'
+                >
+                    {bio}
+                    What if you've recently published a book or are applying for a grant? In those situations, highlight organizations you support or include catchy anecdotes.
+                </p>
+
+                <div className='mt-12 h-0.5 w-full bg-dark-3' />
             </div>
         </>
     );
