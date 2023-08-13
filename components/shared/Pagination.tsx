@@ -19,7 +19,19 @@ const Pagination = ({
     const router = useRouter();
 
     const handlePagination = (type: string) => {
+        let nextPageNumber = pageNumber;
 
+        if(type === "prev") {
+            nextPageNumber = Math.max(1, pageNumber - 1);
+        } else {
+            nextPageNumber = pageNumber + 1;
+        }
+
+        if(pageNumber > 1) {
+            router.push(`/${path}?page=${nextPageNumber}`);
+        } else {
+            router.push(`/${path}`)
+        }
     };
 
     if(!isNext && pageNumber ===1) return null;
