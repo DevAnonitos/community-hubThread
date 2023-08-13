@@ -42,6 +42,7 @@
     "tailwindcss-animate": "^1.0.6",
     "typescript": "5.1.6",
     "uploadthing": "^5.2.1",
+    "utf-8-validate": "^5.0.10",
     "zod": "^3.21.4"
   }
 }

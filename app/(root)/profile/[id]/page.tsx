@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 
 // Components Tabs
 import { profileTabs } from '@/constants';
-import { ThreadsTab } from '@/components/shared';
+import { ThreadsTab, ProfileHeader } from '@/components/shared';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 
@@ -15,7 +15,7 @@ const Page = () => {
         <>
             <section>
                 <h1 className='text-white'>
-                    ProfileHeader
+                    <ProfileHeader />
                 </h1>
 
                 <div className='mt-9'>
