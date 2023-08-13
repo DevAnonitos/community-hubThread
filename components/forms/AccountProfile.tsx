@@ -49,10 +49,19 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             bio: user?.bio ? user.bio : "",
         }
     });
-    
+
     const onSubmit = async (values: z.infer<typeof UserValidation>) => {
 
         console.log(values);
+    };
+
+    const handleImage = (
+        e: ChangeEvent<HTMLInputElement>,
+        fieldChange: (value: string) => void,
+    ) => {
+        e.preventDefault();
+
+
     };
 
     return (
@@ -102,7 +111,9 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                             accept='image/'
                                             placeholder='Add Profile photo'
                                             className='account-form_image-input'
-                                            onChange={(e) => {}}
+                                            onChange={(e) => handleImage(
+                                                e, field.onChange
+                                            )}
                                         />
                                     </FormControl>
                                 </FormItem>
@@ -124,7 +135,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                     <FormControl>
                                         <Input
                                             type='text'
-                                            placeholder='Enter your name'
+                                            placeholder='your name'
                                             className='account-form_input no-focus'
                                             {...field}
                                         />
@@ -148,7 +159,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                     <FormControl>
                                         <Input
                                             type='text'
-                                            placeholder='Enter your username'
+                                            placeholder='your username'
                                             className='account-form_input no-focus'
                                             {...field}
                                         />
@@ -172,7 +183,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                     <FormControl>
                                         <Textarea
                                             rows={10}
-                                            placeholder='Enter your bio'
+                                            placeholder='your bio'
                                             className='account-form_input no-focus'
                                             {...field}
                                         />

@@ -70,7 +70,7 @@ const ProfileHeader = ({
                 <p
                     className='mt-6 w-full text-base-regular
                     text-light-2 border-2 border-gray-700
-                    rounded-xl px-4 py-2'
+                    rounded-xl px-4 py-3'
                 >
                     {bio}
                     What if you've recently published a book or are applying for a grant? In those situations, highlight organizations you support or include catchy anecdotes.

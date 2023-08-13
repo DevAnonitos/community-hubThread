@@ -28,7 +28,7 @@ export default function RootLayout({
             <html lang="en">
                 <body
                     className={`${inter.className}
-                    bg-dark-1 flex flex-col justify-center items-center min-h-screen`
+                    bg-dark-1`
                     }
                 >
                     {children}
