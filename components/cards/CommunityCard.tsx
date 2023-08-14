@@ -56,6 +56,46 @@ const CommunityCard = ({
                 >
                     {bio}
                 </p>
+
+                <div className='mt-5 flex-wrap items-center justify-between gap-3'>
+                    <Link href={`/communities/${id}`}>
+                        View
+                    </Link>
+
+                    {members.length > 0 && (
+                        <>
+                            <div className='flex item-center'>
+                                {members.map((member, index) => (
+                                    <>
+                                        <Fragment key={index}>
+                                            <Image
+                                                src={member.image}
+                                                alt={`UserAt${index}`}
+                                                width={20}
+                                                height={20}
+                                                className={`
+                                                    ${
+                                                        index !== 0 && "-ml-2"
+                                                    } rounded-full object-cover`
+                                                }
+                                            />
+                                            {members.length > 3 && (
+                                                <>
+                                                    <p
+                                                        className='ml-1
+                                                        text-subtle-medium text-gray-1'
+                                                    >
+                                                        {members.length}+ Users
+                                                    </p>
+                                                </>
+                                            )}
+                                        </Fragment>
+                                    </>
+                                ))}
+                            </div>
+                        </>
+                    )}
+                </div>
             </article>
         </>
     );

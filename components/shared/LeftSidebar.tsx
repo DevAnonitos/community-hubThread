@@ -28,7 +28,7 @@ const LeftSidebar = () => {
                         }
 
                         return (
-                            <Fragment key={link.id}>
+                            <Fragment key={link.label}>
                                 <Link
                                     href={link.route}
                                     className={`leftsidebar_link hover:bg-primary-500 transition-all duration-500 ease-in-out delay-100
