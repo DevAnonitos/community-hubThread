@@ -28,7 +28,10 @@ const UserCard = ({
 
     return (
         <>
-            <article className='user-card'>
+            <article
+                className='user-card my-3 bg-dark-1 py-3 px-4
+                rounded-xl border-[1px] border-gray-700'
+            >
                 <div className='user-card_avatar'>
                     <div className='relative'>
                         <Image

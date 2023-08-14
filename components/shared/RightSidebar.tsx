@@ -23,6 +23,8 @@ const RightSidebar = async () => {
 
                     <div className='mt-7 flex-w-[350px] flex-col gap-10'>
                         <UserCard />
+                        <UserCard />
+                        <UserCard />
                     </div>
                 </div>
             </section>
