@@ -2,8 +2,10 @@
 import React from 'react';
 import { currentUser } from "@clerk/nextjs";
 import UserCard from '../cards/UserCard';
+import { Skeleton } from '../ui/skeleton';
 
 const RightSidebar = async () => {
+
     return (
         <>
             <section
@@ -21,8 +23,8 @@ const RightSidebar = async () => {
                         <UserCard />
                         <UserCard />
                         <UserCard />
-
                     </div>
+
                 </div>
 
                 <div className='flex flex-1 flex-col justify-start'>
@@ -31,6 +33,8 @@ const RightSidebar = async () => {
                     </h3>
 
                     <div className='mt-7 flex-w-[350px] flex-col gap-10'>
+                        <UserCard />
+                        <UserCard />
                         <UserCard />
                         <UserCard />
                         <UserCard />
