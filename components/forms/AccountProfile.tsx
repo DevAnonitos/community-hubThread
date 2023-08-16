@@ -21,6 +21,7 @@ import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { Button } from '../ui/button';
 
+import { useUploadThing } from '@/lib/uploadthing';
 import { isBase64Image } from '@/lib/utils';
 
 // Define props
@@ -42,6 +43,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     const pathName = usePathname();
 
     const [files, setFiles] = useState<File[]>([]);
+    const { startUpload } = useUploadThing("imageUploader");
 
     // Validation Form user
     const form  = useForm<z.infer<typeof UserValidation>>({
@@ -56,6 +58,23 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
 
     const onSubmit = async (values: z.infer<typeof UserValidation>) => {
 
+        const blob = values.profile_photo;
+
+        const hasImageChanged = isBase64Image(blob);
+        if(hasImageChanged) {
+            const imgRes = await startUpload(files);
+
+            if(imgRes && imgRes[0].fileUrl) {
+                values.profile_photo = imgRes[0].fileUrl;
+            }
+        }
+
+        if(pathName === `/profile/edit`) {
+            router.back();
+
+        }else {
+            router.push("/");
+        }
         console.log(values);
     };
 
