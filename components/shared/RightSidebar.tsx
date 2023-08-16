@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { currentUser } from "@clerk/nextjs";
-import UserCard from '../cards/UserCard';
 import { Skeleton } from '../ui/skeleton';
+import UserCard from '../cards/UserCard';
 
 const RightSidebar = async () => {
 
