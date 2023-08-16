@@ -21,6 +21,8 @@ import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { Button } from '../ui/button';
 
+import { isBase64Image } from '@/lib/utils';
+
 // Define props
 interface Props {
     user: {
@@ -53,7 +55,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     });
 
     const onSubmit = async (values: z.infer<typeof UserValidation>) => {
-        
+
         console.log(values);
     };
 
@@ -64,6 +66,8 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
         e.preventDefault();
 
         const fileReader = new FileReader();
+
+        console.log(fileReader);
 
         if(e.target.files && e.target.files.length > 0) {
             const file = e.target.files[0];
