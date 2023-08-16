@@ -39,6 +39,8 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     const router = useRouter();
     const pathName = usePathname();
 
+    const [files, setFiles] = useState<File[]>([]);
+
     // Validation Form user
     const form  = useForm<z.infer<typeof UserValidation>>({
         resolver: zodResolver(UserValidation),
@@ -61,7 +63,23 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     ) => {
         e.preventDefault();
 
+        const fileReader = new FileReader();
 
+        if(e.target.files && e.target.files.length > 0) {
+            const file = e.target.files[0];
+            setFiles(Array.from(e.target.files));
+
+            if(!file.type.includes("images")) {
+                return;
+            }
+
+            fileReader.onload = async (event) => {
+                const imageDataUrl = event.target?.result?.toString() || "";
+                fieldChange(imageDataUrl);
+            };
+
+            fileReader.readAsDataURL(file);
+        }
     };
 
     return (
@@ -108,12 +126,10 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                     >
                                         <Input
                                             type='file'
-                                            accept='image/'
+                                            accept='image/*'
                                             placeholder='Add Profile photo'
                                             className='account-form_image-input'
-                                            onChange={(e) => handleImage(
-                                                e, field.onChange
-                                            )}
+                                            onChange={(e) => handleImage(e, field.onChange  )}
                                         />
                                     </FormControl>
                                 </FormItem>

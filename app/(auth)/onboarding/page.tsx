@@ -3,6 +3,26 @@ import { redirect } from "next/navigation";
 import AccountProfile from "@/components/forms/AccountProfile";
 
 async function Page() {
+
+    const user = await currentUser();
+
+    if(!user) {
+        return null;
+    }
+
+    console.log(user);
+
+    const userInfo = {};
+
+    const userData = {
+        id: user.id,
+        objectId: userInfo?._id,
+        username: userInfo ? userInfo?.username : user.username,
+        name: userInfo ? userInfo?.name : user.firstName ?? "",
+        bio: userInfo ? userInfo?.bio : "",
+        image: userInfo ? userInfo?.image : user.imageUrl,
+    }
+
     return (
         <>
             <main
@@ -18,7 +38,7 @@ async function Page() {
 
                 <section className="mt-9 bg-dark-2 p-10 rounded-xl border-2 border-gray-700">
                     <AccountProfile
-                        user={""}
+                        user={userData}
                         btnTitle="Continue"
                     />
                 </section>
