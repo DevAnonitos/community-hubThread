@@ -156,6 +156,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                             {...field}
                                         />
                                     </FormControl>
+                                    <FormMessage />
                                 </FormItem>
                             </>
                         )}
@@ -180,6 +181,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                             {...field}
                                         />
                                     </FormControl>
+                                    <FormMessage />
                                 </FormItem>
                             </>
                         )}
@@ -204,6 +206,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                             {...field}
                                         />
                                     </FormControl>
+                                    <FormMessage />
                                 </FormItem>
                             </>
                         )}
