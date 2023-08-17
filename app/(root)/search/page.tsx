@@ -23,9 +23,11 @@ const Page = async () => {
                     </h1>
                 </div>
 
-                <SearchBar
-                    routeType='search'
-                />
+                <div className='mt-5'>
+                    <SearchBar
+                        routeType='search'
+                    />
+                </div>
 
                 <Pagination pageNumber={3}/>
             </section>
