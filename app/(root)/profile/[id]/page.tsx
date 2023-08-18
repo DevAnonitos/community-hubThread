@@ -1,3 +1,4 @@
+
 import React, { Fragment } from 'react';
 import Image from 'next/image';
 import { currentUser } from '@clerk/nextjs';
@@ -7,8 +8,6 @@ import { redirect } from 'next/navigation';
 import { profileTabs } from '@/constants';
 import { ThreadsTab, ProfileHeader } from '@/components/shared';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-
-
 
 const Page = () => {
     return (
