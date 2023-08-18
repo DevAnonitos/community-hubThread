@@ -1,8 +1,10 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-
 import { connectToDB } from "../mongoose";
+
+// Import Models Schema
+import { User } from "../models";
 
 // Define Props
 interface Params {
@@ -23,6 +25,7 @@ export const fetchUser = async (userId: string) => {
     }
 };
 
+// UpdateUser
 export const updateUser = async ({
     userId,
     username,
@@ -34,7 +37,26 @@ export const updateUser = async ({
     try {
         connectToDB();
 
-        
+        await User.findOneAndUpdate(
+            {
+                id: userId,
+            },
+            {
+                username: username.toLowerCase(),
+                name,
+                bio,
+                image,
+                onboarding: true,
+            },
+            {
+                upsert: true,
+            },
+        );
+
+        if(path === "/profile/edit") {
+            revalidatePath(path);
+        }
+
     } catch (error: any) {
         throw new Error(`Failed to create/update user: ${error.message}`);
     }
