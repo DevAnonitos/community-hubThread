@@ -1,10 +1,11 @@
 "use server";
 
+import { FilterQuery, SortOrder } from "mongoose";
 import { revalidatePath } from "next/cache";
 import { connectToDB } from "../mongoose";
 
 // Import Models Schema
-import { User, Thread, } from "../models";
+import { User, Thread, Community} from "../models";
 
 // Define Props
 interface Params {
@@ -23,6 +24,7 @@ export const fetchUser = async (userId: string) => {
 
         return await User.findOne({ id: userId }).populate({
             path: "communities",
+            model: Community,
         });
     } catch (error: any) {
         throw new Error(`Fail to fetch user: ${error.message}`)
