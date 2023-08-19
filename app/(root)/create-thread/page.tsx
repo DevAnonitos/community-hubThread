@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import Image from 'next/image';
 
 import { fetchUser } from '@/lib/actions/user.actions';
+import PostThread from '@/components/forms/PostThread';
 
 const Page = async () => {
 
@@ -32,7 +33,7 @@ const Page = async () => {
                     </h1>
                 </div>
 
-                
+                <PostThread userId={userInfo._id} />
 
             </section>
         </>
