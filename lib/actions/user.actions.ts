@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { connectToDB } from "../mongoose";
 
 // Import Models Schema
-import { User } from "../models";
+import { User, Thread, } from "../models";
 
 // Define Props
 interface Params {
