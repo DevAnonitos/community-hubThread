@@ -20,6 +20,10 @@ interface Params {
 export const fetchUser = async (userId: string) => {
     try {
         connectToDB();
+
+        return await User.findOne({ id: userId }).populate({
+            path: "communities",
+        });
     } catch (error: any) {
         throw new Error(`Fail to fetch user: ${error.message}`)
     }

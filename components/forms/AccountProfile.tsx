@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { usePathname, useRouter } from 'next/navigation';
 
 import { UserValidation } from '@/lib/validations/user';
+import { updateUser } from '@/lib/actions/user.actions';
 
 import {
     Form,
@@ -69,6 +70,15 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             }
         }
 
+        await updateUser({
+            name: values.name,
+            path: pathName,
+            username: values.username,
+            userId: user.id,
+            bio: values.bio,
+            image: values.profile_photo,
+        });
+
         if(pathName === `/profile/edit`) {
             router.back();
 
@@ -80,26 +90,22 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
 
     const handleImage = (
         e: ChangeEvent<HTMLInputElement>,
-        fieldChange: (value: string) => void,
+        fieldChange: (value: string) => void
     ) => {
         e.preventDefault();
 
         const fileReader = new FileReader();
 
-        console.log(fileReader);
-
-        if(e.target.files && e.target.files.length > 0) {
+        if (e.target.files && e.target.files.length > 0) {
             const file = e.target.files[0];
             setFiles(Array.from(e.target.files));
 
-            if(!file.type.includes("images")) {
-                return;
-            }
+        if (!file.type.includes("image")) return;
 
-            fileReader.onload = async (event) => {
-                const imageDataUrl = event.target?.result?.toString() || "";
-                fieldChange(imageDataUrl);
-            };
+        fileReader.onload = async (event) => {
+            const imageDataUrl = event.target?.result?.toString() || "";
+            fieldChange(imageDataUrl);
+        };
 
             fileReader.readAsDataURL(file);
         }
@@ -116,47 +122,37 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                         control={form.control}
                         name='profile_photo'
                         render={({ field }) => (
-                            <>
-                                <FormItem
-                                    className='flex items-center gap-4'
-                                >
-                                    <FormLabel className='account-form_image-label'>
-                                        {field.value ? (
-                                            <>
-                                                <Image
-                                                    src={field.value}
-                                                    alt='profile_icon'
-                                                    width={96}
-                                                    height={96}
-                                                    priority
-                                                    className='rounded-full object-contain'
-                                                />
-                                            </>
-                                        ): (
-                                            <>
-                                                <Image
-                                                    src='/assets/profile.svg'
-                                                    alt='profile_icon'
-                                                    width={24}
-                                                    height={24}
-                                                    className='object-contain'
-                                                />
-                                            </>
-                                        )}
-                                    </FormLabel>
-                                    <FormControl
-                                        className='flex-1 text-base-semibold text-gray-200'
-                                    >
-                                        <Input
-                                            type='file'
-                                            accept='image/*'
-                                            placeholder='Add Profile photo'
-                                            className='account-form_image-input'
-                                            onChange={(e) => handleImage(e, field.onChange  )}
+                            <FormItem className='flex items-center gap-4'>
+                                <FormLabel className='account-form_image-label'>
+                                    {field.value ? (
+                                        <Image
+                                            src={field.value}
+                                            alt='profile_icon'
+                                            width={96}
+                                            height={96}
+                                            priority
+                                            className='rounded-full object-contain'
                                         />
-                                    </FormControl>
-                                </FormItem>
-                            </>
+                                    ) : (
+                                        <Image
+                                            src='/assets/profile.svg'
+                                            alt='profile_icon'
+                                            width={24}
+                                            height={24}
+                                            className='object-contain'
+                                        />
+                                    )}
+                                </FormLabel>
+                                <FormControl className='flex-1 text-base-semibold text-gray-200'>
+                                    <Input
+                                        type='file'
+                                        accept='image/*'
+                                        placeholder='Add profile photo'
+                                        className='account-form_image-input'
+                                        onChange={(e) => handleImage(e, field.onChange)}
+                                    />
+                                </FormControl>
+                            </FormItem>
                         )}
                     />
 
