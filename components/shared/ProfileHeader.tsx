@@ -28,7 +28,7 @@ const ProfileHeader = ({
                     <div className='flex items-center gap-3'>
                         <div className='relative h-20 w-20 object-cover'>
                             <Image
-                                src="/assets/user.svg"
+                                src={imgUrl}
                                 alt='Logo'
                                 fill
                                 className='rounded-full object-cover shadow-2xl'
@@ -73,7 +73,6 @@ const ProfileHeader = ({
                     rounded-xl px-4 py-3'
                 >
                     {bio}
-                    What if you've recently published a book or are applying for a grant? In those situations, highlight organizations you support or include catchy anecdotes.
                 </p>
 
                 <div className='mt-12 h-0.5 w-full bg-dark-3' />

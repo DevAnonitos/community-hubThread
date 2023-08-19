@@ -19,10 +19,6 @@ const RightSidebar = async () => {
 
                     <div className='mt-7 flex-w-[350px] flex-col gap-9'>
                         <UserCard />
-                        <UserCard />
-                        <UserCard />
-                        <UserCard />
-                        <UserCard />
                     </div>
 
                 </div>
@@ -33,10 +29,6 @@ const RightSidebar = async () => {
                     </h3>
 
                     <div className='mt-7 flex-w-[350px] flex-col gap-10'>
-                        <UserCard />
-                        <UserCard />
-                        <UserCard />
-                        <UserCard />
                         <UserCard />
                     </div>
                 </div>
