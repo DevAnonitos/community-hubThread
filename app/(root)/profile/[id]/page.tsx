@@ -9,12 +9,33 @@ import { profileTabs } from '@/constants';
 import { ThreadsTab, ProfileHeader } from '@/components/shared';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-const Page = () => {
+import { fetchUser } from '@/lib/actions/user.actions';
+
+const Page = async (
+    { params }: {
+        params: { id: string, }
+}) => {
+
+    const user = await currentUser();
+
+    if(!user) return null;
+
+    const userInfo = await fetchUser(params.id);
+
+    if(!userInfo?.onboarding) redirect("/onboarding");
+
     return (
         <>
             <section>
                 <h1 className='text-white'>
-                    <ProfileHeader />
+                    <ProfileHeader
+                        accountId={userInfo.id}
+                        authUserId={user.id}
+                        name={userInfo.name}
+                        username={userInfo.username}
+                        imgUrl={userInfo.image}
+                        bio={userInfo.bio}
+                    />
                 </h1>
 
                 <div className='mt-9'>
