@@ -3,6 +3,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { dark } from "@clerk/themes"
+import "react-toastify/dist/ReactToastify.css";
 
 // Styles
 import "../globals.css";

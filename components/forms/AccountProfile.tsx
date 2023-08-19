@@ -22,6 +22,8 @@ import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { Button } from '../ui/button';
 
+import { toast } from 'react-toastify';
+
 import { useUploadThing } from '@/lib/uploadthing';
 import { isBase64Image } from '@/lib/utils';
 
@@ -42,6 +44,8 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
 
     const router = useRouter();
     const pathName = usePathname();
+
+
 
     const [files, setFiles] = useState<File[]>([]);
     const { startUpload } = useUploadThing("imageUploader");
@@ -81,8 +85,17 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
 
         if(pathName === `/profile/edit`) {
             router.back();
-
         }else {
+            toast.success('🦄 Update Profile successful', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
             router.push("/");
         }
         console.log(values);
