@@ -4,7 +4,6 @@ import { Inter } from 'next/font/google'
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 
-import "react-toastify/dist/ReactToastify.css";
 // Import Components
 import {
   TopBar,
