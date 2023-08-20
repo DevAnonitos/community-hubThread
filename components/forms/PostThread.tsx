@@ -21,6 +21,7 @@ import {
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
 
+
 interface Props {
     userId: string;
 }
@@ -41,6 +42,7 @@ const PostThread = ({ userId }: Props) => {
     });
 
     const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
+
 
         router.push("/");
     };
@@ -73,7 +75,7 @@ const PostThread = ({ userId }: Props) => {
                     />
                     <Button
                         type='submit'
-                        className='bg-primary-500'
+                        className='bg-primary-500 hover:bg-primary-500 rounded-lg'
                     >
                         Post Thread
                     </Button>
