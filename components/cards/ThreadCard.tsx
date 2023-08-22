@@ -95,7 +95,7 @@ const ThreadCard = ({
                                     <Link href={`/thread/${id}`}>
                                         <Image
                                             src="/assets/reply.svg"
-                                            alt='heart'
+                                            alt='reply'
                                             width={26}
                                             height={26}
                                             className='cursor-pointer object-contain'
@@ -103,24 +103,37 @@ const ThreadCard = ({
                                     </Link>
                                     <Image
                                         src="/assets/repost.svg"
-                                        alt='heart'
+                                        alt='repost'
                                         width={26}
                                         height={26}
                                         className='cursor-pointer object-contain'
                                     />
                                     <Image
                                         src="/assets/share.svg"
-                                        alt='heart'
+                                        alt='share'
                                         width={26}
                                         height={26}
                                         className='cursor-pointer object-contain'
                                     />
                                 </div>
 
-
+                                {isComment && comments.length > 0 && (
+                                    <>
+                                        <Link href={`/thread/${id}`}>
+                                            <p
+                                                className='mt-1
+                                                text-subtle-medium text-gray-1'
+                                            >
+                                                {comments.length} repl{comments.length > 1 ? "ies" : "y"}
+                                            </p>
+                                        </Link>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>
+
+                    {/* --Delete Thread Btn----- */}
                 </div>
             </article>
         </>
