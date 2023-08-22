@@ -2,6 +2,8 @@ import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
 
+import DeleteThread from '../forms/DeleteThread';
+
 interface Props {
     id: string;
     currentUserId: string;
@@ -134,6 +136,13 @@ const ThreadCard = ({
                     </div>
 
                     {/* --Delete Thread Btn----- */}
+                    <DeleteThread
+                        threadId={JSON.stringify(id)}
+                        currentUserId={currentUserId}
+                        authorId={author?.id}
+                        parentId={parentId}
+                        isComment={isComment}
+                    />
                 </div>
             </article>
         </>

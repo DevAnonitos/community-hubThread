@@ -1,10 +1,13 @@
 
 import React from 'react';
 import { currentUser } from "@clerk/nextjs";
-import { Skeleton } from '../ui/skeleton';
 import UserCard from '../cards/UserCard';
 
 const RightSidebar = async () => {
+
+    const user = await currentUser();
+
+    if(!user) return null;
 
     return (
         <>
