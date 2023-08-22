@@ -57,7 +57,7 @@ const LeftSidebar = () => {
                         >
                             <div
                                 className='flex cursor-pointer
-                                gap-4 p-4 border-2 rounded-xl'
+                                gap-4 p-4 border-[1px] border-gray-700 rounded-xl'
                             >
                                 <Image
                                     src='/assets/logout.svg'
