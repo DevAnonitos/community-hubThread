@@ -2,7 +2,10 @@ import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 
+import { fetchUser } from "@/lib/actions/user.actions";
+
 import { Pagination } from "@/components/shared";
+import ThreadCard from "@/components/cards/ThreadCard";
 
 export default async function Home() {
   return (
@@ -21,7 +24,7 @@ export default async function Home() {
       </div>
 
       <section className="mt-9 flex flex-col gap-10 text-white">
-
+        <ThreadCard />
       </section>
 
       <Pagination
