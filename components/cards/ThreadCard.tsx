@@ -54,7 +54,7 @@ const ThreadCard = ({
                                 className='relative h-11 w-11'
                             >
                                 <Image
-                                    src={author?.image}
+                                    src="/assets/user.svg"
                                     alt='User-community-image'
                                     fill
                                     className='cursor-pointer rounded-full'

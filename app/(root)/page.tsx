@@ -38,9 +38,9 @@ export default async function Home({
         </h1>
       </div>
 
-      <section className="mt-9 flex flex-col gap-10 text-white">
+      <section className="mt-5 flex flex-col gap-10 text-white">
         <ThreadCard
-          
+
         />
       </section>
 
