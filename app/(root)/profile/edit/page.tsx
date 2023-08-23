@@ -4,8 +4,6 @@ import { redirect } from "next/navigation";
 
 import AccountProfile from '@/components/forms/AccountProfile';
 
-export const runtime = 'edge';
-
 const Page = async () => {
 
     const user = await currentUser();

@@ -6,8 +6,6 @@ import Image from 'next/image';
 import { SearchBar, Pagination } from '@/components/shared';
 import CommunityCard from '@/components/cards/CommunityCard';
 
-export const runtime = 'edge';
-
 const Page = async (
     {
         searchParams,
