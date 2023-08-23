@@ -7,7 +7,22 @@ import { fetchUser } from "@/lib/actions/user.actions";
 import { Pagination } from "@/components/shared";
 import ThreadCard from "@/components/cards/ThreadCard";
 
-export default async function Home() {
+
+export default async function Home({
+  searchParams
+}: {searchParams: {
+    [key: string]: string | undefined
+  }
+}) {
+
+  const user = await currentUser();
+
+  if(!user) return null;
+
+  const userInfo = await fetchUser(user.id);
+
+  if(!userInfo?.onboarding) redirect("/onboarding");
+
   return (
     <>
       <div className="flex items-center">
@@ -24,7 +39,9 @@ export default async function Home() {
       </div>
 
       <section className="mt-9 flex flex-col gap-10 text-white">
-        <ThreadCard />
+        <ThreadCard
+          
+        />
       </section>
 
       <Pagination
