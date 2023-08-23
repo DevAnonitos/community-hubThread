@@ -1,4 +1,5 @@
 import "../globals.css";
+import React, { Suspense } from "react";
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ClerkProvider } from "@clerk/nextjs";
@@ -11,13 +12,23 @@ import {
   LeftSidebar,
   RightSidebar
 } from "@/components/shared";
-const inter = Inter({ subsets: ['latin'] })
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 // Meta Data
 export const metadata: Metadata = {
+  applicationName: 'HubThreads',
   title: 'HubThreadApp',
   description: 'CommunityApp',
-}
+  robots: {
+    follow: true,
+    index: true,
+  },
+};
 
 export default function RootLayout({
   children,
@@ -37,9 +48,11 @@ export default function RootLayout({
           <main className="flex flex-row">
               <LeftSidebar />
               <section className="main-container">
-                <div className="w-full max-w-4xl">
-                  {children}
-                </div>
+                <Suspense>
+                  <div className="w-full max-w-4xl">
+                    {children}
+                  </div>
+                </Suspense>
               </section>
               {/* @ts-ignore */}
               <RightSidebar />

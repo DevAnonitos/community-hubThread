@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -31,7 +31,9 @@ export default function RootLayout({
                     bg-dark-1`
                     }
                 >
-                    {children}
+                    <Suspense>
+                        {children}
+                    </Suspense>
                 </body>
             </html>
         </ClerkProvider>
