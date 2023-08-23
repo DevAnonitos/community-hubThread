@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { fetchUser } from '@/lib/actions/user.actions';
 import PostThread from '@/components/forms/PostThread';
 
+export const runtime = 'edge';
+
 const Page = async () => {
 
     const user = await currentUser();

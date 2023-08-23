@@ -11,6 +11,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 import { fetchUser } from '@/lib/actions/user.actions';
 
+export const runtime = 'edge';
+
 const Page = async (
     { params }: {
         params: { id: string, }

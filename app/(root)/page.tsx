@@ -7,7 +7,6 @@ import { fetchUser } from "@/lib/actions/user.actions";
 import { Pagination } from "@/components/shared";
 import ThreadCard from "@/components/cards/ThreadCard";
 
-
 export default async function Home({
   searchParams
 }: {searchParams: {

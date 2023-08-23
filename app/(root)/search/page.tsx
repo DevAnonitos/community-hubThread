@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 import { currentUser } from "@clerk/nextjs";
 import { SearchBar, Pagination } from '@/components/shared';
 
+export const runtime = 'edge';
+
 const Page = async () => {
     return (
         <>
