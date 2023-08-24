@@ -69,8 +69,7 @@ const ProfileHeader = ({
 
                 <p
                     className='mt-6 w-full text-base-regular
-                    text-light-2 border-2 border-gray-700
-                    rounded-xl px-4 py-3'
+                    text-light-2 '
                 >
                     {bio}
                 </p>
