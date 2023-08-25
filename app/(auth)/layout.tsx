@@ -9,9 +9,14 @@ import "../globals.css";
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+    applicationName: 'HubThreads',
     title: 'AuthHubThread',
     description: 'CommunityApp',
-}
+    robots: {
+        follow: true,
+        index: true,
+    },
+};
 
 export default function RootLayout({
     children,
