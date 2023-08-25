@@ -176,7 +176,7 @@
 
 /* Comment Form */
 .comment-form {
-    @apply mt-10 flex items-center gap-4 border-y border-y-dark-4 py-5 max-xs:flex-col !important;
+    @apply mt-10 flex items-center gap-4 border-[1px] border-y-gray-700 border-x-gray-700  py-5 max-xs:flex-col px-7 rounded-xl !important;
 }
 
 .comment-form_btn {
