@@ -56,7 +56,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             name: user?.name ? user.name : "",
             username: user?.username ? user.username : "",
             bio: user?.bio ? user.bio : "",
-        }
+        },
     });
 
     const onSubmit = async (values: z.infer<typeof UserValidation>) => {
@@ -84,16 +84,6 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
         if(pathName === `/profile/edit`) {
             router.back();
         }else {
-            toast.success('🦄 Update Profile successful', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            });
             router.push("/");
         }
         console.log(values);

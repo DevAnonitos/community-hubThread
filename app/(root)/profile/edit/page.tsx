@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { currentUser } from '@clerk/nextjs';
 import { redirect } from "next/navigation";
 
 import AccountProfile from '@/components/forms/AccountProfile';
+import { fetchUser } from '@/lib/actions/user.actions';
 
 const Page = async () => {
 
@@ -12,23 +13,41 @@ const Page = async () => {
 
     console.log(user);
 
+
+    const userInfo = await fetchUser(user.id);
+
+    if(!userInfo.onboarding) return ("/onboarding");
+
+    const userData = {
+        id: user.id,
+        objectId: userInfo?._id,
+        username: userInfo ? userInfo?.username : user.username,
+        name: userInfo ? userInfo?.name : user.firstName ?? "",
+        bio: userInfo ? userInfo?.bio : "",
+        image: userInfo ? userInfo?.image : user.imageUrl,
+    };
+
+
     return (
         <>
-            <div>
-                <h1 className='head-text'>
-                    EditProfile
-                </h1>
+            <Suspense>
+                <div>
+                    <h1 className='head-text'>
+                        EditProfile
+                    </h1>
 
-                <p className='mt-3 text-base-regular text-light-2'>
-                    Make any change
-                </p>
+                    <p className='mt-3 text-base-regular text-light-2'>
+                        Make any change
+                    </p>
 
-                <section className='mt-12'>
-                    <AccountProfile
-                        btnTitle='Continue'
-                    />
-                </section>
-            </div>
+                    <section className='mt-12'>
+                        <AccountProfile
+                            user={userData}
+                            btnTitle='Continue'
+                        />
+                    </section>
+                </div>
+            </Suspense>
         </>
     );
 };

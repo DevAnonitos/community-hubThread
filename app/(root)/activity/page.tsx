@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Image from 'next/image';
 import { currentUser } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
@@ -14,25 +14,27 @@ const Page = async () => {
 
     return (
         <>
-            <section>
-                <div className='flex items-center'>
-                    <Image
-                        src="/assets/heart.svg"
-                        alt='UserProfile'
-                        width={34}
-                        height={34}
-                        className='object-contain flex items-center mb-10 mr-4'
-                    />
+            <Suspense>
+                <section>
+                    <div className='flex items-center'>
+                        <Image
+                            src="/assets/heart.svg"
+                            alt='UserProfile'
+                            width={34}
+                            height={34}
+                            className='object-contain flex items-center mb-10 mr-4'
+                        />
 
-                    <h1 className='head-text mb-10'>
-                        Activities
-                    </h1>
-                </div>
+                        <h1 className='head-text mb-10'>
+                            Activities
+                        </h1>
+                    </div>
 
-                <section className='mt-5 flex flex-col gap-5'>
-                    hello
+                    <section className='mt-5 flex flex-col gap-5'>
+                        hello
+                    </section>
                 </section>
-            </section>
+            </Suspense>
         </>
     );
 };

@@ -26,7 +26,7 @@ const DeleteThread = ({
     if(currentUserId !== authorId || pathName === "/") return null;
 
     return (
-        <>
+        <div className='bg-gray-700 p-2 rounded-full'>
             <Image
                 src="/assets/delete.svg"
                 alt='Delete'
@@ -34,7 +34,7 @@ const DeleteThread = ({
                 height={20}
                 className='cursor-pointer object-contain'
             />
-        </>
+        </div>
     );
 };
 

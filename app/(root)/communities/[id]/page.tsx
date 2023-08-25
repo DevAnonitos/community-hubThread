@@ -1,12 +1,12 @@
-import React from 'react'
-
-
+import React, { Suspense } from 'react'
 
 const Page = () => {
     return (
-        <div className='text-white text-xl'>
-            Community page id
-        </div>
+        <>
+            <Suspense>
+                Community page id
+            </Suspense>
+        </>
     );
 };
 
