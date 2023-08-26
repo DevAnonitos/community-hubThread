@@ -11,6 +11,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 import { fetchUser } from '@/lib/actions/user.actions';
 
+import { Skeleton } from '@/components/ui/skeleton';
+
 const Page = async (
     { params }: {
         params: { id: string, }
@@ -27,7 +29,6 @@ const Page = async (
     return (
         <>
             <Suspense>
-
                 <section>
                     <h1 className='text-white'>
                         <ProfileHeader
@@ -65,6 +66,25 @@ const Page = async (
                                     </>
                                 ))}
                             </TabsList>
+                            {profileTabs.map((tab) => (
+                                <>
+                                    <Fragment key={`content-${tab.label}`}>
+                                        <TabsContent
+                                            value={tab.value}
+                                            className='w-full text-light-1'
+                                        >
+                                            <Suspense fallback={<Skeleton />}>
+                                                {/* @ts-ignore */}
+                                                <ThreadsTab
+                                                    currentUserId={user.id}
+                                                    accountId={userInfo.id}
+                                                    accountType='User'
+                                                />
+                                            </Suspense>
+                                        </TabsContent>
+                                    </Fragment>
+                                </>
+                            ))}
                         </Tabs>
                     </div>
                 </section>
