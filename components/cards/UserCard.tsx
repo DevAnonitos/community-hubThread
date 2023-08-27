@@ -39,6 +39,7 @@ const UserCard = ({
                             alt='UserLogo'
                             width={26}
                             height={26}
+                            loading="lazy"
                             className='rounded-full object-cover'
                         />
                     </div>
