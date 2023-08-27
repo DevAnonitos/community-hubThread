@@ -10,6 +10,7 @@ interface Props {
     imgUrl: string;
     bio: string;
     type?: string;
+    classNames?: string;
 }
 
 const ProfileHeader = ({
@@ -19,11 +20,12 @@ const ProfileHeader = ({
     username,
     imgUrl,
     bio,
-    type
+    type,
+    classNames
 }: Props) => {
     return (
         <>
-            <div className='flex w-full flex-col justify-start'>
+            <div className={`flex w-full flex-col justify-start ${classNames}`}>
                 <div className='flex items-center justify-center'>
                     <div className='flex items-center gap-3'>
                         <div className='relative h-20 w-20 object-cover'>

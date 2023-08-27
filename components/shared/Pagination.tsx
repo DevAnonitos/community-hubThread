@@ -8,12 +8,14 @@ interface Props {
     pageNumber: number;
     isNext: boolean;
     path: string;
+    classNames?: string;
 }
 
 const Pagination = ({
     pageNumber,
     isNext,
-    path
+    path,
+    classNames,
 }: Props) => {
 
     const router = useRouter();
@@ -38,7 +40,7 @@ const Pagination = ({
 
     return (
         <>
-            <div className='pagination'>
+            <div className={`pagination ${classNames}`}>
                 <Button
                     onClick={() => handlePagination("prev")}
                     disabled={pageNumber === 1}

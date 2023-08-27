@@ -7,9 +7,10 @@ import { Input } from '../ui/input';
 
 interface Props {
     routeType: string,
+    classNames?: string;
 };
 
-const SearchBar = ({ routeType }: Props) => {
+const SearchBar = ({ routeType, classNames }: Props) => {
 
     const router = useRouter();
     const [search, setSearch] = useState("");
@@ -28,7 +29,7 @@ const SearchBar = ({ routeType }: Props) => {
 
     return (
         <>
-            <div className='searchbar'>
+            <div className={`searchbar ${classNames}`}>
                 <Image
                     src="/assets/search-gray.svg"
                     alt='SearchIcon'

@@ -34,12 +34,14 @@ interface Props {
     currentUserId: string;
     accountId: string;
     accountType: string;
+    classNames?: string;
 }
 
 const ThreadsTab = async ({
     currentUserId,
     accountId,
     accountType,
+    classNames,
 }: Props) => {
 
     let result: Result;
@@ -56,7 +58,7 @@ const ThreadsTab = async ({
 
     return (
         <>
-            <section className='mt-9 flex flex-col gap-10'>
+            <section className={`mt-9 flex flex-col gap-10 ${classNames}`}>
                 {result.threads.map((thread) => (
                     <>
                         <Suspense>
