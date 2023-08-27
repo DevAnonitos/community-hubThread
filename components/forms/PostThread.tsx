@@ -24,9 +24,10 @@ import { Textarea } from '../ui/textarea';
 
 interface Props {
     userId: string;
+    classNames?: string;
 }
 
-const PostThread = ({ userId }: Props) => {
+const PostThread = ({ userId, classNames }: Props) => {
 
     const router = useRouter();
     const pathName = usePathname();
@@ -51,7 +52,7 @@ const PostThread = ({ userId }: Props) => {
         <>
             <Form {...form}>
                 <form
-                    className='mt-10 flex flex-col justify-start gap-10'
+                    className={`mt-10 flex flex-col justify-start gap-10 ${classNames}`}
                     onSubmit={form.handleSubmit(onSubmit)}
                 >
                     <FormField

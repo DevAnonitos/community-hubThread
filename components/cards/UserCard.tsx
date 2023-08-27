@@ -12,6 +12,7 @@ interface Props {
     username: string;
     imgUrl: string;
     personType: string;
+    classNames?: string;
 }
 
 const UserCard = ({
@@ -20,6 +21,7 @@ const UserCard = ({
     username,
     imgUrl,
     personType,
+    classNames,
 }: Props) => {
 
     const router = useRouter();
@@ -29,8 +31,8 @@ const UserCard = ({
     return (
         <>
             <article
-                className='user-card my-3 bg-dark-1 py-3 px-4
-                rounded-xl border-[1px] border-gray-700'
+                className={`user-card my-3 bg-dark-1 py-3 px-4
+                rounded-xl border-[1px] border-gray-700 ${classNames}`}
             >
                 <div className='user-card_avatar'>
                     <div className='relative'>

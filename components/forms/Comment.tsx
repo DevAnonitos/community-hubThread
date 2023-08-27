@@ -25,12 +25,14 @@ interface Props {
     threadId: string;
     currentUserId: string;
     currentUserImg: string;
+    classNames?: string;
 };
 
 const Comment = ({
     threadId,
     currentUserId,
-    currentUserImg
+    currentUserImg,
+    classNames,
 }: Props) => {
 
     const pathName = usePathname();
@@ -51,7 +53,7 @@ const Comment = ({
         <>
             <Form {...form}>
                 <form
-                    className='comment-form'
+                    className={`comment-form ${classNames}`}
                     onSubmit={form.handleSubmit(onSubmit)}
                 >
                     <FormField
