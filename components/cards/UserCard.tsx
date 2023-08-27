@@ -37,8 +37,8 @@ const UserCard = ({
                         <Image
                             src={imgUrl}
                             alt='UserLogo'
-                            width={24}
-                            height={24}
+                            width={26}
+                            height={26}
                             className='rounded-full object-cover'
                         />
                     </div>
