@@ -35,10 +35,10 @@ const UserCard = ({
                 <div className='user-card_avatar'>
                     <div className='relative'>
                         <Image
-                            src="/assets/user.svg"
+                            src={imgUrl}
                             alt='UserLogo'
-                            width={18}
-                            height={18}
+                            width={24}
+                            height={24}
                             className='rounded-full object-cover'
                         />
                     </div>

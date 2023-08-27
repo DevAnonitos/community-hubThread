@@ -1,13 +1,20 @@
 
-import React from 'react';
+import React, { Fragment, Suspense } from 'react';
 import { currentUser } from "@clerk/nextjs";
 import UserCard from '../cards/UserCard';
+
+import { fetchUsers } from '@/lib/actions/user.actions';
 
 const RightSidebar = async () => {
 
     const user = await currentUser();
 
     if(!user) return null;
+
+    const similarMinds = await fetchUsers({
+        userId: user.id,
+        pageSize: 4,
+    });
 
     return (
         <>
@@ -21,7 +28,28 @@ const RightSidebar = async () => {
                     </h3>
 
                     <div className='mt-7 flex-w-[350px] flex-col gap-9'>
-                        <UserCard />
+                        {similarMinds.users.length > 0 ? (
+                            <>
+                                {similarMinds.users.map((person) => (
+                                    <>
+                                        <UserCard
+                                            key={person.id}
+                                            id={person.id}
+                                            name={person.name}
+                                            username={person.username}
+                                            imgUrl={person.image}
+                                            personType='User'
+                                        />
+                                    </>
+                                ))}
+                            </>
+                        ): (
+                            <>
+                                <p className='!text-base-regular text-light-3'>
+                                    No users yet
+                                </p>
+                            </>
+                        )}
                     </div>
 
                 </div>
@@ -32,7 +60,28 @@ const RightSidebar = async () => {
                     </h3>
 
                     <div className='mt-7 flex-w-[350px] flex-col gap-10'>
-                        <UserCard />
+                        {similarMinds.users.length > 0 ? (
+                            <>
+                                {similarMinds.users.map((person) => (
+                                    <>
+                                        <UserCard
+                                            key={person.id}
+                                            id={person.id}
+                                            name={person.name}
+                                            username={person.username}
+                                            imgUrl={person.image}
+                                            personType='User'
+                                        />
+                                    </>
+                                ))}
+                            </>
+                        ): (
+                            <>
+                                <p className='!text-base-regular text-light-3'>
+                                    No users yet
+                                </p>
+                            </>
+                        )}
                     </div>
                 </div>
             </section>
