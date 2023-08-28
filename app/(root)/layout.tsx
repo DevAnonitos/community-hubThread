@@ -13,6 +13,8 @@ import {
   RightSidebar
 } from "@/components/shared";
 
+import { Toaster } from "@/components/ui/toaster";
+
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -47,6 +49,7 @@ export default function RootLayout({
 
           <main className="flex flex-row">
               <LeftSidebar />
+              
               <section className="main-container">
                 <Suspense>
                   <div className="w-full max-w-4xl">
@@ -54,6 +57,8 @@ export default function RootLayout({
                   </div>
                 </Suspense>
               </section>
+
+              <Toaster />
               {/* @ts-ignore */}
               <RightSidebar />
           </main>

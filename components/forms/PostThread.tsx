@@ -50,14 +50,14 @@ const PostThread = ({ userId, classNames }: Props) => {
     const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
         try {
 
-            
+
+            router.push("/");
             toast({
                 variant: "default",
                 title: "Yeah! Create PostThreads is successful",
                 description: "There was a post with your blog.",
                 action: <ToastAction altText="Ok">Ok</ToastAction>,
             });
-            router.push("/");
         } catch (error) {
             toast({
                 variant: "destructive",

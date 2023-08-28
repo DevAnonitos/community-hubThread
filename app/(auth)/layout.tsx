@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { dark } from "@clerk/themes"
 
+import { Toaster } from "@/components/ui/toaster";
+
 // Styles
 import "../globals.css";
 const inter = Inter({ subsets: ['latin'] });
@@ -38,6 +40,7 @@ export default function RootLayout({
                 >
                     <Suspense>
                         {children}
+                        <Toaster />
                     </Suspense>
                 </body>
             </html>
