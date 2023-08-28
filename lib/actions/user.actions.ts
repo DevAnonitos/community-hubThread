@@ -1,8 +1,10 @@
 "use server";
 
+import { cache } from "react";
 import { FilterQuery, SortOrder } from "mongoose";
 import { revalidatePath } from "next/cache";
 import { connectToDB } from "../mongoose";
+import 'server-only'
 
 // Import Models Schema
 import { User, Thread, Community} from "../models";
@@ -18,7 +20,7 @@ interface Params {
 };
 
 // FetchUser from MongoDb
-export const fetchUser = async (userId: string) => {
+export const fetchUser = cache(async (userId: string) => {
     try {
         connectToDB();
 
@@ -29,7 +31,7 @@ export const fetchUser = async (userId: string) => {
     } catch (error: any) {
         throw new Error(`Fail to fetch user: ${error.message}`)
     }
-};
+});
 
 // UpdateUser
 export const updateUser = async ({
@@ -69,7 +71,7 @@ export const updateUser = async ({
 };
 
 // FetchAll Users in DB
-export const fetchUsers = async ({
+export const fetchUsers = cache(async ({
     userId,
     pageNumber = 1,
     pageSize = 20,
@@ -125,9 +127,9 @@ export const fetchUsers = async ({
         console.error("Error fetching users:", error);
         throw error;
     }
-};
+});
 
-export const fetchUserPosts = async(userId: string) => {
+export const fetchUserPosts = cache(async(userId: string) => {
     try {
         connectToDB();
 
@@ -157,4 +159,4 @@ export const fetchUserPosts = async(userId: string) => {
         console.error("Error fetching user threads:", error);
         throw error;
     }
-};
+});
