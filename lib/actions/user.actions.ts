@@ -70,7 +70,8 @@ export const updateUser = async ({
     }
 };
 
-export const fetchUsers =cache(async ({
+// FetchAll Users in DB
+export const fetchUsers = cache(async ({
     userId,
     pageNumber = 1,
     pageSize = 20,
@@ -124,6 +125,38 @@ export const fetchUsers =cache(async ({
 
     } catch (error: any) {
         console.error("Error fetching users:", error);
+        throw error;
+    }
+});
+
+export const fetchUserPosts = cache(async(userId: string) => {
+    try {
+        connectToDB();
+
+        const threads =  await User.findOne({ id: userId }).populate({
+            path: "threads",
+            model: Thread,
+            populate: [
+                {
+                    path: "community",
+                    model: Community,
+                    select: "name id image _id", // Select the "name" and "_id" fields from the "Community" model
+                },
+                {
+                    path: "children",
+                    model: Thread,
+                    populate: {
+                        path: "author",
+                        model: User,
+                        select: "name image id", // Select the "name" and "_id" fields from the "User" model
+                    },
+                },
+            ],
+        });
+
+        return threads;
+    } catch (error: any) {
+        console.error("Error fetching user threads:", error);
         throw error;
     }
 });

@@ -3,6 +3,8 @@ import { redirect } from 'next/navigation';
 
 import ThreadCard from '../cards/ThreadCard';
 
+import { fetchUserPosts } from '@/lib/actions/user.actions';
+
 interface Result {
     name: string;
     image: string;
@@ -47,9 +49,7 @@ const ThreadsTab = async ({
     let result: Result;
 
     if(accountType === "Community") {
-
-    }else {
-
+        result = await fetchUserPosts(accountId);
     }
 
     if(!result) {
