@@ -49,11 +49,15 @@ const ThreadsTab = async ({
     let result: Result;
 
     if(accountType === "Community") {
+
+    } else {
         result = await fetchUserPosts(accountId);
     }
-
+    
+    {/* @ts-ignore */}
     if(!result) {
         redirect("/");
+        return null;
     }
 
     return (
