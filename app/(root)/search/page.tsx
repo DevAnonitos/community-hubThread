@@ -7,6 +7,8 @@ import { SearchBar, Pagination } from '@/components/shared';
 import { fetchUsers, fetchUser } from '@/lib/actions/user.actions';
 import UserCard from '@/components/cards/UserCard';
 
+export const revalidate = 10;
+
 const Page = async ({ searchParams }: {
     searchParams: {
         [key: string] : string | undefined,

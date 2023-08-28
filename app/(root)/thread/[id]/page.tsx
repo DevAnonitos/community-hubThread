@@ -7,7 +7,7 @@ import ThreadCard from '@/components/cards/ThreadCard';
 
 import { fetchUser } from '@/lib/actions/user.actions';
 
-export const revalidate = 0;
+export const revalidate = 10;
 
 const Page = async ({ params }: { params: { id: string } }) => {
 
@@ -35,7 +35,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
                     <div className='mt-10'>
                         <ThreadCard
-                            
+
                         />
                     </div>
                 </section>
