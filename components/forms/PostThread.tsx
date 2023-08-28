@@ -21,6 +21,9 @@ import {
 import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
 
+import { ToastAction } from '../ui/toast';
+import { useToast } from '../ui/use-toast';
+
 
 interface Props {
     userId: string;
@@ -34,6 +37,8 @@ const PostThread = ({ userId, classNames }: Props) => {
 
     const { organization } = useOrganization();
 
+    const { toast } = useToast();
+
     const form  = useForm<z.infer<typeof ThreadValidation>>({
         resolver: zodResolver(ThreadValidation),
         defaultValues: {
@@ -43,9 +48,24 @@ const PostThread = ({ userId, classNames }: Props) => {
     });
 
     const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
+        try {
 
-
-        router.push("/");
+            
+            toast({
+                variant: "default",
+                title: "Yeah! Create PostThreads is successful",
+                description: "There was a post with your blog.",
+                action: <ToastAction altText="Ok">Ok</ToastAction>,
+            });
+            router.push("/");
+        } catch (error) {
+            toast({
+                variant: "destructive",
+                title: "Uh oh! Something went wrong.",
+                description: "There was a problem with your request.",
+                action: <ToastAction altText="Try again">Try again</ToastAction>,
+            });
+        }
     };
 
     return (
