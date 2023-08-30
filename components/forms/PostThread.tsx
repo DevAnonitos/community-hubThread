@@ -62,9 +62,9 @@ const PostThread = ({ userId, classNames }: Props) => {
             router.push("/");
             toast({
                 variant: "default",
-                title: "Yeah! Create PostThreads is successful",
-                description: "There was a post with your blog.",
-                action: <ToastAction altText="Ok">Ok</ToastAction>,
+                title: "Yeah! Create Threads is successful",
+                description: "See your threads in homepage",
+                action: <ToastAction altText="Continue">Continue</ToastAction>,
             });
         } catch (error) {
             toast({

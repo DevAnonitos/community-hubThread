@@ -59,7 +59,7 @@ const ThreadCard = ({
                                 className='relative h-11 w-11'
                             >
                                 <Image
-                                    src="/assets/user.svg"
+                                    src={author?.image}
                                     alt='User-community-image'
                                     fill
                                     className='cursor-pointer rounded-full'
@@ -85,7 +85,6 @@ const ThreadCard = ({
 
                             <p className='mt-2 text-small-regular text-light-2'>
                                 {content}
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa id excepturi eos sed aliquid dolores dolore porro vel quod aperiam debitis ullam asperiores aliquam, exercitationem officiis eligendi eius beatae nisi!
                             </p>
 
                             <div
