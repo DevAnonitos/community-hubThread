@@ -34,7 +34,7 @@ const Page = async () => {
                         </h1>
                     </div>
 
-                    <PostThread userId={userInfo._id} />
+                    <PostThread userId={userInfo._id.toString()} />
 
                 </section>
             </Suspense>

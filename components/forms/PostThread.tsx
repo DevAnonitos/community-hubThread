@@ -24,6 +24,8 @@ import { Textarea } from '../ui/textarea';
 import { ToastAction } from '../ui/toast';
 import { useToast } from '../ui/use-toast';
 
+import { createThread } from '@/lib/actions/thread.actions';
+
 
 interface Props {
     userId: string;
@@ -50,6 +52,12 @@ const PostThread = ({ userId, classNames }: Props) => {
     const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
         try {
 
+            await createThread({
+                text: values.thread,
+                author: userId,
+                communityId: organization ? organization.id : null,
+                path: pathName,
+            });
 
             router.push("/");
             toast({
