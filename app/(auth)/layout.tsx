@@ -11,9 +11,22 @@ import "../globals.css";
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+    generator: 'Next.js',
     applicationName: 'HubThreads',
     title: 'AuthHubThread',
-    description: 'CommunityApp',
+    bookmarks: "ThreadApp",
+    description: 'CommunityApp is the best community to share your post',
+    keywords: ['Next.js', 'React', 'JavaScript'],
+    authors: [
+        { name: 'Bao Nguyen', url: 'https://nextjs.org' }
+    ],
+    creator: 'CodeNode',
+    publisher: 'Bao Nguyen',
+    formatDetection: {
+        email: false,
+        address: false,
+        telephone: false,
+    },
     robots: {
         follow: true,
         index: true,

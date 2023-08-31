@@ -23,9 +23,23 @@ const inter = Inter({
 
 // Meta Data
 export const metadata: Metadata = {
+  generator: 'Next.js',
   applicationName: 'HubThreads',
   title: 'HubThreadApp',
-  description: 'CommunityApp',
+  bookmarks: "ThreadApp",
+  description: 'CommunityApp is the best community to share your post',
+  referrer: 'origin-when-cross-origin',
+  keywords: ['Next.js', 'React', 'JavaScript'],
+  authors: [
+    { name: 'Bao Nguyen', url: 'https://nextjs.org' }
+  ],
+  creator: 'CodeNode',
+  publisher: 'Bao Nguyen',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   robots: {
     follow: true,
     index: true,
@@ -49,7 +63,7 @@ export default function RootLayout({
 
           <main className="flex flex-row">
               <LeftSidebar />
-              
+
               <section className="main-container">
                 <Suspense>
                   <div className="w-full max-w-4xl">
