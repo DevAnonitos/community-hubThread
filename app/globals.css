@@ -3,27 +3,25 @@
 @tailwind utilities;
 
 
-/* ::-webkit-scrollbar {
-    width: 3px;
-    height: 50%;
-    background-color: #000;
+/* scrollbar.css */
+
+/* Define the styles for the scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
+::-webkit-scrollbar-track {
+    background-color: #09090a;
+}
 
 ::-webkit-scrollbar-thumb {
-    background-color: #877EFF;
-    border-radius: 8px;
+    background-color: #697C89;
+    border-radius: 4px;
 }
-
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
+    background-color: #09090d;
 }
-
-
-::-webkit-scrollbar-thumb:active {
-    background-color: #333;
-} */
 
 @layer components {
     /* main */
