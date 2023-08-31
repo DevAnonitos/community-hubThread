@@ -51,3 +51,53 @@ export const createThread = async({ text, author, communityId, path }: Params) =
         throw new Error(`Failed to create thread: ${error.message}`);
     }
 };
+
+export const fetchPosts = async(pageNumber = 1, pageSize = 20) => {
+    try {
+
+        connectToDB();
+
+        const skipAmount = (pageNumber - 1) * pageSize;
+
+        const postQuery = Thread.find({
+            parentId: {
+                $in: [null, undefined],
+            },
+        })
+            .sort({ createdAt: "desc" })
+            .skip(skipAmount)
+            .limit(pageSize)
+            .populate({
+                path: "author",
+                model: User,
+            })
+            .populate({
+                path: "community",
+                model: Community,
+            })
+            .populate({
+                path: "children",
+                populate: {
+                    path: "author",
+                    model: User,
+                    select: "_id name parentId image",
+                },
+            });
+
+            const totalPostCount = await Thread.countDocuments({
+                parentId: { $in: [null, undefined], },
+            });
+
+            const posts = await postQuery.exec();
+
+            const isNext = totalPostCount > skipAmount + posts.length;
+
+            return {
+                posts,
+                isNext,
+            };
+    } catch (error: any) {
+        console.error('Error to fetchPosts: ', error);
+        throw error;
+    }
+};

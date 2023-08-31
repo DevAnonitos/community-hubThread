@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import Image from "next/image";
 
 import { fetchUser } from "@/lib/actions/user.actions";
+import { fetchPosts } from "@/lib/actions/thread.actions";
 
 import { Pagination } from "@/components/shared";
 import ThreadCard from "@/components/cards/ThreadCard";
@@ -25,6 +26,11 @@ export default async function Home({
 
   if(!userInfo?.onboarding) redirect("/onboarding");
 
+  const result = await fetchPosts(
+    searchParams.page ? +searchParams.page : 1,
+    30,
+  );
+
   return (
     <>
       <div className="flex items-center">
@@ -42,15 +48,38 @@ export default async function Home({
 
       <section className="mt-5 flex flex-col gap-10 text-white">
         <Suspense fallback={<Skeleton />}>
-          <ThreadCard
-
-          />
+          {result.posts.length === 0 ? (
+            <>
+              <p className='no-result'>No threads found</p>
+            </>
+          ): (
+            <>
+              {result.posts.map((post) => (
+                <>
+                  <Suspense fallback={<Skeleton />}>
+                    <ThreadCard
+                      key={post._id}
+                      id={post._id}
+                      currentUserId={user.id}
+                      parentId={post.parentId}
+                      content={post.text}
+                      author={post.author}
+                      community={post.community}
+                      createdAt={post.createdAt}
+                      comments={post.children}
+                    />
+                  </Suspense>
+                </>
+              ))}
+            </>
+          )}
         </Suspense>
       </section>
 
       <Pagination
         path="/"
-        pageNumber={3}
+        pageNumber={searchParams?.page ? +searchParams.page : 1}
+        isNext={result.isNext}
       />
     </>
   );
