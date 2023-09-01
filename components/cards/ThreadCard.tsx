@@ -102,14 +102,14 @@ const ThreadCard = ({
                             </Link>
 
                             <TooltipProvider>
-                                <Tooltip className="flex items-start">
+                                <Tooltip>
                                     <TooltipTrigger className="flex items-start">
                                         <h5 className='mt-2 text-gray-500 text-small-regular hover:underline'>
                                             | {formatDates(createdAt)}
                                         </h5>
                                     </TooltipTrigger>
-                                    <TooltipContent className="flex items-start">
-                                        <p className='flex items-start'>
+                                    <TooltipContent className="flex items-start justify-start">
+                                        <p className='flex items-start justify-start'>
                                             {formatDateString(createdAt)}
                                         </p>
                                     </TooltipContent>
