@@ -47,6 +47,8 @@ export const createThread = async({ text, author, communityId, path }: Params) =
             })
         }
 
+        revalidatePath(path);
+
     } catch (error: any) {
         throw new Error(`Failed to create thread: ${error.message}`);
     }
@@ -98,6 +100,23 @@ export const fetchPosts = async(pageNumber = 1, pageSize = 20) => {
             };
     } catch (error: any) {
         console.error('Error to fetchPosts: ', error);
+        throw error;
+    }
+};
+
+export const deleteThread = async(id: string, path: string): Promise<void> => {
+    try {
+        connectToDB();
+
+        const mainThread = await Thread.findById(id).populate("author community");
+
+        if(!mainThread) {
+            throw new Error("Thread not found");
+        }
+
+        
+    } catch (error: any) {
+        console.error("Error to delete Threads", error);
         throw error;
     }
 };

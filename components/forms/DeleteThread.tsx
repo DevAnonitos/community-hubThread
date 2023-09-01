@@ -4,6 +4,8 @@ import React from 'react';
 import Image from "next/image";
 import { useRouter, usePathname } from 'next/navigation';
 
+import { deleteThread } from '@/lib/actions/thread.actions';
+
 interface Props {
     threadId: string;
     currentUserId: string;

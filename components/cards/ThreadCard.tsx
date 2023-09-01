@@ -76,10 +76,9 @@ const ThreadCard = ({
                             >
                                 <h4
                                     className='cursor-pointer
-                                    text-base-semibold text-light-1'
+                                    text-base-semibold text-light-1 hover:underline'
                                 >
                                     {author?.name}
-                                    Name
                                 </h4>
                             </Link>
 
