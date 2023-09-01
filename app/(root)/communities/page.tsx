@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 import { SearchBar, Pagination } from '@/components/shared';
 import CommunityCard from '@/components/cards/CommunityCard';
+import { fetchUser } from '@/lib/actions/user.actions';
 
 const Page = async (
     {
@@ -18,6 +19,11 @@ const Page = async (
     }) => {
 
     const user = await currentUser();
+    if(!user) return null;
+
+    const userInfo = await fetchUser(user.id);
+
+    if(!userInfo?.onboarding) redirect("/onboarding");
 
     return (
         <>
