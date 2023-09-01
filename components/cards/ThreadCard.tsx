@@ -3,7 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 import DeleteThread from '../forms/DeleteThread';
-import { formatDateString } from '@/lib/utils';
+
+import { formatDateString } from "../../lib/utils";
+import { formatDistanceToNow } from 'date-fns';
+
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from '../ui/tooltip';
 
 interface Props {
     id: string;
@@ -42,6 +51,16 @@ const ThreadCard = ({
     isComment,
     classNames,
 }: Props) => {
+
+    const formatDates= (dateString: string) => {
+        const date = new Date(dateString);
+        const formattedDate = formatDistanceToNow(date, {
+            addSuffix: true,
+            includeSeconds: true,
+        });
+        return formattedDate;
+    };
+
     return (
         <>
             <article
@@ -82,7 +101,22 @@ const ThreadCard = ({
                                 </h4>
                             </Link>
 
-                            <p className='mt-2 text-small-regular text-light-2'>
+                            <TooltipProvider>
+                                <Tooltip className="flex items-start">
+                                    <TooltipTrigger className="flex items-start">
+                                        <h5 className='mt-2 text-gray-500 text-small-regular hover:underline'>
+                                            | {formatDates(createdAt)}
+                                        </h5>
+                                    </TooltipTrigger>
+                                    <TooltipContent className="flex items-start">
+                                        <p className='flex items-start'>
+                                            {formatDateString(createdAt)}
+                                        </p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+
+                            <p className='mt-3 text-small-semibold text-light-2'>
                                 {content}
                             </p>
 
