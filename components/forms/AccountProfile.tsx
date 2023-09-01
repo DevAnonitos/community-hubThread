@@ -43,7 +43,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     const router = useRouter();
     const pathName = usePathname();
 
-
+    const [isLoading, setIsLoading] = useState(false);
 
     const [files, setFiles] = useState<File[]>([]);
     const { startUpload } = useUploadThing("imageUploader");
@@ -72,21 +72,31 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             }
         }
 
-        await updateUser({
-            name: values.name,
-            path: pathName,
-            username: values.username,
-            userId: user.id,
-            bio: values.bio,
-            image: values.profile_photo,
-        });
+        try {
 
-        if(pathName === `/profile/edit`) {
-            router.back();
-        }else {
-            router.push("/");
+            setIsLoading(true);
+
+            await updateUser({
+                name: values.name,
+                path: pathName,
+                username: values.username,
+                userId: user.id,
+                bio: values.bio,
+                image: values.profile_photo,
+            });
+
+            if(pathName === `/profile/edit`) {
+                router.back();
+            }else {
+                router.push("/");
+            }
+        } catch (error: any) {
+            console.error("Error to create", error);
+            throw error;
+        }finally {
+            setIsLoading(false);
         }
-        console.log(values);
+
     };
 
     const handleImage = (
@@ -235,8 +245,9 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                     <Button
                         type='submit'
                         className='bg-primary-500 hover:bg-primary-500 rounded-lg'
+                        disabled={isLoading}
                     >
-                        {btnTitle}
+                        {isLoading ? "Loading..." : btnTitle}
                     </Button>
                 </form>
             </Form>

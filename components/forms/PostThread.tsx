@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import * as z from "zod";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -41,6 +41,8 @@ const PostThread = ({ userId, classNames }: Props) => {
 
     const { toast } = useToast();
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const form  = useForm<z.infer<typeof ThreadValidation>>({
         resolver: zodResolver(ThreadValidation),
         defaultValues: {
@@ -51,6 +53,8 @@ const PostThread = ({ userId, classNames }: Props) => {
 
     const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
         try {
+
+            setIsLoading(true);
 
             await createThread({
                 text: values.thread,
@@ -66,13 +70,15 @@ const PostThread = ({ userId, classNames }: Props) => {
                 description: "See your threads in homepage",
                 action: <ToastAction altText="Continue">Continue</ToastAction>,
             });
-        } catch (error) {
+        } catch (error: any) {
             toast({
                 variant: "destructive",
                 title: "Uh oh! Something went wrong.",
                 description: "There was a problem with your request.",
                 action: <ToastAction altText="Try again">Try again</ToastAction>,
             });
+        }finally {
+            setIsLoading(false);
         }
     };
 
@@ -105,8 +111,9 @@ const PostThread = ({ userId, classNames }: Props) => {
                     <Button
                         type='submit'
                         className='bg-primary-500 hover:bg-primary-500 rounded-lg'
+                        disabled={isLoading}
                     >
-                        Post Thread
+                        {isLoading ? "Loading...": "PostThread"}
                     </Button>
                 </form>
             </Form>
