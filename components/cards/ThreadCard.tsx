@@ -1,6 +1,9 @@
+"use client";
+
 import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
+
 
 import DeleteThread from '../forms/DeleteThread';
 
@@ -13,6 +16,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from '../ui/tooltip';
+
 
 interface Props {
     id: string;
@@ -51,6 +55,7 @@ const ThreadCard = ({
     isComment,
     classNames,
 }: Props) => {
+
 
     const formatDates= (dateString: string) => {
         const date = new Date(dateString);
