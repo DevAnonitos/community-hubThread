@@ -6,4 +6,4 @@ export {
     UserCard,
     ThreadCard,
     CommunityCard,
-}
+};
