@@ -8,6 +8,7 @@ import DeleteThread from '../forms/DeleteThread';
 
 import { formatDateString } from "../../lib/utils";
 import { formatDistanceToNow } from 'date-fns';
+import { enUS } from 'date-fns/locale';
 
 import {
     Tooltip,
@@ -61,6 +62,7 @@ const ThreadCard = ({
         const formattedDate = formatDistanceToNow(date, {
             addSuffix: true,
             includeSeconds: true,
+            locale: enUS,
         });
         return formattedDate;
     };
@@ -134,7 +136,7 @@ const ThreadCard = ({
                                         alt='heart'
                                         width={26}
                                         height={26}
-                                        className='cursor-pointer object-contain'
+                                        className='cursor-pointer object-contain hover:scale-125 ease-in-out duration-200'
                                     />
                                     <Link href={`/thread/${id}`}>
                                         <Image
@@ -142,7 +144,7 @@ const ThreadCard = ({
                                             alt='reply'
                                             width={26}
                                             height={26}
-                                            className='cursor-pointer object-contain'
+                                            className='cursor-pointer object-contain hover:scale-125 ease-in-out duration-200'
                                         />
                                     </Link>
                                     <Image
@@ -150,14 +152,14 @@ const ThreadCard = ({
                                         alt='repost'
                                         width={26}
                                         height={26}
-                                        className='cursor-pointer object-contain'
+                                        className='cursor-pointer object-contain hover:scale-125 ease-in-out duration-200'
                                     />
                                     <Image
                                         src="/assets/share.svg"
                                         alt='share'
                                         width={26}
                                         height={26}
-                                        className='cursor-pointer object-contain'
+                                        className='cursor-pointer object-contain hover:scale-125 ease-in-out duration-200'
                                     />
                                 </div>
 
