@@ -114,9 +114,44 @@ export const deleteThread = async(id: string, path: string): Promise<void> => {
             throw new Error("Thread not found");
         }
 
-        
+
     } catch (error: any) {
         console.error("Error to delete Threads", error);
         throw error;
+    }
+};
+
+export const addCommentToThread = async(
+    threadId: string,
+    commentText: string,
+    userId: string,
+    path: string,
+) => {
+
+    try {
+        connectToDB();
+
+        const originalThread = await Thread.findById(threadId);
+
+        if(!originalThread) {
+            throw new Error("Thread not found");
+        }
+
+        const commentThread = new Thread({
+            text: commentText,
+            author: userId,
+            parentId: threadId,
+        });
+
+        const saveCommentThread = await commentThread.save();
+
+        originalThread.children.push(saveCommentThread._id);
+
+        await originalThread.save();
+
+        revalidatePath(path);
+    } catch (error: any) {
+        console.error("Error while adding comment: ", error);
+        throw new Error("Unable to add comment");
     }
 };
