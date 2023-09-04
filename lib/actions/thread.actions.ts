@@ -147,6 +147,18 @@ export const fetchPosts = async(pageNumber = 1, pageSize = 20) => {
     }
 };
 
+export const fetchAllChildThreads = async(threadId: string): Promise<any[]> => {
+    const childThreads = await Thread.find({ parentId: threadId });
+
+    const descendantThreads = [];
+    for (const childThread of childThreads) {
+        const descendants = await fetchAllChildThreads(childThread._id);
+        descendantThreads.push(childThread, ...descendants);
+    }
+
+    return descendantThreads;
+};
+
 export const deleteThread = async(id: string, path: string): Promise<void> => {
     try {
         connectToDB();
