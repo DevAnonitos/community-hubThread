@@ -32,14 +32,17 @@ const RightSidebar = async () => {
                             <>
                                 {similarMinds.users.map((person) => (
                                     <>
-                                        <UserCard
-                                            key={person.id}
-                                            id={person.id}
-                                            name={person.name}
-                                            username={person.username}
-                                            imgUrl={person.image}
-                                            personType='User'
-                                        />
+                                        <Fragment key={person.id}>
+                                            <Suspense>
+                                                <UserCard
+                                                    id={person.id}
+                                                    name={person.name}
+                                                    username={person.username}
+                                                    imgUrl={person.image}
+                                                    personType='User'
+                                                />
+                                            </Suspense>
+                                        </Fragment>
                                     </>
                                 ))}
                             </>
@@ -64,14 +67,17 @@ const RightSidebar = async () => {
                             <>
                                 {similarMinds.users.map((person) => (
                                     <>
-                                        <UserCard
-                                            key={person.id}
-                                            id={person.id}
-                                            name={person.name}
-                                            username={person.username}
-                                            imgUrl={person.image}
-                                            personType='User'
-                                        />
+                                        <Fragment key={person.id}>
+                                            <Suspense>
+                                                <UserCard
+                                                    id={person.id}
+                                                    name={person.name}
+                                                    username={person.username}
+                                                    imgUrl={person.image}
+                                                    personType='User'
+                                                />
+                                            </Suspense>
+                                        </Fragment>
                                     </>
                                 ))}
                             </>
