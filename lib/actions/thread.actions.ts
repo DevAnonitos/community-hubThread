@@ -205,7 +205,7 @@ export const deleteThread = async(id: string, path: string): Promise<void> => {
             { $pull: { threads: { $in: descendantThreadIds } } }
         );
 
-
+        revalidatePath(path);
     } catch (error: any) {
         console.error("Error to delete Threads", error);
         throw error;

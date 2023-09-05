@@ -6,6 +6,9 @@ import { useRouter, usePathname } from 'next/navigation';
 
 import { deleteThread } from '@/lib/actions/thread.actions';
 
+import { ToastAction } from '../ui/toast';
+import { useToast } from '../ui/use-toast';
+
 interface Props {
     threadId: string;
     currentUserId: string;
@@ -25,6 +28,8 @@ const DeleteThread = ({
     const pathName = usePathname();
     const router = useRouter();
 
+    const { toast } = useToast();
+
     if(currentUserId !== authorId || pathName === "/") return null;
 
     return (
@@ -35,6 +40,18 @@ const DeleteThread = ({
                 width={20}
                 height={20}
                 className='cursor-pointer object-contain'
+                onClick={async () => {
+                    await deleteThread(JSON.parse(threadId), pathName);
+                    if(!parentId || !isComment){
+                        router.push("/");
+                        toast({
+                            variant: "default",
+                            title: "Delete Threads is successful",
+                            description: "See your threads in homepage",
+                            action: <ToastAction altText="Continue">Continue</ToastAction>,
+                        });
+                    }
+                }}
             />
         </div>
     );
