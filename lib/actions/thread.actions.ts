@@ -169,6 +169,42 @@ export const deleteThread = async(id: string, path: string): Promise<void> => {
             throw new Error("Thread not found");
         }
 
+        const descendantThreads = await fetchAllChildThreads(id);
+
+        const descendantThreadIds = [
+            id,
+            ...descendantThreads.map((thread) => thread.id),
+        ];
+
+        const uniqueAuthorIds = new Set(
+            [
+                ...descendantThreads.map((thread) => thread.author?._id?.toString()),
+                mainThread.author?._id?.toString(),
+            ].filter((id) => id !== undefined),
+        );
+
+        const uniqueCommunityIds = new Set(
+            [
+                ...descendantThreads.map((thread) => thread.author?._id?.toString()),
+                mainThread.author?._id?.toString(),
+            ].filter((id) => id !== undefined),
+        );
+
+        await Thread.deleteMany({
+            _id: { $in: descendantThreadIds }
+        });
+
+        await User.updateMany(
+            { _id: { $in: Array.from(uniqueAuthorIds) } },
+            { $pull: { threads: { $in: descendantThreadIds } } }
+        );
+
+          // Update Community model
+        await Community.updateMany(
+            { _id: { $in: Array.from(uniqueCommunityIds) } },
+            { $pull: { threads: { $in: descendantThreadIds } } }
+        );
+
 
     } catch (error: any) {
         console.error("Error to delete Threads", error);
