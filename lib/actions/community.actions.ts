@@ -45,3 +45,22 @@ export const createCommunity = async(
     }
 };
 
+export const fetchCommunityDetails = async(id: string) => {
+    try {
+        connectToDB();
+
+        const communityDetails = await Community.findOne({ id }).populate([
+            "createdBy",
+            {
+                path: "members",
+                model: User,
+                select: "name username image _id id",
+            },
+        ]);
+
+        return communityDetails;
+    } catch (error: any) {
+        console.error("Error fetching community details:", error);
+        throw error;
+    }
+};
