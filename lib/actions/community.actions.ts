@@ -3,6 +3,7 @@
 import { FilterQuery, SortOrder } from "mongoose";
 import { Community, Thread, User } from "../models";
 import { connectToDB } from "../mongoose";
+import { threadId } from "worker_threads";
 
 // Handle File Func
 export const createCommunity = async(
@@ -62,5 +63,39 @@ export const fetchCommunityDetails = async(id: string) => {
     } catch (error: any) {
         console.error("Error fetching community details:", error);
         throw error;
+    }
+};
+
+export const fetchCommunityPost = async(id: string) => {
+    try {
+        connectToDB();
+
+        const communityPosts = await Community.findById(id).populate(
+            {
+                path: "threads",
+                model: Thread,
+                populate: [
+                    {
+                        path: "author",
+                        model: User,
+                        select: "name image id", // Select the "name" and "_id" fields from the "User" model
+                    },
+                    {
+                        path: "children",
+                        model: Thread,
+                        populate: {
+                            path: "author",
+                            model: User,
+                            select: "image _id", // Select the "name" and "_id" fields from the "User" model
+                        },
+                    },
+                ],
+            },
+        );
+
+        return communityPosts;
+    } catch (error: any) {
+        console.log("Error fetch community post: ", error);
+        throw Error;
     }
 };
