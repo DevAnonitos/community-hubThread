@@ -1,9 +1,13 @@
 import React, { Suspense } from 'react';
 import Image from 'next/image';
+
 import { currentUser } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
+
 import { fetchUser, getActivity } from '@/lib/actions/user.actions';
 import Link from 'next/link';
+
+import socketIOClient from 'socket.io-client';
 
 const Page = async () => {
 

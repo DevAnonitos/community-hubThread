@@ -206,7 +206,10 @@ const ThreadCard = ({
                             ))}
 
                             <Link href={`/thread/${id}`}>
-                                <p className='mt-1 text-subtle-medium text-gray-1'>
+                                <p 
+                                    className='mt-1 text-subtle-medium 
+                                    text-gray-1 hover:underline'
+                                >
                                     {comments.length} repl{comments.length > 1 ? "ies" : "y"}
                                 </p>
                             </Link>
