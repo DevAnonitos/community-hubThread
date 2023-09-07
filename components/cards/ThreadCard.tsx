@@ -73,7 +73,7 @@ const ThreadCard = ({
                 className={`flex w-full flex-col rounded-xl
                     border-[1px] border-gray-700
                     ${classNames}
-                    ${isComment ? "px-0 xs:px-7" : "bg-dark-2 p-7" }
+                    ${isComment ? "mt-7 xs:px-7 p-4" : "bg-dark-2 p-7" }
                 `}
             >
                 <div className='flex items-start justify-between'>
@@ -167,7 +167,7 @@ const ThreadCard = ({
                                     <>
                                         <Link href={`/thread/${id}`}>
                                             <p
-                                                className='mt-1
+                                                className='mt-1 
                                                 text-subtle-medium text-gray-1'
                                             >
                                                 {comments.length} repl{comments.length > 1 ? "ies" : "y"}

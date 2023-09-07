@@ -20,6 +20,7 @@ import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 
 import { CommentValidation } from '@/lib/validations/thread';
+import { addCommentToThread } from '@/lib/actions/thread.actions';
 
 interface Props {
     threadId: string;
@@ -45,6 +46,12 @@ const Comment = ({
     });
 
     const onSubmit =  async (values: z.infer<typeof CommentValidation>) => {
+        await addCommentToThread(
+            threadId,
+            values.thread,
+            JSON.parse(currentUserId),
+            pathName,
+        );
 
         form.reset();
     };
@@ -64,7 +71,7 @@ const Comment = ({
                                 <FormItem className='flex w-full items-center gap-3'>
                                     <FormLabel>
                                         <Image
-                                            src="/assets/user.svg"
+                                            src={currentUserImg}
                                             alt='current_user'
                                             width={48}
                                             height={48}
