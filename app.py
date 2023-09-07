@@ -56,6 +56,6 @@ with mid_col:
 with right_col:
     st.subheader("Average Sales Per Transaction: ")
     st.subheader(f"US $ {avg_sale_by_transaction}")
-st.markdown("---")
+st.markdown("""---""")
 
 st.dataframe(df)
