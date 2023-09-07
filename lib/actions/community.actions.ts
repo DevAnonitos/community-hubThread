@@ -66,7 +66,7 @@ export const fetchCommunityDetails = async(id: string) => {
     }
 };
 
-export const fetchCommunityPost = async(id: string) => {
+export const fetchCommunityPosts = async(id: string) => {
     try {
         connectToDB();
 
@@ -78,7 +78,7 @@ export const fetchCommunityPost = async(id: string) => {
                     {
                         path: "author",
                         model: User,
-                        select: "name image id", // Select the "name" and "_id" fields from the "User" model
+                        select: "name image id", 
                     },
                     {
                         path: "children",
@@ -86,7 +86,7 @@ export const fetchCommunityPost = async(id: string) => {
                         populate: {
                             path: "author",
                             model: User,
-                            select: "image _id", // Select the "name" and "_id" fields from the "User" model
+                            select: "image _id",
                         },
                     },
                 ],
@@ -97,6 +97,54 @@ export const fetchCommunityPost = async(id: string) => {
     } catch (error: any) {
         console.log("Error fetch community post: ", error);
         throw Error;
+    }
+};
+
+export const fetchCommunities = async({
+    searchString = "",
+    pageNumber = 1,
+    pageSize = 20,
+    sortBy = "desc",
+}: {
+    searchString?: string | undefined;
+    pageNumber?: number | undefined;
+    pageSize?: number | undefined;
+    sortBy?: SortOrder;
+}) => {
+    try {
+        connectToDB();
+
+        const skipAmount = (pageNumber - 1) * pageSize;
+        
+        const regex = new RegExp(searchString, "i");
+
+        const query: FilterQuery<typeof Community> = {};
+
+        if(searchString.trim() !== ""){
+            query.$or = [
+                { username: { $regex: regex } },
+                { name: { $regex: regex } },
+            ];
+        }
+
+        const sortOptions = { createdAt: sortBy, };
+
+        const communitiesQuery = Community.find(query)
+            .sort(sortOptions)
+            .skip(skipAmount)
+            .limit(pageSize)
+            .populate("members");
+        
+        const totalCommunitiesCount = await Community.countDocuments(query);
+
+        const communities = await communitiesQuery.exec();
+
+        const isNext = totalCommunitiesCount > skipAmount + communities.length;
+
+        return { communities, isNext };
+    } catch (error: any) {
+        console.error("Error to fetching communities: ", error);
+        throw error;
     }
 };
 
