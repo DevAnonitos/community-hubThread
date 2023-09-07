@@ -3,7 +3,7 @@
 import { FilterQuery, SortOrder } from "mongoose";
 import { Community, Thread, User } from "../models";
 import { connectToDB } from "../mongoose";
-import { threadId } from "worker_threads";
+
 
 // Handle File Func
 export const createCommunity = async(
@@ -97,5 +97,39 @@ export const fetchCommunityPost = async(id: string) => {
     } catch (error: any) {
         console.log("Error fetch community post: ", error);
         throw Error;
+    }
+};
+
+export const deleteCommunity = async(communityId: string) => {
+    try {
+        connectToDB();
+
+        const deleteCommunity = await Community.findOneAndDelete({
+            id: communityId,
+        });
+
+        if(!deleteCommunity){
+            throw new Error("Community not found");
+        }
+
+        await Thread.deleteMany({
+            community: communityId,
+        });
+
+        const communityUsers = await User.find({
+            communities: communityId,
+        });
+
+        const updateUserPromises = communityUsers.map((user) => {
+            user.communities.pull(communityId);
+            return user.save();
+        });
+
+        await Promise.all(updateUserPromises);
+
+        return deleteCommunity;
+    } catch (error: any) {
+        console.error("Error deleting community: ", error);
+        throw error;
     }
 };
