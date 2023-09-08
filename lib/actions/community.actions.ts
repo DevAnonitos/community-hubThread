@@ -178,6 +178,61 @@ export const addMemberToCommunity = async(communityId: string, memberId: string)
     }
 };
 
+export const removeUserFromCommunity = async (userId: string, communityId: string) => {
+    try {
+        connectToDB();
+
+        const userIdObject = await User.findOne(
+            {
+                id: userId,
+            },
+            {
+                _id: 1,
+            },
+        );
+
+        const communityIdObject = await Community.findOne(
+            {
+                id: communityId,
+            },
+            {
+                _id: 1,
+            },
+        );
+
+        if(!userIdObject){
+            throw new Error("User not found");
+        }
+
+        if(!communityIdObject){
+            throw new Error("Community not found");
+        }
+
+        await Community.updateOne(
+            { 
+                _id: communityIdObject._id, 
+            },
+            { 
+                $pull: { members: userIdObject._id, }, 
+            },
+        );
+
+        await User.updateOne(
+            { 
+                _id: userIdObject._id 
+            },
+            { 
+                $pull: { communities: userIdObject._id, }, 
+            },
+        );
+
+        return { success: true };
+    } catch (error: any) {
+        console.error("Error to removeUserFrom Community: ", error);
+        throw error;
+    }
+};
+
 export const deleteCommunity = async(communityId: string) => {
     try {
         connectToDB();
