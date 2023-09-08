@@ -233,6 +233,37 @@ export const removeUserFromCommunity = async (userId: string, communityId: strin
     }
 };
 
+export const updateCommunityInfo = async (
+    communityId: string,
+    name: string, 
+    username: string,
+    image: string,
+) => {
+    try {
+        connectToDB();
+
+        const updateCommunity = await Community.findOneAndUpdate(
+            {
+                id: communityId,
+            },
+            {
+                name,
+                username,
+                image,
+            },
+        );
+
+        if(!updateCommunity){
+            throw new Error("Community not found");
+        }
+
+        return updateCommunity;
+    } catch (error) {
+        console.error("Error to updateUser: ", error);
+        throw error;
+    }
+};
+
 export const deleteCommunity = async(communityId: string) => {
     try {
         connectToDB();
