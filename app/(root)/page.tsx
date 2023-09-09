@@ -11,6 +11,12 @@ import { Pagination } from "@/components/shared";
 import ThreadCard from "@/components/cards/ThreadCard";
 import { Skeleton } from "@/components/ui/skeleton";
 
+import { Redis } from '@upstash/redis';
+
+export const revalidate = 0;
+
+const redis = Redis.fromEnv();
+
 export default async function Home({
   searchParams
 }: {searchParams: {
@@ -25,11 +31,22 @@ export default async function Home({
   const userInfo = await fetchUser(user.id);
 
   if(!userInfo?.onboarding) redirect("/onboarding");
+  
+  await redis.set(user.id, JSON.stringify(userInfo));
 
   const result = await fetchPosts(
     searchParams.page ? +searchParams.page : 1,
     30,
   );
+  
+  let member;
+  try {
+    member = await redis.srandmember<string>("nextjs13");
+    console.log(member);
+  } catch (error) {
+    console.error("Error: Unauthorized", error);
+    member = "Unauthorized";
+  }
 
   return (
     <>
@@ -42,7 +59,7 @@ export default async function Home({
               className='object-contain flex items-center mb-10 mr-4'
           />
         <h1 className="head-text text-left mb-10">
-          Home
+          Home welcome {member}
         </h1>
       </div>
 
