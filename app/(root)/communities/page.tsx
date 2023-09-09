@@ -28,7 +28,6 @@ const Page = async (
     return (
         <>
             <Suspense>
-
                 <section>
                     <div className='flex items-center'>
 

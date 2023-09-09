@@ -4,6 +4,7 @@ import { currentUser } from "@clerk/nextjs";
 import UserCard from '../cards/UserCard';
 
 import { fetchUsers } from '@/lib/actions/user.actions';
+import { fetchCommunities } from '@/lib/actions/community.actions';
 
 const RightSidebar = async () => {
 
@@ -15,6 +16,12 @@ const RightSidebar = async () => {
         userId: user.id,
         pageSize: 4,
     });
+
+    const suggestedCommunities = await fetchCommunities({
+        pageSize: 4,
+    });
+
+
 
     return (
         <>
@@ -28,17 +35,17 @@ const RightSidebar = async () => {
                     </h3>
 
                     <div className='mt-7 flex-w-[350px] flex-col gap-9'>
-                        {similarMinds.users.length > 0 ? (
+                        {suggestedCommunities.communities.length > 0 ? (
                             <>
-                                {similarMinds.users.map((person) => (
+                                {suggestedCommunities.communities.map((community) => (
                                     <>
-                                        <Fragment key={person.id}>
+                                        <Fragment key={community.id}>
                                             <Suspense>
                                                 <UserCard
-                                                    id={person.id}
-                                                    name={person.name}
-                                                    username={person.username}
-                                                    imgUrl={person.image}
+                                                    id={community.id}
+                                                    name={community.name}
+                                                    username={community.username}
+                                                    imgUrl={community.image}
                                                     personType='User'
                                                 />
                                             </Suspense>
