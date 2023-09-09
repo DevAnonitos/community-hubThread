@@ -11,11 +11,9 @@ import { Pagination } from "@/components/shared";
 import ThreadCard from "@/components/cards/ThreadCard";
 import { Skeleton } from "@/components/ui/skeleton";
 
-import { Redis } from '@upstash/redis';
+import { redis } from "@/lib/redis";
 
 export const revalidate = 0;
-
-const redis = Redis.fromEnv();
 
 export default async function Home({
   searchParams
