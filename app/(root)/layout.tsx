@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   referrer: 'origin-when-cross-origin',
   keywords: ['Next.js', 'React', 'JavaScript'],
   authors: [
-    { name: 'Bao Nguyen', url: 'https://nextjs.org' }
+    { name: 'Bao Nguyen', url: 'https://nextjs.org', },
   ],
   creator: 'CodeNode',
   publisher: 'Bao Nguyen',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
 }) {
   return (
     <ClerkProvider

@@ -18,7 +18,7 @@ export const revalidate = 0;
 export default async function Home({
   searchParams
 }: {searchParams: {
-    [key: string]: string | undefined
+    [key: string]: string | undefined,
   }
 }) {
 
