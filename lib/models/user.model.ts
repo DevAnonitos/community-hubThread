@@ -40,6 +40,20 @@ const userSchema = new mongoose.Schema({
     ]
 });
 
+userSchema.index({ username: 1 });
+userSchema.index({ threads: 1 });
+userSchema.index({ communities: 1 });
+userSchema.index({ courses: 1 });
+
+const populateOptions = [
+    { path: "threads", select: "title createdAt" },
+    { path: "communities", select: "name" },
+    { path: "courses", select: "title" },
+];
+
+userSchema.set("toObject", { getters: true });
+userSchema.set("toJSON", { getters: true });
+
 const User = mongoose.models.User || mongoose.model("User", userSchema);
 
 export default User;
