@@ -106,9 +106,9 @@ export const fetchCommunities = async({
     pageSize = 20,
     sortBy = "desc",
 }: {
-    searchString?: string | undefined;
-    pageNumber?: number | undefined;
-    pageSize?: number | undefined;
+    searchString?: string ;
+    pageNumber?: number;
+    pageSize?: number;
     sortBy?: SortOrder;
 }) => {
     try {
