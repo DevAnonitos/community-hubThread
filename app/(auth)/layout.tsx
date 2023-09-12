@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'CommunityApp is the best community to share your post',
     keywords: ['Next.js', 'React', 'JavaScript'],
     authors: [
-        { name: 'Bao Nguyen', url: 'https://nextjs.org' }
+        { name: 'Bao Nguyen', url: 'https://nextjs.org' },
     ],
     creator: 'CodeNode',
     publisher: 'Bao Nguyen',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
     children,
 }: {
-    children: React.ReactNode
+    children: React.ReactNode,
 }) {
 
     return (
@@ -48,7 +48,7 @@ export default function RootLayout({
             <html lang="en">
                 <body
                     className={`${inter.className}
-                    bg-dark-1`
+                        bg-dark-1`
                     }
                 >
                     <Suspense>
