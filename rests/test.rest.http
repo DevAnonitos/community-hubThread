@@ -1,3 +1,3 @@
-@urlDev=http://localhost:3000/api/uploadthing/
+@urlDev=http://localhost:3000/api/
 
 GET {{urlDev}}/checkstatus
