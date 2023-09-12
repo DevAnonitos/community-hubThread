@@ -14,15 +14,29 @@ import {
     TabsTrigger,
 } from '@/components/ui/tabs';
 
+import { fetchCommunityDetails } from '@/lib/actions/community.actions';
+
 const Page = async({ params }: { params: {id: string} }) => {
 
     const user = await currentUser();
     if(!user) return null;
 
+    const communityDetails = await fetchCommunityDetails(params.id);
+
     return (
         <>
             <Suspense>
                 <section>
+                    <ProfileHeader
+                        accountId={communityDetails.createdBy.id}
+                        authUserId={user.id}
+                        name={communityDetails.name}
+                        username={communityDetails.username}
+                        imgUrl={communityDetails.image}
+                        bio={communityDetails.bio}
+                        type='Community'
+                    />
+
 
                     <div className='mt-9'>
                         <Tabs defaultValue='threads' className='w-full'>
