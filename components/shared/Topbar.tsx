@@ -22,6 +22,7 @@ const TopBar = () => {
                         alt='Logo'
                         width={38}
                         height={38}
+                        loading='lazy'
 
                     />
                     <p
@@ -43,6 +44,7 @@ const TopBar = () => {
                                         alt='Logout'
                                         width={28}
                                         height={28}
+                                        loading='lazy'
                                     />
                                 </div>
                             </SignOutButton>

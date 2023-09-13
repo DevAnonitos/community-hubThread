@@ -33,6 +33,7 @@ const ProfileHeader = ({
                                 src={imgUrl}
                                 alt='Logo'
                                 fill
+                                loading='lazy'
                                 className='rounded-full object-cover shadow-2xl'
                             />
                         </div>
@@ -59,6 +60,7 @@ const ProfileHeader = ({
                                         alt='Edit'
                                         width={16}
                                         height={16}
+                                        loading='lazy'
                                     />
                                     <p className='text-light-2 max-sm:hidden'>
                                         Edit

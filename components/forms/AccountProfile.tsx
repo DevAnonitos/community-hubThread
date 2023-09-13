@@ -142,6 +142,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                             width={96}
                                             height={96}
                                             priority
+                                            loading='lazy'
                                             className='rounded-full object-contain'
                                         />
                                     ) : (
@@ -150,6 +151,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                             alt='profile_icon'
                                             width={24}
                                             height={24}
+                                            loading='lazy'
                                             className='object-contain'
                                         />
                                     )}

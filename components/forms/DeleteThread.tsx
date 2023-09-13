@@ -66,6 +66,7 @@ const DeleteThread = ({
                         alt='Delete'
                         width={20}
                         height={20}
+                        loading='lazy'
                         className='cursor-pointer object-contain'
                     />
                 </AlertDialogTrigger>

@@ -40,6 +40,7 @@ const LeftSidebar = () => {
                                         alt={link.label}
                                         width={24}
                                         height={24}
+                                        loading='lazy'
                                     />
                                     <p className='text-light-1 max-lg:hidden'>
                                         {link.label}
@@ -64,6 +65,7 @@ const LeftSidebar = () => {
                                     alt='logout'
                                     width={24}
                                     height={24}
+                                    loading='lazy'
                                 />
 
                                 <p

@@ -35,6 +35,7 @@ const SearchBar = ({ routeType, classNames }: Props) => {
                     alt='SearchIcon'
                     width={24}
                     height={24}
+                    loading='lazy'
                     className='object-contain'
                 />
                 <Input

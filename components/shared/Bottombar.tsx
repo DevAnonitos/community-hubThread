@@ -32,6 +32,7 @@ const BottomBar = () => {
                                             alt={link.label}
                                             width={16}
                                             height={16}
+                                            loading='lazy'
                                             className='object-contain'
                                         />
                                         <p

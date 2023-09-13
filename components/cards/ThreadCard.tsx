@@ -136,6 +136,7 @@ const ThreadCard = ({
                                         alt='heart'
                                         width={26}
                                         height={26}
+                                        loading='lazy'
                                         className='cursor-pointer object-contain hover:scale-125 ease-in-out duration-200'
                                     />
                                     <Link href={`/thread/${id}`}>
@@ -144,6 +145,7 @@ const ThreadCard = ({
                                             alt='reply'
                                             width={26}
                                             height={26}
+                                            loading='lazy'
                                             className='cursor-pointer object-contain hover:scale-125 ease-in-out duration-200'
                                         />
                                     </Link>
@@ -152,6 +154,7 @@ const ThreadCard = ({
                                         alt='repost'
                                         width={26}
                                         height={26}
+                                        loading='lazy'
                                         className='cursor-pointer object-contain hover:scale-125 ease-in-out duration-200'
                                     />
                                     <Image
@@ -159,6 +162,7 @@ const ThreadCard = ({
                                         alt='share'
                                         width={26}
                                         height={26}
+                                        loading='lazy'
                                         className='cursor-pointer object-contain hover:scale-125 ease-in-out duration-200'
                                     />
                                 </div>
@@ -200,6 +204,7 @@ const ThreadCard = ({
                                         alt={`user_${index}`}
                                         width={24}
                                         height={24}
+                                        loading='lazy'
                                         className={`${index !== 0 && "-ml-5"} rounded-full object-cover`}
                                     />
                                 </>
@@ -233,6 +238,7 @@ const ThreadCard = ({
                                 alt={community.name}
                                 width={14}
                                 height={14}
+                                loading='lazy'
                                 className='ml-1 rounded-full object-cover'
                             />
                         </Link>

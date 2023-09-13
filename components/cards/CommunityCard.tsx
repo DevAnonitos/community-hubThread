@@ -36,6 +36,7 @@ const CommunityCard = ({
                             src={imgUrl}
                             alt='CommunityLogo'
                             fill
+                            loading='lazy'
                             className='rounded-full object-cover'
                         />
                     </Link>
@@ -75,6 +76,7 @@ const CommunityCard = ({
                                                 alt={`UserAt${index}`}
                                                 width={20}
                                                 height={20}
+                                                loading='lazy'
                                                 className={`
                                                     ${
                                                         index !== 0 && "-ml-2"

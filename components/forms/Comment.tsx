@@ -75,6 +75,7 @@ const Comment = ({
                                             alt='current_user'
                                             width={48}
                                             height={48}
+                                            loading='lazy'
                                             className='rounded-full object-cover'
                                         />
                                     </FormLabel>
