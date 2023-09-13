@@ -58,17 +58,19 @@ const ThreadsTab = async ({
     {/* @ts-ignore */}
     if(!result) {
         redirect("/");
-        return null;
     }
+
+    console.log(result);
 
     return (
         <>
             <section className={`mt-9 flex flex-col gap-10 ${classNames}`}>
                 {result.threads.map((thread) => (
                     <>
-                        <Fragment key={thread._id}>
+                        <Fragment>
                             <Suspense>
                                 <ThreadCard
+                                    key={thread._id}
                                     id={thread._id}
                                     currentUserId={currentUserId}
                                     parentId={thread.parentId}

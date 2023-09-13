@@ -48,6 +48,7 @@ const Page = async (
                                     <>
                                         <Fragment key={tab.label}>
                                             <TabsTrigger
+                                                key={tab.label}
                                                 value={tab.label}
                                                 className='tab'
                                             >
