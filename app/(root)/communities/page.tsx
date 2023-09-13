@@ -16,7 +16,7 @@ const Page = async (
     {
         searchParams: {
             [key: string]: string | undefined,
-        }
+        },
 
     }) => {
 

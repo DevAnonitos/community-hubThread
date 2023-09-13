@@ -16,7 +16,7 @@ import {
 
 import { fetchCommunityDetails } from '@/lib/actions/community.actions';
 
-const Page = async({ params }: { params: {id: string} }) => {
+const Page = async({ params }: { params: {id: string}, }) => {
 
     const user = await currentUser();
     if(!user) return null;
@@ -56,6 +56,16 @@ const Page = async({ params }: { params: {id: string} }) => {
                                                     <p className='max-sm:hidden'>
                                                         {tab.label}
                                                     </p>
+
+                                                    {tab.label === "Threads" && (
+                                                        <>
+                                                            <p 
+                                                                className='ml-1 rounded-sm bg-light-4 px-2 py-1 !text-tiny-medium text-light-2'
+                                                            >
+                                                                {communityDetails.threads.length}
+                                                            </p>
+                                                        </>
+                                                    )}
                                                 </TabsTrigger>
                                             </Fragment>
                                         </Suspense>
@@ -68,7 +78,11 @@ const Page = async({ params }: { params: {id: string} }) => {
                                 className='w-full text-light-1'
                             >
                                 {/* @ts-ignore */}
-
+                                <ThreadsTab
+                                    currentUserId={user.id}
+                                    accountId={communityDetails._id}
+                                    accountType='Community'
+                                />
                             </TabsContent>
 
                             <TabsContent
@@ -76,7 +90,18 @@ const Page = async({ params }: { params: {id: string} }) => {
                                 className='mt-9 w-full text-light-1'
                             >
                                 <section className='mt-9 flex flex-col gap-10'>
-                                    {}
+                                    {communityDetails.members.map((member: any) => (
+                                        <>
+                                            <UserCard
+                                                key={member.id}
+                                                id={member.id}
+                                                name={member.name}
+                                                username={member.username}
+                                                imgUrl={member.image}
+                                                personType='User'
+                                            />
+                                        </>
+                                    ))}
                                 </section>
                             </TabsContent>
 
