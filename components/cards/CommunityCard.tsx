@@ -61,8 +61,11 @@ const CommunityCard = ({
                 </p>
 
                 <div className='mt-5 flex-wrap items-center justify-between gap-3'>
-                    <Link href={`/communities/${id}`}>
-                        View
+                    <Link 
+                        href={`/communities/${id}`} 
+                        className='bg-primary-500 px-4 py-2 text-white rounded-lg'
+                    >
+                        Views
                     </Link>
 
                     {members.length > 0 && (
