@@ -7,6 +7,7 @@ import Pagination from "./Pagination";
 import ThreadsTab from "./ThreadsTab";
 import ProfileHeader from "./ProfileHeader";
 import WebVitals from "./WebVitals";
+import  CollaborativeApp  from "./CollaborativeApp";
 
 export {
     TopBar,
@@ -18,4 +19,5 @@ export {
     ThreadsTab,
     ProfileHeader,
     WebVitals,
+    CollaborativeApp,
 }

@@ -7,9 +7,11 @@ import Image from "next/image";
 import { fetchUser } from "@/lib/actions/user.actions";
 import { fetchPosts } from "@/lib/actions/thread.actions";
 
-import { Pagination } from "@/components/shared";
+import { Pagination, CollaborativeApp } from "@/components/shared";
 import ThreadCard from "@/components/cards/ThreadCard";
 import { Skeleton } from "@/components/ui/skeleton";
+
+import { Room } from "./Room";
 
 import { redis } from "@/lib/redis";
 
@@ -48,54 +50,60 @@ export default async function Home({
 
   return (
     <>
-      <div className="flex items-center">
-          <Image
-              src="/assets/home.svg"
-              alt='UserProfile'
-              width={34}
-              height={34}
-              className='object-contain flex items-center mb-10 mr-4'
-          />
-        <h1 className="head-text text-left mb-10">
-          Home welcome {member}
-        </h1>
-      </div>
+      <Room>
+        <div className="flex items-center">
+            <Image
+                src="/assets/home.svg"
+                alt='UserProfile'
+                width={34}
+                height={34}
+                className='object-contain flex items-center mb-10 mr-4'
+            />
+          <h1 className="head-text text-left mb-10">
+            Home {member}
+          </h1>
+        </div>
 
-      <section className="mt-5 flex flex-col gap-10 text-white">
-        <Suspense fallback={<Skeleton />}>
-          {result.posts.length === 0 ? (
-            <>
-              <p className='no-result'>No threads found</p>
-            </>
-          ): (
-            <>
-              {result.posts.map((post) => (
-                <>
-                  <Suspense fallback={<Skeleton />}>
-                    <ThreadCard
-                      key={post._id}
-                      id={post._id}
-                      currentUserId={user.id}
-                      parentId={post.parentId}
-                      content={post.text}
-                      author={post.author}
-                      community={post.community}
-                      createdAt={post.createdAt}
-                      comments={post.children}
-                    />
-                  </Suspense>
-                </>
-              ))}
-            </>
-          )}
-        </Suspense>
-      </section>
+        <CollaborativeApp 
+          classNames="text-white text-left"
+        />
 
-      <Pagination
-        path="/"
-        pageNumber={searchParams?.page ? +searchParams.page : 1}
-        isNext={result.isNext}
-      />
+        <section className="mt-5 flex flex-col gap-10 text-white">
+          <Suspense fallback={<Skeleton />}>
+            {result.posts.length === 0 ? (
+              <>
+                <p className='no-result'>No threads found</p>
+              </>
+            ): (
+              <>
+                {result.posts.map((post) => (
+                  <>
+                    <Suspense fallback={<Skeleton />}>
+                      <ThreadCard
+                        key={post._id}
+                        id={post._id}
+                        currentUserId={user.id}
+                        parentId={post.parentId}
+                        content={post.text}
+                        author={post.author}
+                        community={post.community}
+                        createdAt={post.createdAt}
+                        comments={post.children}
+                      />
+                    </Suspense>
+                  </>
+                ))}
+              </>
+            )}
+          </Suspense>
+        </section>
+
+        <Pagination
+          path="/"
+          pageNumber={searchParams?.page ? +searchParams.page : 1}
+          isNext={result.isNext}
+        />
+      </Room>
     </>
   );
 };
