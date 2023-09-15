@@ -5,7 +5,7 @@ import * as z from "zod";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { usePathname, useRouter } from 'next/navigation';
-import { useOrganization, useOrganizationList } from '@clerk/nextjs';
+import { useOrganization } from '@clerk/nextjs';
 
 import { ThreadValidation } from '@/lib/validations/thread';
 
@@ -38,6 +38,9 @@ const PostThread = ({ userId, classNames }: Props) => {
     const pathName = usePathname();
 
     const { organization } = useOrganization();
+
+    console.log(organization);
+
 
     const { toast } = useToast();
 

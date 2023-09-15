@@ -18,7 +18,7 @@ export const createThread = async({ text, author, communityId, path }: Params) =
     try {
         connectToDB();
 
-        const communityObject = await Community.findOne(
+        const communityIdObject = await Community.findOne(
             {
                 id: communityId,
             },
@@ -30,7 +30,7 @@ export const createThread = async({ text, author, communityId, path }: Params) =
         const createThread = await Thread.create({
             text,
             author,
-            community: communityObject,
+            community: communityIdObject,
         });
 
         await User.findByIdAndUpdate(author, {
@@ -39,12 +39,12 @@ export const createThread = async({ text, author, communityId, path }: Params) =
             },
         });
 
-        if(communityObject) {
-            await Community.findByIdAndUpdate(communityObject, {
-                $pull: {
+        if(communityIdObject) {
+            await Community.findByIdAndUpdate(communityIdObject, {
+                $push: {
                     threads: createThread._id,
-                }
-            })
+                },
+            });
         }
 
         revalidatePath(path);

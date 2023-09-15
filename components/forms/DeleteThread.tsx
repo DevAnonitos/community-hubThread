@@ -82,7 +82,7 @@ const DeleteThread = ({
                         <AlertDialogCancel className='text-red-600'>
                             Cancel
                         </AlertDialogCancel>
-                        <AlertDialogAction onClick={handleDeleteThread} className='bg-green-600 hover:bg-green-500'>
+                        <AlertDialogAction onClick={handleDeleteThread} className='bg-primary-500 hover:bg-primary-500'>
                             Continue
                         </AlertDialogAction>
                     </AlertDialogFooter>
