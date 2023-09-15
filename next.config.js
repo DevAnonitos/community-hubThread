@@ -3,6 +3,7 @@ const nextConfig = {
     experimental: {
         serverActions: true,
         serverComponentsExternalPackages: ["mongoose"],
+        webVitalsAttribution: ['CLS', 'LCP'],
     },
     eslint: {
         // Warning: This allows production builds to successfully complete even if
@@ -29,6 +30,10 @@ const nextConfig = {
             },
         ],
     },
+    pageExtensions: [
+        'mdx', 'md', 'jsx', 'js', 'tsx', 'ts',
+    ],
+    productionBrowserSourceMaps: true,
 };
 
 module.exports = nextConfig;
