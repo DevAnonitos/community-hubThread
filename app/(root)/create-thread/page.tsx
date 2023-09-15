@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { fetchUser } from '@/lib/actions/user.actions';
 import PostThread from '@/components/forms/PostThread';
 
-export const config = { amp: true };
 
 const Page = async () => {
 

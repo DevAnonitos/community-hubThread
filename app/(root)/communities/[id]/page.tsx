@@ -16,7 +16,6 @@ import {
 
 import { fetchCommunityDetails } from '@/lib/actions/community.actions';
 
-export const config = { amp: true };
 
 const Page = async({ params }: { params: {id: string}, }) => {
 

@@ -1,6 +1,5 @@
 import React from 'react';
 
-export const config = { amp: true };
 
 const Page = () => {
     return (

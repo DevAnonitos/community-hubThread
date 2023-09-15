@@ -9,7 +9,6 @@ import { fetchUser } from '@/lib/actions/user.actions';
 import { fetchThreadById } from '@/lib/actions/thread.actions';
 
 export const revalidate = 0;
-export const config = { amp: true };
 
 const Page = async ({ params }: { params: { id: string } }) => {
 
