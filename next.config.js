@@ -5,7 +5,6 @@ const nextConfig = {
         serverActions: true,
         serverComponentsExternalPackages: ["mongoose"],
         webVitalsAttribution: ['CLS', 'LCP'],
-        typedRoutes: true,
         incrementalCacheHandlerPath: require.resolve("./cache-handler.js"),
     },
     eslint: {
