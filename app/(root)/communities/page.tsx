@@ -9,6 +9,8 @@ import CommunityCard from '@/components/cards/CommunityCard';
 import { fetchUser } from '@/lib/actions/user.actions';
 import { fetchCommunities } from '@/lib/actions/community.actions';
 
+export const config = { amp: true };
+
 const Page = async (
     {
         searchParams,

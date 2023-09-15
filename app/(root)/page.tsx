@@ -15,6 +15,8 @@ import { redis } from "@/lib/redis";
 
 export const revalidate = 0;
 
+export const config = { amp: true };
+
 export default async function Home({
   searchParams
 }: {searchParams: {

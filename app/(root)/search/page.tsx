@@ -8,6 +8,7 @@ import { fetchUsers, fetchUser } from '@/lib/actions/user.actions';
 import UserCard from '@/components/cards/UserCard';
 
 export const revalidate = 10;
+export const config = { amp: true };
 
 const Page = async ({ searchParams }: {
     searchParams: {

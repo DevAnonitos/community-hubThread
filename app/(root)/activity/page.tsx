@@ -7,6 +7,7 @@ import { redirect } from 'next/navigation';
 import { fetchUser, getActivity } from '@/lib/actions/user.actions';
 import Link from 'next/link';
 
+export const config = { amp: true };
 
 const Page = async () => {
 
