@@ -16,11 +16,15 @@ import {
 
 import { fetchCommunityDetails } from '@/lib/actions/community.actions';
 
+import { notFound } from 'next/navigation';
 
 const Page = async({ params }: { params: {id: string}, }) => {
 
     const user = await currentUser();
-    if(!user) return null;
+    if(!user) {
+        notFound();
+        return null;
+    }
 
     const communityDetails = await fetchCommunityDetails(params.id);
 

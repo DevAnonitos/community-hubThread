@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
     experimental: {
         serverActions: true,
         serverComponentsExternalPackages: ["mongoose"],
         webVitalsAttribution: ['CLS', 'LCP'],
+        typedRoutes: true,
         incrementalCacheHandlerPath: require.resolve("./cache-handler.js"),
     },
     eslint: {
@@ -35,6 +37,7 @@ const nextConfig = {
         'mdx', 'md', 'jsx', 'js', 'tsx', 'ts',
     ],
     productionBrowserSourceMaps: true,
+    trailingSlash: true,
 };
 
 module.exports = nextConfig;

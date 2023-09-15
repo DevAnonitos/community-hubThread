@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { currentUser } from '@clerk/nextjs';
-import { redirect } from "next/navigation";
+import { redirect, notFound } from "next/navigation";
 
 import AccountProfile from '@/components/forms/AccountProfile';
 import { fetchUser } from '@/lib/actions/user.actions';
@@ -9,7 +9,10 @@ const Page = async () => {
 
     const user = await currentUser();
 
-    if(!user) return null;
+    if(!user) {
+        notFound();
+        return null;
+    }
 
     console.log(user);
 
