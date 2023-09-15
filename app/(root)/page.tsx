@@ -51,7 +51,6 @@ export default async function Home({
   return (
     <>
       <Suspense>
-
         <Room>
           <div className="flex items-center">
               <Image

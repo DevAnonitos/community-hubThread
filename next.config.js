@@ -4,6 +4,7 @@ const nextConfig = {
         serverActions: true,
         serverComponentsExternalPackages: ["mongoose"],
         webVitalsAttribution: ['CLS', 'LCP'],
+        incrementalCacheHandlerPath: require.resolve("./cache-handler.js"),
     },
     eslint: {
         // Warning: This allows production builds to successfully complete even if

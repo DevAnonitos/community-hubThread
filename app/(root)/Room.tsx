@@ -12,4 +12,4 @@ export function Room({ children }: { children: ReactNode }) {
             </ClientSideSuspense>
         </RoomProvider>
     );
-}
+};
