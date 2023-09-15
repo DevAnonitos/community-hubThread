@@ -6,6 +6,7 @@ import SearchBar from "./SearchBar";
 import Pagination from "./Pagination";
 import ThreadsTab from "./ThreadsTab";
 import ProfileHeader from "./ProfileHeader";
+import WebVitals from "./WebVitals";
 
 export {
     TopBar,
@@ -16,4 +17,5 @@ export {
     Pagination,
     ThreadsTab,
     ProfileHeader,
+    WebVitals,
 }

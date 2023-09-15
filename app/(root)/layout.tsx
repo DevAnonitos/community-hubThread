@@ -10,7 +10,8 @@ import {
   TopBar,
   BottomBar,
   LeftSidebar,
-  RightSidebar
+  RightSidebar,
+  WebVitals,
 } from "@/components/shared";
 
 import { Toaster } from "@/components/ui/toaster";
@@ -59,6 +60,8 @@ export default function RootLayout({
     >
       <html lang="en">
         <body className={inter.className}>
+          {/* @ts-ignore */}
+          <WebVitals />
           <TopBar />
 
           <main className="flex flex-row">
