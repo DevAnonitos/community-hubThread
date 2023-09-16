@@ -54,7 +54,6 @@ export default async function Home({
   return (
     <>
       <Suspense>
-        <Room>
           <div className="flex items-center">
               <Image
                   src="/assets/home.svg"
@@ -68,10 +67,12 @@ export default async function Home({
             </h1>
           </div>
 
-          <CollaborativeApp 
-            classNames="text-white text-left"
-          />
-
+          <Room>
+            <CollaborativeApp 
+              classNames="text-white text-left"
+            />
+          </Room>
+          
           <section className="mt-5 flex flex-col gap-10 text-white">
             <Suspense fallback={<Skeleton />}>
               {result.posts.length === 0 ? (
@@ -107,7 +108,6 @@ export default async function Home({
             pageNumber={searchParams?.page ? +searchParams.page : 1}
             isNext={result.isNext}
           />
-        </Room>
       </Suspense>
     </>
   );
