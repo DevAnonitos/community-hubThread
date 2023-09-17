@@ -7,6 +7,8 @@ import { sidebarLinks } from '@/constants';
 import { usePathname, useRouter } from "next/navigation";
 import { SignOutButton, SignedIn, useAuth } from '@clerk/nextjs';
 
+import { Separator } from '../ui/separator';
+
 const LeftSidebar = () => {
 
     const router = useRouter();
@@ -49,6 +51,42 @@ const LeftSidebar = () => {
                             </Fragment>
                         )
                     })}
+                </div>
+                
+                <Separator className='bg-gray-700 mt-5'/>
+
+                <div className='flex w-full flex-1 flex-col gap-6 px-6 mt-5'>
+                    {/* {sidebarLinks.map((link) => {
+                        const isActive =
+                            (pathName.includes(link.route) && link.route.length > 0)
+                            || pathName === link.route;
+
+                        if(link.route === '/profile') {
+                            link.route = `${link.route}/${userId}`
+                        }
+
+                        return (
+                            <Fragment key={link.id}>
+                                <Link
+                                    href={link.route}
+                                    className={`leftsidebar_link hover:bg-primary-500 transition-all duration-500 ease-in-out delay-100
+                                        ${isActive && "bg-primary-500 "}
+                                    `}
+                                >
+                                    <Image
+                                        src={link.imgURL}
+                                        alt={link.label}
+                                        width={24}
+                                        height={24}
+                                        loading='lazy'
+                                    />
+                                    <p className='text-light-1 max-lg:hidden'>
+                                        {link.label}
+                                    </p>
+                                </Link>
+                            </Fragment>
+                        )
+                    })} */}
                 </div>
 
                 <div className='mt-10 px-6'>
