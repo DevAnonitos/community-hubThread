@@ -13,7 +13,6 @@ const Page = async () => {
     const user = await currentUser();
     if(!user) {
         notFound();
-        return null;
     }
 
     const userInfo = await fetchUser(user.id);

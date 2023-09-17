@@ -11,7 +11,6 @@ const Page = async () => {
 
     if(!user) {
         notFound();
-        return null;
     }
 
     console.log(user);

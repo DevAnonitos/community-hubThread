@@ -23,7 +23,6 @@ const Page = async({ params }: { params: {id: string}, }) => {
     const user = await currentUser();
     if(!user) {
         notFound();
-        return null;
     }
 
     const communityDetails = await fetchCommunityDetails(params.id);
