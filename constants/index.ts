@@ -43,6 +43,21 @@ export const sidebarLinks = [
     },
 ];
 
+export const subSidebarLinks = [
+    {
+        id: 1,
+        imgURL: "/assets/news.svg",
+        route: "/news",
+        label: "News",
+    },
+    {
+        id: 2,
+        imgURL: "/assets/add.svg",
+        route: "/blog",
+        label: "Blog",
+    },
+];
+
 export const profileTabs = [
     { value: "threads", label: "Threads", icon: "/assets/reply.svg" },
     { value: "replies", label: "Replies", icon: "/assets/members.svg" },

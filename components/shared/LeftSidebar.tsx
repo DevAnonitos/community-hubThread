@@ -3,7 +3,7 @@
 import React, { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { sidebarLinks } from '@/constants';
+import { sidebarLinks, subSidebarLinks } from '@/constants';
 import { usePathname, useRouter } from "next/navigation";
 import { SignOutButton, SignedIn, useAuth } from '@clerk/nextjs';
 
@@ -56,7 +56,7 @@ const LeftSidebar = () => {
                 <Separator className='bg-gray-700 mt-5'/>
 
                 <div className='flex w-full flex-1 flex-col gap-6 px-6 mt-5'>
-                    {/* {sidebarLinks.map((link) => {
+                    {subSidebarLinks.map((link) => {
                         const isActive =
                             (pathName.includes(link.route) && link.route.length > 0)
                             || pathName === link.route;
@@ -86,7 +86,7 @@ const LeftSidebar = () => {
                                 </Link>
                             </Fragment>
                         )
-                    })} */}
+                    })}
                 </div>
 
                 <div className='mt-10 px-6'>
