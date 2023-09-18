@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import * as z from "zod";
 import { useForm } from 'react-hook-form';
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -32,9 +33,28 @@ const PostCourse = ({ userId, classNames }: Props) => {
     const { toast } = useToast();
     const [isLoading, setIsLoading] = useState(false);
 
+    const form  = useForm<z.infer<typeof CourseValidation>>({
+        resolver: zodResolver(CourseValidation),
+        defaultValues: {
+            course: "",
+            accountId: userId,
+        },
+    });
+
+    const onSubmit = async (values: z.infer<typeof CourseValidation>) => {
+
+    };
+
     return (
         <>
-            PostCourse
+            <Form {...form}>
+                <form
+                    className={`mt-10 flex flex-col justify-start gap-10 ${classNames}`}
+                    onSubmit={form.handleSubmit(onSubmit)}
+                >
+                    
+                </form>
+            </Form>
         </>
     );
 };
