@@ -41,7 +41,11 @@ const PostCourse = ({ userId, classNames }: Props) => {
     const form  = useForm<z.infer<typeof CourseValidation>>({
         resolver: zodResolver(CourseValidation),
         defaultValues: {
-            course: "",
+            courseThumb_photo: "",
+            courseName: "",
+            authorCourse: "",
+            linkUrl: "",
+            description: "",
             accountId: userId,
         },
     });
@@ -52,7 +56,7 @@ const PostCourse = ({ userId, classNames }: Props) => {
         } catch (error: any) {
             
         }finally {
-            
+
         }
     };
 
@@ -65,14 +69,14 @@ const PostCourse = ({ userId, classNames }: Props) => {
                 >
                     <FormField
                         control={form.control}
-                        name='course'
+                        name='courseName'
                         render={({ field }) => (
                             <>
                                 <FormItem
                                     className='flex w-full flex-col gap-3'
                                 >
                                     <FormLabel className='text-base-semibold text-light-2'>
-                                        Course
+                                        Course Name
                                     </FormLabel>
                                     <FormControl>
                                         <Input

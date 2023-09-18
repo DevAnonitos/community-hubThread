@@ -31,7 +31,7 @@ const Page = async () => {
                     />
 
                     <h1 className='head-text mb-10'>
-                        Create crash course
+                        Create course
                     </h1>
                 </div>
 
