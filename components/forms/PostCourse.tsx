@@ -17,6 +17,7 @@ import {
 
 import { ToastAction } from '../ui/toast';
 import { useToast } from '../ui/use-toast';
+import { CourseValidation } from '@/lib/validations/course';
 
 interface Props {
     userId: string;
