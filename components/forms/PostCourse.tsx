@@ -117,30 +117,54 @@ const PostCourse = ({ userId, classNames }: Props) => {
                         )}
                     />
 
-                    <FormField
-                        control={form.control}
-                        name='linkUrl'
-                        render={({ field }) => (
-                            <>
-                                <FormItem
-                                    className='flex w-full flex-col gap-3'
-                                >
-                                    <FormLabel className='text-base-semibold text-light-2'>
-                                        LinkUrl Course
-                                    </FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            type='text'
-                                            placeholder='Add link course'
-                                            className='account-form_input no-focus'
-                                            {...field}
-                                        />
-                                    </FormControl>
+                    <div 
+                        className='flex flex-col gap-4 md:flex-row md:items-center md:justify-between'
+                    >
+                        <div className='w-full md:w-2/3'>
+                            <FormField
+                                control={form.control}
+                                name='linkUrl'
+                                render={({ field }) => (
+                                    <FormItem className='flex flex-col gap-3'>
+                                        <FormLabel className='text-base-semibold text-light-2'>
+                                            LinkUrl Course
+                                        </FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                type='text'
+                                                placeholder='Add link course'
+                                                className='account-form_input no-focus'
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                        </div>
+                        <div className='w-full md:w-auto'>
+                            <FormField
+                                control={form.control}
+                                name='linkUrl'
+                                render={({ field }) => (
+                                    <FormItem className='flex flex-col gap-3'>
+                                        <FormLabel className='text-base-semibold text-light-2'>
+                                            Type of Courses
+                                        </FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                type='text'
+                                                placeholder='Add link course'
+                                                className='account-form_input no-focus'
+                                                {...field}
+                                            />
+                                        </FormControl>
                                     <FormMessage />
-                                </FormItem>
-                            </>
-                        )}
-                    />
+                                    </FormItem>
+                                )}
+                            />
+                        </div>
+                    </div>
 
 
                     <FormField
