@@ -21,7 +21,7 @@ const Page = async () => {
 
     return (
         <>
-            <Suspense>
+            <>
                 <section>
                     <div className='flex items-center'>
                         <Image
@@ -40,7 +40,7 @@ const Page = async () => {
                     <PostThread userId={userInfo._id.toString()} />
 
                 </section>
-            </Suspense>
+            </>
         </>
     );
 };
