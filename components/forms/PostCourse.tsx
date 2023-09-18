@@ -91,6 +91,85 @@ const PostCourse = ({ userId, classNames }: Props) => {
                             </>
                         )}
                     />
+
+                    <FormField
+                        control={form.control}
+                        name='authorCourse'
+                        render={({ field }) => (
+                            <>
+                                <FormItem
+                                    className='flex w-full flex-col gap-3'
+                                >
+                                    <FormLabel className='text-base-semibold text-light-2'>
+                                        Course Author
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            type='text'
+                                            placeholder='Course author'
+                                            className='account-form_input no-focus'
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            </>
+                        )}
+                    />
+
+                    <FormField
+                        control={form.control}
+                        name='linkUrl'
+                        render={({ field }) => (
+                            <>
+                                <FormItem
+                                    className='flex w-full flex-col gap-3'
+                                >
+                                    <FormLabel className='text-base-semibold text-light-2'>
+                                        LinkUrl Course
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            type='text'
+                                            placeholder='Add link course'
+                                            className='account-form_input no-focus'
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            </>
+                        )}
+                    />
+
+
+                    <FormField
+                        control={form.control}
+                        name='description'
+                        render={({ field }) => (
+                            <>
+                                <FormItem className='flex w-full flex-col gap-3'>
+                                    <FormLabel className='text-base-semibold text-light-2'>
+                                        Description Course
+                                    </FormLabel>
+                                    <FormControl
+                                        className='no-focus bg-dark-3 text-light-1 border-[1px] border-gray-700'
+                                    >
+                                        <Textarea rows={10} {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            </>
+                        )}
+                    />
+
+                    <Button
+                        type='submit'
+                        className='bg-primary-500 hover:bg-primary-500 rounded-lg'
+                        disabled={isLoading}
+                    >
+                        {isLoading ? "Loading...": "Share your course"}
+                    </Button>
                 </form>
             </Form>
         </>
