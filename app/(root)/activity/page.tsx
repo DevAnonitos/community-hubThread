@@ -22,7 +22,7 @@ const Page = async () => {
 
     return (
         <>
-            <Suspense>
+            <>
                 <section>
                     <div className='flex items-center'>
                         <Image
@@ -77,7 +77,7 @@ const Page = async () => {
                         )}
                     </section>
                 </section>
-            </Suspense>
+            </>
         </>
     );
 };

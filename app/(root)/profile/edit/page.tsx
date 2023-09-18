@@ -32,7 +32,7 @@ const Page = async () => {
 
     return (
         <>
-            <Suspense>
+            <>
                 <div>
                     <h1 className='head-text'>
                         EditProfile
@@ -49,7 +49,7 @@ const Page = async () => {
                         />
                     </section>
                 </div>
-            </Suspense>
+            </>
         </>
     );
 };

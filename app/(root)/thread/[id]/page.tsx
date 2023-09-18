@@ -26,7 +26,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
     return (
         <>
-            <Suspense>
+            <>
                 <section className='relative'>
                     <div>
                         <ThreadCard
@@ -69,7 +69,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
                         ))}
                     </div>
                 </section>
-            </Suspense>
+            </>
         </>
     );
 };

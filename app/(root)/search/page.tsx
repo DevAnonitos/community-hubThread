@@ -32,7 +32,7 @@ const Page = async ({ searchParams }: {
 
     return (
         <>
-            <Suspense>
+            <>
                 <section>
                     <div className='flex items-center'>
 
@@ -88,7 +88,7 @@ const Page = async ({ searchParams }: {
                         isNext={result.isNext}
                     />
                 </section>
-            </Suspense>
+            </>
         </>
     );
 };

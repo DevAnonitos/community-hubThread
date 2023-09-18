@@ -37,7 +37,7 @@ const Page = async (
 
     return (
         <>
-            <Suspense>
+            <>
                 <section>
                     <div className='flex items-center'>
 
@@ -90,7 +90,7 @@ const Page = async (
                         isNext={result.isNext}
                     />
                 </section>
-            </Suspense>
+            </>
         </>
     );
 };

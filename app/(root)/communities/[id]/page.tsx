@@ -29,7 +29,7 @@ const Page = async({ params }: { params: {id: string}, }) => {
 
     return (
         <>
-            <Suspense>
+            <>
                 <section>
                     <ProfileHeader
                         accountId={communityDetails.createdBy.id}
@@ -120,7 +120,7 @@ const Page = async({ params }: { params: {id: string}, }) => {
                         </Tabs>
                     </div>
                 </section>
-            </Suspense>
+            </>
         </>
     );
 };
