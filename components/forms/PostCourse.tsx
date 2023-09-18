@@ -166,7 +166,6 @@ const PostCourse = ({ userId, classNames }: Props) => {
                         </div>
                     </div>
 
-
                     <FormField
                         control={form.control}
                         name='description'

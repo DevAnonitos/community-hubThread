@@ -9,7 +9,6 @@ import { fetchPosts } from "@/lib/actions/thread.actions";
 
 import { Pagination, CollaborativeApp } from "@/components/shared";
 import ThreadCard from "@/components/cards/ThreadCard";
-import { Skeleton } from "@/components/ui/skeleton";
 
 import { Room } from "./Room";
 
@@ -72,7 +71,7 @@ export default async function Home({
       </Room>
           
       <section className="mt-5 flex flex-col gap-10 text-white">
-        <Suspense fallback={<Skeleton />}>
+        <Suspense fallback={<div>Loading...</div>}>
           {result.posts.length === 0 ? (
             <>
               <p className='no-result'>No threads found</p>
@@ -81,7 +80,7 @@ export default async function Home({
             <>
               {result.posts.map((post) => (
                 <>
-                  <Suspense fallback={<Skeleton />}>
+                  <Suspense fallback={<div>Loading...</div>}>
                     <ThreadCard
                       key={post._id}
                       id={post._id}
