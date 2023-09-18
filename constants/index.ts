@@ -69,3 +69,67 @@ export const communityTabs = [
     { value: "members", label: "Members", icon: "/assets/members.svg" },
     { value: "requests", label: "Requests", icon: "/assets/request.svg" },
 ];
+
+
+export const typeOfCourses = [
+    { 
+        value: 'computer_science', 
+        label: 'Computer Science',
+    },
+    { 
+        value: 'engineering', 
+        label: 'Engineering',
+    },
+    { 
+        value: 'business_administration', 
+        label: 'Business Administration',
+    },
+    { 
+        value: 'psychology', 
+        label: 'Psychology',
+    },
+    { 
+        value: 'biology', 
+        label: 'Biology' ,
+    },
+    { 
+        value: 'mathematics', 
+        label: 'Mathematics' ,
+    },
+    { 
+        value: 'physics', 
+        label: 'Physics' ,
+    },
+    { 
+        value: 'chemistry', 
+        label: 'Chemistry', 
+    },
+    { 
+        value: 'communication', 
+        label: 'Communication', 
+    },
+    { 
+        value: 'history', 
+        label: 'History',
+    },
+    { 
+        value: 'english_literature', 
+        label: 'English Literature',
+    },
+    { 
+        value: 'art_history', 
+        label: 'Art History', 
+    },
+    { 
+        value: 'sociology', 
+        label: 'Sociology', 
+    },
+    { 
+        value: 'economics', 
+        label: 'Economics', 
+    },
+    { 
+        value: 'political_science', 
+        label: 'Political Science', 
+    },
+];
