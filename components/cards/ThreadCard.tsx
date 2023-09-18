@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import Image from "next/image";
 import Link from "next/link";
 
@@ -67,6 +67,21 @@ const ThreadCard = ({
         return formattedDate;
     };
 
+    const memoizedTooltip = useMemo(() => (
+        <Tooltip>
+            <TooltipTrigger className="flex items-start">
+                <h5 className='mt-2 text-gray-500 text-small-regular hover:underline'>
+                | {formatDates(createdAt)}
+                </h5>
+            </TooltipTrigger>
+            <TooltipContent className="flex items-start justify-start">
+                <p className='flex items-start justify-start'>
+                {formatDateString(createdAt)}
+                </p>
+            </TooltipContent>
+        </Tooltip>
+    ), [createdAt]);
+
     return (
         <>
             <article
@@ -108,18 +123,7 @@ const ThreadCard = ({
                             </Link>
 
                             <TooltipProvider>
-                                <Tooltip>
-                                    <TooltipTrigger className="flex items-start">
-                                        <h5 className='mt-2 text-gray-500 text-small-regular hover:underline'>
-                                            | {formatDates(createdAt)}
-                                        </h5>
-                                    </TooltipTrigger>
-                                    <TooltipContent className="flex items-start justify-start">
-                                        <p className='flex items-start justify-start'>
-                                            {formatDateString(createdAt)}
-                                        </p>
-                                    </TooltipContent>
-                                </Tooltip>
+                                {memoizedTooltip}
                             </TooltipProvider>
 
                             <p className='mt-3 text-small-semibold text-light-2'>

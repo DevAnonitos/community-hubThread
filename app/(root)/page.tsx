@@ -28,7 +28,6 @@ export default async function Home({
 
   if(!user){
     notFound();
-    return null;
   } 
 
   const userInfo = await fetchUser(user.id);
@@ -53,62 +52,60 @@ export default async function Home({
 
   return (
     <>
-      <Suspense>
-          <div className="flex items-center">
-              <Image
-                  src="/assets/home.svg"
-                  alt='UserProfile'
-                  width={34}
-                  height={34}
-                  className='object-contain flex items-center mb-10 mr-4'
-              />
-            <h1 className="head-text text-left mb-10">
-              Home {member}
-            </h1>
-          </div>
+      <div className="flex items-center">
+        <Image
+          src="/assets/home.svg"
+          alt='UserProfile'
+          width={34}
+          height={34}
+          className='object-contain flex items-center mb-10 mr-4'
+        />
+        <h1 className="head-text text-left mb-10">
+          Home {member}
+        </h1>
+      </div>
 
-          <Room>
-            <CollaborativeApp 
-              classNames="text-white text-left"
-            />
-          </Room>
+      <Room>
+        <CollaborativeApp 
+          classNames="text-white text-left"
+        />
+      </Room>
           
-          <section className="mt-5 flex flex-col gap-10 text-white">
-            <Suspense fallback={<Skeleton />}>
-              {result.posts.length === 0 ? (
+      <section className="mt-5 flex flex-col gap-10 text-white">
+        <Suspense fallback={<Skeleton />}>
+          {result.posts.length === 0 ? (
+            <>
+              <p className='no-result'>No threads found</p>
+            </>
+          ): (
+            <>
+              {result.posts.map((post) => (
                 <>
-                  <p className='no-result'>No threads found</p>
+                  <Suspense fallback={<Skeleton />}>
+                    <ThreadCard
+                      key={post._id}
+                      id={post._id}
+                      currentUserId={user.id}
+                      parentId={post.parentId}
+                      content={post.text}
+                      author={post.author}
+                      community={post.community}
+                      createdAt={post.createdAt}
+                      comments={post.children}
+                    />
+                    </Suspense>
                 </>
-              ): (
-                <>
-                  {result.posts.map((post) => (
-                    <>
-                      <Suspense fallback={<Skeleton />}>
-                        <ThreadCard
-                          key={post._id}
-                          id={post._id}
-                          currentUserId={user.id}
-                          parentId={post.parentId}
-                          content={post.text}
-                          author={post.author}
-                          community={post.community}
-                          createdAt={post.createdAt}
-                          comments={post.children}
-                        />
-                      </Suspense>
-                    </>
-                  ))}
-                </>
-              )}
-            </Suspense>
-          </section>
+              ))}
+            </>
+          )}
+        </Suspense>
+      </section>
 
-          <Pagination
-            path="/"
-            pageNumber={searchParams?.page ? +searchParams.page : 1}
-            isNext={result.isNext}
-          />
-      </Suspense>
+      <Pagination
+        path="/"
+        pageNumber={searchParams?.page ? +searchParams.page : 1}
+        isNext={result.isNext}
+      />
     </>
   );
 };
