@@ -16,6 +16,11 @@ import {
     FormMessage,
 } from '../ui/form';
 
+import { Input } from '../ui/input';
+import { Textarea } from '../ui/textarea';
+import { Button } from '../ui/button';
+
+
 import { ToastAction } from '../ui/toast';
 import { useToast } from '../ui/use-toast';
 import { CourseValidation } from '@/lib/validations/course';
@@ -42,7 +47,13 @@ const PostCourse = ({ userId, classNames }: Props) => {
     });
 
     const onSubmit = async (values: z.infer<typeof CourseValidation>) => {
-
+        try {
+            
+        } catch (error: any) {
+            
+        }finally {
+            
+        }
     };
 
     return (
@@ -52,7 +63,30 @@ const PostCourse = ({ userId, classNames }: Props) => {
                     className={`mt-10 flex flex-col justify-start gap-10 ${classNames}`}
                     onSubmit={form.handleSubmit(onSubmit)}
                 >
-                    
+                    <FormField
+                        control={form.control}
+                        name='course'
+                        render={({ field }) => (
+                            <>
+                                <FormItem
+                                    className='flex w-full flex-col gap-3'
+                                >
+                                    <FormLabel className='text-base-semibold text-light-2'>
+                                        Course
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            type='text'
+                                            placeholder='Course name'
+                                            className='account-form_input no-focus'
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            </>
+                        )}
+                    />
                 </form>
             </Form>
         </>

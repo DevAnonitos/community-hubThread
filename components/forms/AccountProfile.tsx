@@ -142,7 +142,6 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                             width={96}
                                             height={96}
                                             priority
-                                            loading='lazy'
                                             className='rounded-full object-contain'
                                         />
                                     ) : (

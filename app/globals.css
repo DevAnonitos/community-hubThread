@@ -173,7 +173,7 @@
 }
 
 .account-form_input {
-    @apply border border-dark-4 bg-dark-3 text-light-1 !important;
+    @apply border border-gray-700 bg-dark-3 text-light-1 !important;
 }
 
 /* Comment Form */
