@@ -39,9 +39,6 @@ const PostThread = ({ userId, classNames }: Props) => {
 
     const { organization } = useOrganization();
 
-    console.log(organization);
-
-
     const { toast } = useToast();
 
     const [isLoading, setIsLoading] = useState(false);

@@ -40,7 +40,6 @@ const Page = async (
             <>
                 <section>
                     <div className='flex items-center'>
-
                         <Image
                             src="/assets/community.svg"
                             alt='UserProfile'
