@@ -7,6 +7,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { usePathname, useRouter } from 'next/navigation';
 
+import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
+
 import {
     Form,
     FormControl,
@@ -16,6 +18,20 @@ import {
     FormMessage,
 } from '../ui/form';
 
+import { 
+    Command,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+} from "../ui/command";
+
+import { 
+    Popover, 
+    PopoverContent,
+    PopoverTrigger 
+} from '../ui/popover';
+
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
 import { Button } from '../ui/button';
@@ -23,7 +39,9 @@ import { Button } from '../ui/button';
 
 import { ToastAction } from '../ui/toast';
 import { useToast } from '../ui/use-toast';
+
 import { CourseValidation } from '@/lib/validations/course';
+import { typeOfCourses } from '@/constants';
 
 interface Props {
     userId: string;
