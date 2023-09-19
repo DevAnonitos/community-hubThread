@@ -162,74 +162,75 @@ const PostCourse = ({ userId, classNames }: Props) => {
                             />
                         </div>
                         <div className='w-full md:w-auto'>
-                            <FormField
-                                control={form.control}
-                                name='subjects'
-                                render={({ field }) => (
-                                    <FormItem className='flex flex-col gap-3'>
-                                        <FormLabel className='text-base-semibold text-light-2'>
-                                            Type of Courses
-                                        </FormLabel>
-                                        <Popover>
-                                            <PopoverTrigger asChild>
-                                                <FormControl>
-                                                    <Button 
-                                                        variant="outline" 
+                            <div className="md:flex md:gap-4">
+                                <FormField
+                                    control={form.control}
+                                    name='subjects'
+                                    render={({ field }) => (
+                                        <FormItem className='flex flex-col gap-3'>
+                                            <FormLabel className='text-base-semibold text-light-2'>
+                                                Type of Courses
+                                            </FormLabel>
+                                            <Popover>
+                                                <PopoverTrigger asChild>
+                                                    <FormControl>
+                                                        <Button
+                                                        variant="outline"
                                                         role='combobox'
                                                         className={`
-                                                            w-[200px] justify-between account-form_input 
-                                                            ${!field.value && "text-muted-foreground"
-                                                            }`
-                                                        }
-                                                    >
+                                                            w-full md:w-[200px] justify-between account-form_input 
+                                                            ${!field.value && "text-muted-foreground"}
+                                                        `}
+                                                        >
                                                         {field.value
                                                             ? typeOfCourses.find(
                                                                 (course) => course.value === field.value
                                                             )?.label
-                                                            : 
-                                                                "Select your subjects"
-                                                        }
-                                                    </Button>
-                                                </FormControl>
-                                            </PopoverTrigger>
-                                            <PopoverContent className="w-[200px] p-0">
-                                                <Command>
-                                                    <CommandInput
-                                                        placeholder="Search subject..."
-                                                        className="h-9"
-                                                    />
-                                                    <CommandEmpty>
-                                                        No subject found.
-                                                    </CommandEmpty>
-                                                    <CommandGroup>
+                                                            : "Select your subjects"}
+                                                        </Button>
+                                                    </FormControl>
+                                                </PopoverTrigger>
+                                                <PopoverContent className="w-full md:w-[200px] p-0">
+                                                    <Command>
+                                                        <CommandInput
+                                                            placeholder="Search subject..."
+                                                            className="h-9"
+                                                        />
+                                                        <CommandEmpty>
+                                                            No subject found.
+                                                        </CommandEmpty>
+                                                        <CommandGroup>
                                                         {typeOfCourses.map((course) => (
                                                             <>
-                                                                <CommandItem 
+                                                                <CommandItem
                                                                     value={course.value}
                                                                     key={course.value}
                                                                     onSelect={() => {
-                                                                        form.setValue("subjects", course.value)
+                                                                    form.setValue("subjects", course.value);
                                                                     }}
                                                                 >
                                                                     {course.label}
-                                                                    <CheckIcon 
+                                                                    <CheckIcon
                                                                         className={`
                                                                             ml-auto h-4 w-4
-                                                                            ${course.value === field.value
+                                                                            ${
+                                                                            course.value === field.value
                                                                                 ? "opacity-100"
-                                                                                : "opacity-0"}
+                                                                                : "opacity-0"
+                                                                            }
                                                                         `}
                                                                     />
                                                                 </CommandItem>
                                                             </>
                                                         ))}
-                                                    </CommandGroup>
-                                                </Command>
-                                            </PopoverContent>
-                                        </Popover>
-                                    </FormItem>
-                                )}
-                            />
+                                                        </CommandGroup>
+                                                    </Command>
+                                                </PopoverContent>
+                                            </Popover>
+                                        </FormItem>
+                                    )}
+                                />
+                            </div>
                         </div>
                     </div>
 
