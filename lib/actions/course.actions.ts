@@ -9,8 +9,8 @@ interface Params {
     name: string;
     author: string;
     authorCourse: string;
-    linkUrl: string;
-    description: string;
+    link: string;
+    description?: string;
     typeCourse: string;
     path: string;
 };
@@ -20,7 +20,7 @@ export const createCourse = async ({
     name, 
     author, 
     authorCourse, 
-    linkUrl, 
+    link, 
     description, 
     path,
     typeCourse,
@@ -32,7 +32,7 @@ export const createCourse = async ({
             name,
             author,
             authorCourse,
-            linkUrl,
+            link,
             description,
             typeCourse,
         });

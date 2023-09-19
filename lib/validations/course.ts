@@ -8,7 +8,7 @@ export const CourseValidation  = z.object({
     authorCourse: z.string().nonempty().min(3, {
         message: "Minimum 3 characters.",
     }),
-    linkUrl: z.string().nonempty().min(3, {
+    link: z.string().url().nonempty().min(3, {
         message: "Minimum 3 characters.",
     }),
     description: z.string().nonempty().min(3, {

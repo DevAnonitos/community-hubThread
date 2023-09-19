@@ -64,7 +64,7 @@ const PostCourse = ({ userId, classNames }: Props) => {
             // courseThumb_photo: "",
             courseName: "",
             authorCourse: "",
-            linkUrl: "",
+            link: "",
             description: "",
             subjects: "",
             accountId: userId,
@@ -79,7 +79,7 @@ const PostCourse = ({ userId, classNames }: Props) => {
                 name: values.courseName,
                 author: userId,
                 authorCourse: values.authorCourse,
-                linkUrl: values.linkUrl,
+                link: values.link,
                 description: values.description,
                 typeCourse: values.subjects,
                 path: pathName,
@@ -169,7 +169,7 @@ const PostCourse = ({ userId, classNames }: Props) => {
                         <div className='w-full md:w-2/3'>
                             <FormField
                                 control={form.control}
-                                name='linkUrl'
+                                name='link'
                                 render={({ field }) => (
                                     <FormItem className='flex flex-col gap-3'>
                                         <FormLabel className='text-base-semibold text-light-2'>
@@ -177,7 +177,7 @@ const PostCourse = ({ userId, classNames }: Props) => {
                                         </FormLabel>
                                         <FormControl>
                                             <Input
-                                                type='text'
+                                                type='url'
                                                 placeholder='Add link course'
                                                 className='account-form_input no-focus'
                                                 {...field}
