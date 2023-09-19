@@ -43,6 +43,8 @@ import { useToast } from '../ui/use-toast';
 import { CourseValidation } from '@/lib/validations/course';
 import { typeOfCourses } from '@/constants';
 
+import { createCourse } from '@/lib/actions/course.actions';
+
 interface Props {
     userId: string;
     classNames?: string;
@@ -71,7 +73,19 @@ const PostCourse = ({ userId, classNames }: Props) => {
 
     const onSubmit = async (values: z.infer<typeof CourseValidation>) => {
         try {
+            setIsLoading(true);
 
+            await createCourse({
+                name: values.courseName,
+                author: userId,
+                authorCourse: values.authorCourse,
+                linkUrl: values.linkUrl,
+                description: values.description,
+                typeCourse: values.subjects,
+                path: pathName,
+            });
+
+            router.push("/courses");
             
             toast({
                 variant: "default",
