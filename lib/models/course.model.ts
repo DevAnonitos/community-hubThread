@@ -18,7 +18,11 @@ const courseSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    imageCourse: String,
+    linkUrl: {
+        type: String,
+        required: true,
+    },
+    // imageCourse: String,
     description: String,
     createdAt: {
         type: Date,

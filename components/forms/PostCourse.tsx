@@ -61,7 +61,7 @@ const PostCourse = ({ userId, classNames }: Props) => {
     const form  = useForm<z.infer<typeof CourseValidation>>({
         resolver: zodResolver(CourseValidation),
         defaultValues: {
-            courseThumb_photo: "",
+            // courseThumb_photo: "",
             courseName: "",
             authorCourse: "",
             linkUrl: "",
@@ -94,6 +94,7 @@ const PostCourse = ({ userId, classNames }: Props) => {
                 action: <ToastAction altText="Continue">Continue</ToastAction>,
             });
         } catch (error: any) {
+            console.error("Error to create", error);
             toast({
                 variant: "default",
                 title: "Yeah! Create Threads is successful",
@@ -201,18 +202,19 @@ const PostCourse = ({ userId, classNames }: Props) => {
                                                 <PopoverTrigger asChild>
                                                     <FormControl>
                                                         <Button
-                                                        variant="outline"
-                                                        role='combobox'
-                                                        className={`
-                                                            w-full md:w-[200px] justify-between account-form_input 
-                                                            ${!field.value && "text-muted-foreground"}
-                                                        `}
+                                                            variant="outline"
+                                                            role='combobox'
+                                                            className={`
+                                                                w-full md:w-[200px] justify-between account-form_input 
+                                                                ${!field.value && "text-muted-foreground"}
+                                                            `}
                                                         >
-                                                        {field.value
-                                                            ? typeOfCourses.find(
-                                                                (course) => course.value === field.value
-                                                            )?.label
-                                                            : "Select your subjects"}
+                                                            {field.value
+                                                                ? typeOfCourses.find(
+                                                                    (course) => course.value === field.value
+                                                                )?.label
+                                                                : "Select your subjects"
+                                                            }
                                                         </Button>
                                                     </FormControl>
                                                 </PopoverTrigger>

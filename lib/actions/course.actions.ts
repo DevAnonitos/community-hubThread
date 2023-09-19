@@ -47,4 +47,4 @@ export const createCourse = async ({
     } catch (error: any) {
         throw new Error(`Failed to create course: ${error.message}`);
     }
-}
+};
