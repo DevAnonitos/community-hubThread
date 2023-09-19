@@ -64,6 +64,7 @@ const PostCourse = ({ userId, classNames }: Props) => {
             authorCourse: "",
             linkUrl: "",
             description: "",
+            subjects: "",
             accountId: userId,
         },
     });
@@ -163,21 +164,69 @@ const PostCourse = ({ userId, classNames }: Props) => {
                         <div className='w-full md:w-auto'>
                             <FormField
                                 control={form.control}
-                                name='linkUrl'
+                                name='subjects'
                                 render={({ field }) => (
                                     <FormItem className='flex flex-col gap-3'>
                                         <FormLabel className='text-base-semibold text-light-2'>
                                             Type of Courses
                                         </FormLabel>
-                                        <FormControl>
-                                            <Input
-                                                type='text'
-                                                placeholder='Add link course'
-                                                className='account-form_input no-focus'
-                                                {...field}
-                                            />
-                                        </FormControl>
-                                    <FormMessage />
+                                        <Popover>
+                                            <PopoverTrigger asChild>
+                                                <FormControl>
+                                                    <Button 
+                                                        variant="outline" 
+                                                        role='combobox'
+                                                        className={`
+                                                            w-[200px] justify-between account-form_input 
+                                                            ${!field.value && "text-muted-foreground"
+                                                            }`
+                                                        }
+                                                    >
+                                                        {field.value
+                                                            ? typeOfCourses.find(
+                                                                (course) => course.value === field.value
+                                                            )?.label
+                                                            : 
+                                                                "Select your subjects"
+                                                        }
+                                                    </Button>
+                                                </FormControl>
+                                            </PopoverTrigger>
+                                            <PopoverContent className="w-[200px] p-0">
+                                                <Command>
+                                                    <CommandInput
+                                                        placeholder="Search subject..."
+                                                        className="h-9"
+                                                    />
+                                                    <CommandEmpty>
+                                                        No subject found.
+                                                    </CommandEmpty>
+                                                    <CommandGroup>
+                                                        {typeOfCourses.map((course) => (
+                                                            <>
+                                                                <CommandItem 
+                                                                    value={course.value}
+                                                                    key={course.value}
+                                                                    onSelect={() => {
+                                                                        form.setValue("subjects", course.value)
+                                                                    }}
+                                                                >
+                                                                    {course.label}
+                                                                    <CheckIcon 
+                                                                        className={`
+                                                                            ml-auto h-4 w-4
+                                                                            ${course.value === field.value
+                                                                                ? "opacity-100"
+                                                                                : "opacity-0"}
+                                                                        `}
+                                                                    />
+                                                                </CommandItem>
+                                                            </>
+                                                        ))}
+                                                    </CommandGroup>
+                                                </Command>
+                                            </PopoverContent>
+                                        </Popover>
                                     </FormItem>
                                 )}
                             />
@@ -196,7 +245,7 @@ const PostCourse = ({ userId, classNames }: Props) => {
                                     <FormControl
                                         className='no-focus bg-dark-3 text-light-1 border-[1px] border-gray-700'
                                     >
-                                        <Textarea rows={10} {...field} />
+                                        <Textarea rows={15} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
