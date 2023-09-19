@@ -81,10 +81,6 @@ export const typeOfCourses = [
         label: 'Engineering',
     },
     { 
-        value: 'business_administration', 
-        label: 'Business Administration',
-    },
-    { 
         value: 'psychology', 
         label: 'Psychology',
     },
@@ -115,10 +111,6 @@ export const typeOfCourses = [
     { 
         value: 'english_literature', 
         label: 'English Literature',
-    },
-    { 
-        value: 'art_history', 
-        label: 'Art History', 
     },
     { 
         value: 'sociology', 
