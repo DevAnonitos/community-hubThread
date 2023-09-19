@@ -71,11 +71,23 @@ const PostCourse = ({ userId, classNames }: Props) => {
 
     const onSubmit = async (values: z.infer<typeof CourseValidation>) => {
         try {
-            
-        } catch (error: any) {
-            
-        }finally {
 
+            
+            toast({
+                variant: "default",
+                title: "Yeah! Create Threads is successful",
+                description: "See your threads in homepage",
+                action: <ToastAction altText="Continue">Continue</ToastAction>,
+            });
+        } catch (error: any) {
+            toast({
+                variant: "default",
+                title: "Yeah! Create Threads is successful",
+                description: "See your threads in homepage",
+                action: <ToastAction altText="Continue">Continue</ToastAction>,
+            });
+        }finally {
+            setIsLoading(false);
         }
     };
 

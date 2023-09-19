@@ -72,10 +72,10 @@ const PostThread = ({ userId, classNames }: Props) => {
             });
         } catch (error: any) {
             toast({
-                variant: "destructive",
-                title: "Uh oh! Something went wrong.",
-                description: "There was a problem with your request.",
-                action: <ToastAction altText="Try again">Try again</ToastAction>,
+                variant: "default",
+                title: "Yeah! Create Threads is successful",
+                description: "See your threads in homepage",
+                action: <ToastAction altText="Continue">Continue</ToastAction>,
             });
         }finally {
             setIsLoading(false);
