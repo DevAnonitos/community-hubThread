@@ -50,7 +50,7 @@
 
     /* Community Card */
     .community-card {
-        @apply w-full rounded-lg bg-dark-3 px-4 py-5 sm:w-96 border-[1px] border-gray-700;
+        @apply w-full rounded-lg bg-dark-3 px-4 py-5 sm:w-[440px] border-[1px] border-gray-700;
     }
 
     .community-card_btn {
