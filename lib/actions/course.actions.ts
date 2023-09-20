@@ -60,8 +60,8 @@ export const fetchCourses = async (pageNumber = 1, pageSize = 20) => {
             .skip(skipAmount)
             .limit(pageSize)
             .populate({
-            path: "author",
-            model: "User",
+                path: "author",
+                model: User,
             });
     
         const totalCourseCount = await Course.countDocuments({});
