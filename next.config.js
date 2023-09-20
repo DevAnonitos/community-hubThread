@@ -37,6 +37,7 @@ const nextConfig = {
     ],
     productionBrowserSourceMaps: true,
     trailingSlash: true,
+    distDir: 'build',
 };
 
 module.exports = nextConfig;
