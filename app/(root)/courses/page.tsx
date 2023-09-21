@@ -12,6 +12,12 @@ import { fetchUser } from '@/lib/actions/user.actions';
 import { fetchCourses } from '@/lib/actions/course.actions';
 
 import { CourseCard } from '@/components/cards';
+import { 
+    Accordion, 
+    AccordionItem, 
+    AccordionContent, 
+    AccordionTrigger  
+} from '@/components/ui/accordion';
 
 const Page = async (
     { searchParams = {} }: {
@@ -79,6 +85,14 @@ const Page = async (
                     ): (
                         <>
                             <p className='text-white'>course found</p>
+                            <Accordion type="single" collapsible>
+                                <AccordionItem value="item-1">
+                                    <AccordionTrigger>Course</AccordionTrigger>
+                                    <AccordionContent>
+                                        Yes. It adheres to the WAI-ARIA design pattern.
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
                         </>
                     )}
                 </section>
