@@ -9,11 +9,12 @@ import { SearchBar, Pagination } from '@/components/shared';
 import { Button } from '@/components/ui/button';
 
 import { fetchUser } from '@/lib/actions/user.actions';
+import { fetchCourses } from '@/lib/actions/course.actions';
 
 
 const Page = async (
-    { searchParams }: {
-        searchParams: {
+    { searchParams = {} }: {
+        searchParams?: {
             [key: string]: string | undefined,
         }
     }
@@ -27,6 +28,13 @@ const Page = async (
 
     const userInfo = await fetchUser(user.id);
     if(!userInfo?.onboarding) redirect("/onboarding");
+
+    const result = await fetchCourses(
+        searchParams?.page ? +searchParams.page : 1,
+        30,
+    );
+
+    console.log(result);
 
     return (
         <>
@@ -61,6 +69,18 @@ const Page = async (
                 <div className='mt-5'>
                     <SearchBar routeType='courses' />
                 </div>
+
+                <section className='mt-9 flex flex-col gap-10 text-white'>
+                    {result.courses.length === 0 ? (
+                        <>
+                            <p className='text-white'>Not course found</p>
+                        </>
+                    ): (
+                        <>
+                            <p className='text-white'>course found</p>
+                        </>
+                    )}
+                </section>
             </section>
         </>
     );
