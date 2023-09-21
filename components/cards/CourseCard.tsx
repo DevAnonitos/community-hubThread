@@ -38,7 +38,7 @@ const CourseCard = ({
             <article 
                 className={`flex w-full flex-col 
                     rounded-xl border-[1px] 
-                    border-gray-700 ${classNames}`
+                    border-gray-700 mt-7 xs:px-7 p-4 ${classNames}`
                 }
             >
                 <div className='flex items-start justify-between'>
@@ -54,6 +54,22 @@ const CourseCard = ({
                                     fill
                                     className='cursor-pointer rounded-full'
                                 />
+                            </Link>
+
+                            <div className='thread-card_bar' />
+                        </div>
+
+                        <div className='flex w-full flex-col'>
+                            <Link 
+                                href={`/profile/${author?.id}`} 
+                                className='w-fit'
+                            >
+                                <h4
+                                    className='cursor-pointer
+                                    text-base-semibold text-light-1 hover:underline'
+                                >
+                                    {author?.name}
+                                </h4>
                             </Link>
                         </div>
                     </div>

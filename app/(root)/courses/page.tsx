@@ -28,7 +28,6 @@ const Page = async (
 ) => {
 
     const user = await currentUser();
-    console.log(user);
     if(!user) {
         notFound();
     }
@@ -40,8 +39,6 @@ const Page = async (
         searchParams?.page ? +searchParams.page : 1,
         30,
     );
-
-    console.log(result);
 
     return (
         <>
@@ -84,14 +81,29 @@ const Page = async (
                         </>
                     ): (
                         <>
-                            <p className='text-white'>course found</p>
                             <Accordion type="single" collapsible>
-                                <AccordionItem value="item-1">
-                                    <AccordionTrigger>Course</AccordionTrigger>
-                                    <AccordionContent>
-                                        Yes. It adheres to the WAI-ARIA design pattern.
-                                    </AccordionContent>
-                                </AccordionItem>
+                                {result.courses.map((course) => (
+                                    <AccordionItem key={course._id} value={course._id}>
+                                        <AccordionTrigger>
+                                            {course.name}
+                                        </AccordionTrigger>
+                                        <AccordionContent>
+                                            <Suspense>
+                                                <CourseCard
+                                                    id={course._id}
+                                                    courseName={course.name}
+                                                    author={course.author}
+                                                    courseNameAuthor={course.authorCourse}
+                                                    currentUserId={user.id}
+                                                    typeOfCourse={course.typeCourse}
+                                                    createdAt={course.createdAt}
+                                                    linkUrl={course.link}
+                                                    description={course.description}
+                                                />
+                                            </Suspense>
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                ))}
                             </Accordion>
                         </>
                     )}
