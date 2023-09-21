@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { fetchUser } from '@/lib/actions/user.actions';
 import { fetchCourses } from '@/lib/actions/course.actions';
 
+import { CourseCard } from '@/components/cards';
 
 const Page = async (
     { searchParams = {} }: {
