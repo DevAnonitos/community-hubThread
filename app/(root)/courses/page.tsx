@@ -81,16 +81,16 @@ const Page = async (
                         </>
                     ): (
                         <>
-                            {/* <Accordion type="single" collapsible>
+                            <Accordion type="single" collapsible>
                                 {result.courses.map((course) => (
-                                    <AccordionItem key={course._id} value={course._id}>
+                                    <AccordionItem key={course._id} value={course._id.toString()}>
                                         <AccordionTrigger>
                                             {course.name}
                                         </AccordionTrigger>
                                         <AccordionContent>
                                             <Suspense>
                                                 <CourseCard
-                                                    id={course._id}
+                                                    id={course._id.toString()}
                                                     courseName={course.name}
                                                     author={course.author}
                                                     courseNameAuthor={course.authorCourse}
@@ -104,10 +104,7 @@ const Page = async (
                                         </AccordionContent>
                                     </AccordionItem>
                                 ))}
-                            </Accordion> */}
-                            <p className='text-white'>
-                                Course found
-                            </p>
+                            </Accordion>
                         </>
                     )}
                 </section>

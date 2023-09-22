@@ -74,7 +74,7 @@ const CourseCard = ({
                                 </h4>
                             </Link>
 
-                            {/* <p className='mt-4 text-heading3-bold text-primary-500'>
+                            <p className='mt-4 text-heading3-bold text-primary-500'>
                                 {courseName}
                             </p>
 
@@ -84,19 +84,19 @@ const CourseCard = ({
 
                             <p className='mt-3 text-small-semibold text-light-2'>
                                 {description}
-                            </p> */}
+                            </p>
                             <div 
                                 className='flex items-center justify-center 
                                 w-full mt-5'
                             >
-                                {/* <Button 
+                                <Button 
                                     className='bg-primary-500 
                                     hover:bg-primary-500 rounded-xl w-full'
                                 >
                                     <Link href={linkUrl}>
                                         View Course
                                     </Link>
-                                </Button> */}
+                                </Button>
                             </div>
                         </div>
                     </div>
