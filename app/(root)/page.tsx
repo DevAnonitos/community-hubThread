@@ -92,7 +92,7 @@ export default async function Home({
                       createdAt={post.createdAt}
                       comments={post.children}
                     />
-                    </Suspense>
+                  </Suspense>
                 </>
               ))}
             </>
