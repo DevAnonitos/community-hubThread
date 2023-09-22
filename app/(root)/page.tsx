@@ -33,7 +33,7 @@ export default async function Home({
 
   if(!userInfo?.onboarding) redirect("/onboarding");
   
-  await redis.set(user.id, JSON.stringify(userInfo));
+  // await redis.set(user.id, JSON.stringify(userInfo));
 
   const result = await fetchPosts(
     searchParams.page ? +searchParams.page : 1,
