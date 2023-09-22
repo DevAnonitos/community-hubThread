@@ -40,14 +40,14 @@ export default async function Home({
     30,
   );
   
-  let member;
-  try {
-    member = await redis.srandmember<string>("nextjs13");
-    console.log(member);
-  } catch (error) {
-    console.error("Error: Unauthorized", error);
-    member = "Unauthorized";
-  }
+  // let member;
+  // try {
+  //   member = await redis.srandmember<string>("nextjs13");
+  //   console.log(member);
+  // } catch (error) {
+  //   console.error("Error: Unauthorized", error);
+  //   member = "Unauthorized";
+  // }
 
   return (
     <>
@@ -60,15 +60,15 @@ export default async function Home({
           className='object-contain flex items-center mb-10 mr-4'
         />
         <h1 className="head-text text-left mb-10">
-          Home {member}
+          Home
         </h1>
       </div>
 
-      <Room>
+      {/* <Room>
         <CollaborativeApp 
           classNames="text-white text-left"
         />
-      </Room>
+      </Room> */}
           
       <section className="mt-5 flex flex-col gap-10 text-white">
         <Suspense fallback={<div>Loading...</div>}>
