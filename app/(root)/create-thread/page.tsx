@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { currentUser } from '@clerk/nextjs';
-import { redirect, notFound } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import Image from 'next/image';
 
 import { fetchUser } from '@/lib/actions/user.actions';
@@ -12,7 +12,7 @@ const Page = async () => {
     const user = await currentUser();
 
     if(!user) {
-        notFound();
+        return null;
     }
 
     const userInfo =  await fetchUser(user.id);

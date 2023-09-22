@@ -1,5 +1,5 @@
 import React, { Suspense, Fragment } from 'react';
-import { redirect, notFound } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import { currentUser } from '@clerk/nextjs';
 
 import Comment from '@/components/forms/Comment';
@@ -16,7 +16,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
     const user = await currentUser();
     if(!user) {
-        notFound();
+        return null;
     }
 
     const userInfo = await fetchUser(user.id);
