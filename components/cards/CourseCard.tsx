@@ -4,6 +4,8 @@ import Link from "next/link";
 
 import { formatDateString } from "../../lib/utils";
 
+import { Button } from '../ui/button';
+
 interface Props {
     id: string;
     currentUserId: string;
@@ -68,11 +70,37 @@ const CourseCard = ({
                                     className='cursor-pointer
                                     text-base-semibold text-light-1 hover:underline'
                                 >
-                                    {author?.name}
+                                    {author?.name} - ( {courseNameAuthor} ) 
                                 </h4>
                             </Link>
+
+                            <p className='mt-4 text-heading3-bold text-primary-500'>
+                                {courseName}
+                            </p>
+
+                            <h4 className='text-gray-500 text-small-regular mt-3'>
+                                Subject: {typeOfCourse}
+                            </h4>
+
+                            <p className='mt-3 text-small-semibold text-light-2'>
+                                {description}
+                            </p>
+                            <div 
+                                className='flex items-center justify-center 
+                                w-full mt-5'
+                            >
+                                <Button 
+                                    className='bg-primary-500 
+                                    hover:bg-primary-500 rounded-xl w-full'
+                                >
+                                    <Link href={linkUrl}>
+                                        View Course
+                                    </Link>
+                                </Button>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </article>
         </>
