@@ -89,14 +89,14 @@ const CourseCard = ({
                                 className='flex items-center justify-center 
                                 w-full mt-5'
                             >
-                                <Button 
+                                {/* <Button 
                                     className='bg-primary-500 
                                     hover:bg-primary-500 rounded-xl w-full'
                                 >
                                     <Link href={linkUrl}>
                                         View Course
                                     </Link>
-                                </Button>
+                                </Button> */}
                             </div>
                         </div>
                     </div>
