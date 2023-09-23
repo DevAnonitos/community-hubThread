@@ -1,4 +1,4 @@
-import React, { Suspense, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { redirect } from 'next/navigation';
 import { currentUser } from '@clerk/nextjs';
 
@@ -52,19 +52,17 @@ const Page = async ({ params }: { params: { id: string } }) => {
                     <div className='mt-10'>
                         {thread.children.map((childItem: any) => (
                             <Fragment key={childItem._id}>
-                                    <Suspense>
-                                        <ThreadCard
-                                            id={childItem._id}
-                                            currentUserId={user.id}
-                                            parentId={childItem.parentId}
-                                            content={childItem.text}
-                                            author={childItem.author}
-                                            community={childItem.community}
-                                            createdAt={childItem.createdAt}
-                                            comments={childItem.children}
-                                            isComment
-                                        />
-                                    </Suspense>
+                                    <ThreadCard
+                                        id={childItem._id}
+                                        currentUserId={user.id}
+                                        parentId={childItem.parentId}
+                                        content={childItem.text}
+                                        author={childItem.author}
+                                        community={childItem.community}
+                                        createdAt={childItem.createdAt}
+                                        comments={childItem.children}
+                                        isComment
+                                    />
                             </Fragment>
                         ))}
                     </div>

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { currentUser } from '@clerk/nextjs';
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
@@ -66,17 +66,15 @@ const Page = async (
                             <>
                                 {result.communities.map((community) => (
                                     <>
-                                        <Suspense>
-                                            <CommunityCard
-                                                key={community.id}
-                                                id={community.id}
-                                                name={community.name}
-                                                username={community.username}
-                                                imgUrl={community.image}
-                                                bio={community.bio}
-                                                members={community.members}
-                                            />
-                                        </Suspense>
+                                        <CommunityCard
+                                            key={community.id}
+                                            id={community.id}
+                                            name={community.name}
+                                            username={community.username}
+                                            imgUrl={community.image}
+                                            bio={community.bio}
+                                            members={community.members}
+                                        />
                                     </>
                                 ))}
                             </>

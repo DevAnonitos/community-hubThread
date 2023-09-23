@@ -1,4 +1,4 @@
-import React, { Suspense, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import Image from "next/image";
 
 import { currentUser } from '@clerk/nextjs';
@@ -47,7 +47,8 @@ const Page = async({ params }: { params: {id: string}, }) => {
                             <TabsList className='tab'>
                                 {communityTabs.map((tab) => (
                                     <>
-                                        <Suspense>
+                                        <div>
+
                                             <Fragment key={tab.label}>
                                                 <TabsTrigger value={tab.value} className='tab'>
                                                     <Image
@@ -72,7 +73,7 @@ const Page = async({ params }: { params: {id: string}, }) => {
                                                     )}
                                                 </TabsTrigger>
                                             </Fragment>
-                                        </Suspense>
+                                        </div>
                                     </>
                                 ))}
                             </TabsList>

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { redirect } from "next/navigation";
 import { currentUser } from "@clerk/nextjs";
@@ -35,7 +35,6 @@ const Page = async ({ searchParams }: {
             <>
                 <section>
                     <div className='flex items-center'>
-
                         <Image
                             src="/assets/user.svg"
                             alt='UserProfile'
@@ -66,16 +65,14 @@ const Page = async ({ searchParams }: {
                             <>
                                 {result.users.map((person) => (
                                     <>
-                                        <Suspense>
-                                            <UserCard
-                                                key={person.id}
-                                                id={person.id}
-                                                name={person.name}
-                                                username={person.username}
-                                                imgUrl={person.image}
-                                                personType='User'
-                                            />
-                                        </Suspense>
+                                        <UserCard
+                                            key={person.id}
+                                            id={person.id}
+                                            name={person.name}
+                                            username={person.username}
+                                            imgUrl={person.image}
+                                            personType='User'
+                                        />
                                     </>
                                 ))}
                             </>

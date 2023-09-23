@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 
 import { currentUser } from '@clerk/nextjs';
 import Image from "next/image";

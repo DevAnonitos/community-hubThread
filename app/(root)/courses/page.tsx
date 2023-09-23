@@ -88,19 +88,17 @@ const Page = async (
                                             {course.name}
                                         </AccordionTrigger>
                                         <AccordionContent>
-                                            <Suspense>
-                                                <CourseCard
-                                                    id={course._id.toString()}
-                                                    courseName={course.name}
-                                                    author={course.author}
-                                                    courseNameAuthor={course.authorCourse}
-                                                    currentUserId={user.id}
-                                                    typeOfCourse={course.typeCourse}
-                                                    createdAt={course.createdAt}
-                                                    linkUrl={course.link}
-                                                    description={course.description}
-                                                />
-                                            </Suspense>
+                                            <CourseCard
+                                                id={course._id.toString()}
+                                                courseName={course.name}
+                                                author={course.author}
+                                                courseNameAuthor={course.authorCourse}
+                                                currentUserId={user.id}
+                                                typeOfCourse={course.typeCourse}
+                                                createdAt={course.createdAt}
+                                                linkUrl={course.link}
+                                                description={course.description}
+                                            />
                                         </AccordionContent>
                                     </AccordionItem>
                                 ))}
