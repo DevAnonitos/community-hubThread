@@ -1,5 +1,5 @@
 import "../globals.css";
-import React, { Suspense } from "react";
+import React from "react";
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ClerkProvider } from "@clerk/nextjs";
@@ -11,7 +11,7 @@ import {
   BottomBar,
   LeftSidebar,
   RightSidebar,
-  WebVitals,
+  // WebVitals,
 } from "@/components/shared";
 
 import { Toaster } from "@/components/ui/toaster";
@@ -61,25 +61,21 @@ export default function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           {/* @ts-ignore */}
-          <WebVitals />
+          {/* <WebVitals /> */}
           <TopBar />
 
           <main className="flex flex-row">
               <LeftSidebar />
-
               <section className="main-container">
-                <Suspense>
                   <div className="w-full max-w-4xl">
                     {children}
                   </div>
-                </Suspense>
               </section>
-
               <Toaster />
               {/* @ts-ignore */}
               <RightSidebar />
           </main>
-
+          
           <BottomBar/>
         </body>
       </html>

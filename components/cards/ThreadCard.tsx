@@ -141,7 +141,7 @@ const ThreadCard = ({
                                         width={26}
                                         height={26}
                                         loading='lazy'
-                                        className='cursor-pointer object-contain hover:scale-125 ease-in-out duration-200'
+                                        className='cursor-pointer object-contain'
                                     />
                                     <Link href={`/thread/${id}`}>
                                         <Image
@@ -150,7 +150,7 @@ const ThreadCard = ({
                                             width={26}
                                             height={26}
                                             loading='lazy'
-                                            className='cursor-pointer object-contain hover:scale-125 ease-in-out duration-200'
+                                            className='cursor-pointer object-contain'
                                         />
                                     </Link>
                                     <Image
@@ -159,7 +159,7 @@ const ThreadCard = ({
                                         width={26}
                                         height={26}
                                         loading='lazy'
-                                        className='cursor-pointer object-contain hover:scale-125 ease-in-out duration-200'
+                                        className='cursor-pointer object-contain'
                                     />
                                     <Image
                                         src="/assets/share.svg"
@@ -167,7 +167,7 @@ const ThreadCard = ({
                                         width={26}
                                         height={26}
                                         loading='lazy'
-                                        className='cursor-pointer object-contain hover:scale-125 ease-in-out duration-200'
+                                        className='cursor-pointer object-contain'
                                     />
                                 </div>
 
