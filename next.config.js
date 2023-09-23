@@ -6,6 +6,13 @@ const nextConfig = {
         serverComponentsExternalPackages: ["mongoose"],
         webVitalsAttribution: ['CLS', 'LCP'],
         incrementalCacheHandlerPath: require.resolve('./cache-handler.js'),
+        optimizePackageImports: [
+            '@liveblocks/react', 
+            '@uploadthing/react', 
+            'react-hook-form',
+            'uploadthing',
+            'mongoose',
+        ],
     },
     eslint: {
         // Warning: This allows production builds to successfully complete even if
