@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Image from "next/image";
 
 import { currentUser } from '@clerk/nextjs';
@@ -47,32 +47,33 @@ const Page = async({ params }: { params: {id: string}, }) => {
                             <TabsList className='tab'>
                                 {communityTabs.map((tab) => (
                                     <>
-                                        <TabsTrigger 
-                                            key={tab.label} 
-                                            value={tab.value} 
-                                            className='tab'
-                                        >
-                                            <Image
-                                                src={tab.icon}
-                                                alt={tab.label}
-                                                width={24}
-                                                height={24}
-                                                className='object-contain'
-                                            />
-                                                <p className='max-sm:hidden'>
-                                                    {tab.label}
-                                                </p>
+                                        <div>
 
-                                            {tab.label === "Threads" && (
-                                                <>
-                                                    <p 
-                                                        className='ml-1 rounded-sm bg-light-4 px-2 py-1 !text-tiny-medium text-light-2'
-                                                    >
-                                                        {communityDetails.threads.length}
+                                            <Fragment key={tab.label}>
+                                                <TabsTrigger value={tab.value} className='tab'>
+                                                    <Image
+                                                        src={tab.icon}
+                                                        alt={tab.label}
+                                                        width={24}
+                                                        height={24}
+                                                        className='object-contain'
+                                                    />
+                                                    <p className='max-sm:hidden'>
+                                                        {tab.label}
                                                     </p>
-                                                </>
-                                            )}
-                                        </TabsTrigger>
+
+                                                    {tab.label === "Threads" && (
+                                                        <>
+                                                            <p 
+                                                                className='ml-1 rounded-sm bg-light-4 px-2 py-1 !text-tiny-medium text-light-2'
+                                                            >
+                                                                {communityDetails.threads.length}
+                                                            </p>
+                                                        </>
+                                                    )}
+                                                </TabsTrigger>
+                                            </Fragment>
+                                        </div>
                                     </>
                                 ))}
                             </TabsList>
