@@ -1,5 +1,5 @@
 
-import React, { Fragment, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { currentUser } from "@clerk/nextjs";
 import UserCard from '../cards/UserCard';
 
@@ -38,18 +38,17 @@ const RightSidebar = async () => {
                         {suggestedCommunities.communities.length > 0 ? (
                             <>
                                 {suggestedCommunities.communities.map((community) => (
-                                    <>
-                                        <Fragment key={community.id}>
-                                            <Suspense>
-                                                <UserCard
-                                                    id={community.id}
-                                                    name={community.name}
-                                                    username={community.username}
-                                                    imgUrl={community.image}
-                                                    personType='User'
-                                                />
-                                            </Suspense>
-                                        </Fragment>
+                                    <> 
+                                        <Suspense>
+                                            <UserCard
+                                                key={community.id}
+                                                id={community.id}
+                                                name={community.name}
+                                                username={community.username}
+                                                imgUrl={community.image}
+                                                personType='User'
+                                            />
+                                        </Suspense>
                                     </>
                                 ))}
                             </>
@@ -74,17 +73,16 @@ const RightSidebar = async () => {
                             <>
                                 {similarMinds.users.map((person) => (
                                     <>
-                                        <Fragment key={person.id}>
-                                            <Suspense>
-                                                <UserCard
-                                                    id={person.id}
-                                                    name={person.name}
-                                                    username={person.username}
-                                                    imgUrl={person.image}
-                                                    personType='User'
-                                                />
-                                            </Suspense>
-                                        </Fragment>
+                                        <Suspense>
+                                            <UserCard
+                                                key={person.id}
+                                                id={person.id}
+                                                name={person.name}
+                                                username={person.username}
+                                                imgUrl={person.image}
+                                                personType='User'
+                                            />
+                                        </Suspense>
                                     </>
                                 ))}
                             </>
