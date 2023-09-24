@@ -68,6 +68,7 @@ const LeftSidebar = () => {
                         return (
                             <Fragment key={link.id}>
                                 <Link
+                                    key={link.id}
                                     href={link.route}
                                     className={`leftsidebar_link hover:bg-primary-500 transition-all duration-500 ease-in-out delay-100
                                         ${isActive && "bg-primary-500 "}

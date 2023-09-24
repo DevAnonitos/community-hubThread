@@ -22,6 +22,7 @@ const BottomBar = () => {
                             return (
                                 <Fragment key={link.id}>
                                     <Link
+                                        key={link.id}
                                         href={link.route}
                                         className={`bottombar_link
                                             ${isActive && "bg-primary-500"}
