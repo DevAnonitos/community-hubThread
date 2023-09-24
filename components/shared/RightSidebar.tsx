@@ -77,7 +77,6 @@ const RightSidebar = async () => {
                                         <Fragment key={person.id}>
                                             <Suspense>
                                                 <UserCard
-                                                    key={person.id}
                                                     id={person.id}
                                                     name={person.name}
                                                     username={person.username}

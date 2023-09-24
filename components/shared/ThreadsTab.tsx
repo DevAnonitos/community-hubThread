@@ -65,6 +65,7 @@ const ThreadsTab = async ({
             <section className={`mt-9 flex flex-col gap-10 ${classNames}`}>
                 {result.threads.map((thread) => (
                     <>
+                        <Fragment key={thread._id}>
                             <Suspense>
                                 <ThreadCard
                                     key={thread._id}
@@ -90,6 +91,7 @@ const ThreadsTab = async ({
                                     comments={thread.children}
                                 />
                             </Suspense>
+                        </Fragment>
                     </>
                 ))}
             </section>
