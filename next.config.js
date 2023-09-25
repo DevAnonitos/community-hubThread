@@ -13,6 +13,7 @@ const nextConfig = {
             'uploadthing',
             'mongoose',
         ],
+        mdxRs: true,
     },
     eslint: {
         // Warning: This allows production builds to successfully complete even if
@@ -52,4 +53,6 @@ const nextConfig = {
     },
 };
 
-module.exports = nextConfig;
+const withMDX = require('@next/mdx')()
+
+module.exports = withMDX(nextConfig)
