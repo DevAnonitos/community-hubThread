@@ -2,7 +2,9 @@ import React from "react";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { dark } from "@clerk/themes"
+import { dark } from "@clerk/themes";
+
+import { TopBar, Providers } from "@/components/shared";
 
 // Styles
 import "../globals.css";
@@ -43,7 +45,10 @@ export default function RootLayout({
                         bg-dark-1`
                     }
                 >
-                    {children}
+                    <Providers attribute="class" defaultTheme="system" enableSystem> 
+                        <TopBar />
+                        {children}
+                    </Providers>
                 </body>
             </html>
         </ClerkProvider>
