@@ -66,6 +66,7 @@ const Page = async ({ searchParams }: {
                                 {result.users.map((person) => (
                                     <>
                                         <UserCard
+                                            classNames='my-0'
                                             key={person.id}
                                             id={person.id}
                                             name={person.name}

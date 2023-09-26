@@ -102,6 +102,7 @@ const ThreadCard = ({
                                     src={author?.image}
                                     alt='User-community-image'
                                     fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className='cursor-pointer rounded-full'
                                 />
                             </Link>
