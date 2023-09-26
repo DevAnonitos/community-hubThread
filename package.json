@@ -9,7 +9,8 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "preview": "next build && next start",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.23.2",
@@ -80,5 +81,8 @@
     "uploadthing": "^5.2.1",
     "utf-8-validate": "^5.0.10",
     "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "cypress": "^13.2.0"
   }
 }
