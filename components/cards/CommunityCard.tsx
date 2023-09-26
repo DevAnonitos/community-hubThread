@@ -37,6 +37,7 @@ const CommunityCard = ({
                             alt='CommunityLogo'
                             fill
                             loading='lazy'
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             className='rounded-full object-cover'
                         />
                     </Link>
@@ -80,6 +81,7 @@ const CommunityCard = ({
                                                 width={20}
                                                 height={20}
                                                 loading='lazy'
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                 className={`
                                                     ${
                                                         index !== 0 && "-ml-2"
