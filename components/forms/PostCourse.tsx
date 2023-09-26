@@ -85,7 +85,7 @@ const PostCourse = ({ userId, classNames }: Props) => {
                 path: pathName,
             });
 
-            router.push("/courses");
+            router.push("/courses", {scroll: false});
             
             toast({
                 variant: "default",
