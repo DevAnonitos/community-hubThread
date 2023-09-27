@@ -63,7 +63,7 @@ const PostThread = ({ userId, classNames }: Props) => {
                 path: pathName,
             });
 
-            router.push("/", {scroll: false});
+            router.push("/");
             toast({
                 variant: "default",
                 title: "Create Threads is successful.",

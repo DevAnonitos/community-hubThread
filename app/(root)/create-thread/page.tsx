@@ -38,7 +38,6 @@ const Page = async () => {
                     </div>
 
                     <PostThread userId={userInfo._id.toString()} />
-
                 </section>
             </>
         </>

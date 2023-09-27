@@ -35,7 +35,7 @@ export default async function Home({
   );
   
   return (
-    <>
+    <div>
       <div className="flex items-center">
         <Image
           src="/assets/home.svg"
@@ -82,6 +82,6 @@ export default async function Home({
         pageNumber={searchParams?.page ? +searchParams.page : 1}
         isNext={result.isNext}
       />
-    </>
+    </div>
   );
 };

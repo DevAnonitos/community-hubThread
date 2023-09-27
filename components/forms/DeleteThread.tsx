@@ -47,7 +47,7 @@ const DeleteThread = ({
     const handleDeleteThread = async () => {
         await deleteThread(JSON.parse(threadId), pathName);
             if(!parentId || !isComment){
-                router.push("/", {scroll: false});
+                router.push("/");
                 toast({
                     variant: "default",
                     title: "Delete Threads is successful",
