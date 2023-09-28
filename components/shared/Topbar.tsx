@@ -9,6 +9,7 @@ import {
     SignOutButton,
 } from "@clerk/nextjs";
 
+
 const TopBar = () => {
     return (
         <>
