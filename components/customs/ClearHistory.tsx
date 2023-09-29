@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import { Toast } from '../ui/toast';
 
@@ -26,8 +26,17 @@ interface ClearHistoryProps {
 };
 
 const ClearHistory = ({ clearChats }: ClearHistoryProps) => {
+
+    const [open, setOpen] = useState(false);
+    const [isPending, startTransition] = useTransition();
+    const router = useRouter();
+
     return (
-        <div>ClearHistory</div>
+        <>
+            <AlertDialog open={open} onOpenChange={setOpen}>
+                
+            </AlertDialog>
+        </>
     );
 };
 
