@@ -86,7 +86,7 @@ export const POST = async (request:Request): Promise<any> => {
       console.log(err);
       return NextResponse.json(
         { message: "Internal Server Error" },
-        { status: 500 }
+        { status: 500 },
       );
     }
   }
@@ -101,14 +101,14 @@ export const POST = async (request:Request): Promise<any> => {
 
       return NextResponse.json(
         { message: "Invitation created" },
-        { status: 201 }
+        { status: 201 },
       );
     } catch (err) {
       console.log(err);
 
       return NextResponse.json(
         { message: "Internal Server Error" },
-        { status: 500 }
+        { status: 500 },
       );
     }
   }
@@ -155,7 +155,7 @@ export const POST = async (request:Request): Promise<any> => {
 
       return NextResponse.json(
         { message: "Internal Server Error" },
-        { status: 500 }
+        { status: 500 },
       );
     }
   }
@@ -195,14 +195,14 @@ export const POST = async (request:Request): Promise<any> => {
 
       return NextResponse.json(
         { message: "Organization deleted" },
-        { status: 201 }
+        { status: 201 },
       );
     } catch (err) {
       console.log(err);
 
       return NextResponse.json(
         { message: "Internal Server Error" },
-        { status: 500 }
+        { status: 500 },
       );
     }
   }

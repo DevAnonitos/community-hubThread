@@ -14,8 +14,8 @@ export function useEnterSubmit(): {
             !event.shiftKey &&
             !event.nativeEvent.isComposing
         ) {
-            formRef.current?.requestSubmit()
-            event.preventDefault()
+            formRef.current?.requestSubmit();
+            event.preventDefault();
         }
     };
 

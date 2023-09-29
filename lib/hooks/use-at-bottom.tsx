@@ -10,7 +10,7 @@ const useBottom = (offset = 0) => {
             );
         };
         
-        window.addEventListener('scroll', handleScroll, { passive: true })
+        window.addEventListener('scroll', handleScroll, { passive: true });
         handleScroll();
 
         return () => {

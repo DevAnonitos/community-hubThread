@@ -16,7 +16,7 @@ const ThemeToggle = () => {
                 size="default"
                 onClick={() => {
                     startTransition(() => {
-                        setTheme(theme === 'light' ? 'dark' : 'light')
+                        setTheme(theme === 'light' ? 'dark' : 'light');
                     })
                 }}
             >
