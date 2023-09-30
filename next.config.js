@@ -5,7 +5,7 @@ const nextConfig = {
         serverActions: true,
         serverComponentsExternalPackages: ["mongoose"],
         webVitalsAttribution: ['CLS', 'LCP'],
-        incrementalCacheHandlerPath: require.resolve('./cache-handler.js'),
+        // incrementalCacheHandlerPath: require.resolve('./cache-handler.js'),
         optimizePackageImports: [
             '@liveblocks/react', 
             '@uploadthing/react', 
