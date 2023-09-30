@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const useBottom = (offset = 0) => {
+const useAtBottom = (offset = 0) => {
     const [isAtBottom, setIsAtBottom] = useState(false);
 
     useEffect(() => {
@@ -21,4 +21,4 @@ const useBottom = (offset = 0) => {
     return isAtBottom;
 };
 
-export default useBottom;
+export default useAtBottom;

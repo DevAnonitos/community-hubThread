@@ -1,10 +1,10 @@
 import useCopyToClipboard from "./use-copy-to-clipboard";
-import useBottom from "./use-at-bottom";
+import useAtBottom from "./use-at-bottom";
 import useLocalStorage from "./use-local-storage";
 import useEnterSubmit from "./use-enter-submit";
 
 export {
-    useBottom,
+    useAtBottom,
     useCopyToClipboard,
     useLocalStorage,
     useEnterSubmit,
