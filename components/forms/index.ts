@@ -3,6 +3,7 @@ import Comment from "./Comment";
 import DeleteThread from "./DeleteThread";
 import PostThread from "./PostThread";
 import PostCourse from "./PostCourse";
+import PromptForm from "./PromptForm";
 
 export {
     AccountProfile,
@@ -10,4 +11,5 @@ export {
     DeleteThread,
     PostThread,
     PostCourse,
+    PromptForm,
 };
