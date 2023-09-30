@@ -45,10 +45,8 @@ export default function RootLayout({
                         bg-dark-1`
                     }
                 >
-                    <Providers attribute="class" defaultTheme="system" enableSystem> 
-                        <TopBar />
-                        {children}
-                    </Providers>
+                    <TopBar />
+                    {children}
                 </body>
             </html>
         </ClerkProvider>

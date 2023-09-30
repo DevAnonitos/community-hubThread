@@ -125,3 +125,22 @@ export const typeOfCourses = [
         label: 'Political Science', 
     },
 ];
+
+export const exampleMessages = [
+    {
+        heading: 'Explain technical concepts',
+        message: `What is a "serverless function"?`
+    },
+    {
+        heading: 'Summarize an article',
+        message: 'Summarize the following article for a 2nd grader: \n'
+    },
+    {
+        heading: 'Draft an email',
+        message: `Draft an email to my boss about the following: \n`
+    },
+    {
+        heading: 'Explain web development',
+        message: `What is a "HTML page"?`
+    },
+];
