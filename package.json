@@ -80,7 +80,7 @@
     "typescript": "5.1.6",
     "uploadthing": "^5.2.1",
     "utf-8-validate": "^5.0.10",
-    "zod": "^3.21.4"
+    "zod": "^3.22.3"
   },
   "devDependencies": {
     "cypress": "^13.2.0"
